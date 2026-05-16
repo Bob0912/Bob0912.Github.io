@@ -1,0 +1,200 @@
+/* 自定义CSS - 优化博客外观 */
+
+/* 优化右下角按钮样式 */
+#rightside {
+  right: 25px !important;
+  bottom: 25px !important;
+}
+
+#rightside > div,
+#rightside > button {
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 10px !important;
+}
+
+#rightside > div:hover,
+#rightside > button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 优化文章卡片样式 */
+article {
+  border-radius: 15px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden !important;
+}
+
+article:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 优化文章内容区域 */
+.post-content {
+  padding: 30px !important;
+  line-height: 1.8 !important;
+}
+
+/* 优化标签样式 */
+.post-meta-wrap {
+  margin-top: 15px !important;
+}
+
+.post-meta-wrap a {
+  border-radius: 20px !important;
+  padding: 5px 15px !important;
+  margin: 5px !important;
+  transition: all 0.3s ease !important;
+}
+
+.post-meta-wrap a:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 优化侧边栏卡片 */
+.card-widget {
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden !important;
+  margin-bottom: 20px !important;
+}
+
+/* 优化导航菜单 */
+#nav {
+  border-radius: 0 0 15px 15px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+#nav a {
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+#nav a:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 优化代码块样式 */
+figure.highlight {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 优化按钮样式 */
+button,
+.btn {
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 优化滚动条 */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+/* 优化友情链接页面 */
+.flinks {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.flinks-item {
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden !important;
+}
+
+.flinks-item:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 优化标签页和分类页 */
+.tag-cloud-tags a,
+.category-list-link {
+  border-radius: 20px !important;
+  padding: 8px 18px !important;
+  margin: 8px !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+}
+
+.tag-cloud-tags a:hover,
+.category-list-link:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 优化文章目录（TOC） */
+#card-toc {
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.toc-content {
+  padding: 15px !important;
+}
+
+.toc-content a {
+  padding: 8px 15px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.toc-content a:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  padding-left: 20px !important;
+}
+
+/* 优化首页顶部横幅 */
+#page-header {
+  border-radius: 0 0 30px 30px !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  #rightside {
+    right: 15px !important;
+    bottom: 15px !important;
+  }
+  
+  #rightside > div,
+  #rightside > button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .post-content {
+    padding: 20px !important;
+  }
+}
