@@ -1,0 +1,444 @@
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>説説 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="如果提前了解了你所面对的人生，你是否还有勇气前来？">
+<meta property="og:type" content="website">
+<meta property="og:title" content="説説">
+<meta property="og:url" content="http://yoursite.com/shuoshuo/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="如果提前了解了你所面对的人生，你是否还有勇气前来？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/img/friend_404.jpg">
+<meta property="article:published_time" content="2018-06-07T14:17:49.000Z">
+<meta property="article:modified_time" content="2026-05-16T16:22:50.205Z">
+<meta property="article:author" content="小Bob">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/img/friend_404.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/shuoshuo/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '説説',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'shuoshuo'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/friend_404.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page type-shuoshuo" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/img/theme.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">小Bob的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">説説</h1></div></header><main class="layout" id="content-inner"><div class="nc" id="page"><div id="article-container"><script type="application/json" id="shuoshuo-data">[{"author":"Butterfly","avatar":"https://butterfly.js.org/img/avatar.png","date":"2024-06-21 23:33:26","key":"key-1","content":"\u003cp\u003eThis is a sample content for \u003cstrong\u003eAuthor 1\u003c/strong\u003e.\u003cbr\u003e\u003cimg src=\"https://via.placeholder.com/150\" alt=\"Sample Image\"\u003e\u003c/p\u003e\n","tags":["tags1","tags2"]},{"author":"Butterfly","avatar":"https://butterfly.js.org/img/avatar.png","date":"2024-06-20 23:33:26","key":"key-2","content":"\u003cp\u003eThis is a sample content for \u003cstrong\u003eAuthor 2\u003c/strong\u003e.\u003cbr\u003e\u003cimg src=\"https://via.placeholder.com/150\" alt=\"Sample Image\"\u003e\u003c/p\u003e\n","tags":["tag2","tag3"]},{"author":"Butterfly","avatar":"https://butterfly.js.org/img/avatar.png","date":"2024-06-19 23:33:26","key":"key-3","content":"\u003cp\u003eThis is a sample content for \u003cstrong\u003eAuthor 3\u003c/strong\u003e.\u003c/p\u003e\n"}]</script><script>(() => {
+  const limitConfig = {}
+
+  const sortDataByDate = data => data.sort((a, b) => new Date(b.date) - new Date(a.date))
+
+  const filterDataByLimit = (data, limit) => {
+    if (!limit || !limit.type) return data
+    if (limit.type === 'num') return data.slice(0, limit.value)
+    if (limit.type === 'date') {
+      const limitDate = new Date(limit.value)
+      return data.filter(item => new Date(item.date) >= limitDate)
+    }
+    return data
+  };
+
+  const formatToTimeZone = (date) => {
+    const fullDate = date.length === 10 ? `${date} 00:00:00` : date
+    const visitorTimeZone = '' || Intl.DateTimeFormat().resolvedOptions().timeZone
+    const options = {
+      timeZone: visitorTimeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    }
+    const [day, month, year, hour, minute, second] = new Intl.DateTimeFormat('en-GB', options)
+      .format(new Date(fullDate))
+      .match(/\d+/g)
+    return `${year}-${month}-${day} ${hour}:${minute}:${second}`
+  }
+
+  const addLazyload = str => {
+    const config = {
+      enable: false,
+      native: false,
+      field: 'site',
+      placeholder: '/null',
+    }
+
+    if (!config.enable || config.field !== 'site') return str
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(str, 'text/html')
+    const images = doc.querySelectorAll('img')
+
+    images.forEach(img => {
+      if (config.native) {
+        img.setAttribute('loading', 'lazy')
+      } else {
+        const src = img.getAttribute('src')
+        img.setAttribute('data-lazy-src', src)
+
+        if (config.placeholder) {
+          img.setAttribute('src', config.placeholder)
+        } else {
+          img.removeAttribute('src')
+        }
+      }
+    })
+    return doc.body.innerHTML
+  }
+
+  let currentPage = 1
+  const itemsPerPage = 8
+  let totalPages = 0
+  let data = []
+  let inputEventsAttached = false // Flag to mark if input event listeners have been added
+
+  const renderData = (dataSlice) => {
+    const content = dataSlice.map(item => {
+      const formattedDate = formatToTimeZone(item.date)
+      const tags = item.tags && item.tags.map(tag => `<span class="shuoshuo-tag">${tag}</span>`).join('') || ''
+      const commentButton = item.key && false
+        ? `<div class="shuoshuo-comment-btn" onclick="addCommentToShuoshuo(event)">
+            <i class="fa-solid fa-comments"></i>
+          </div>`
+        : ''
+      const commentContainer = item.key
+        ? `<div class="shuoshuo-comment no-comment" data-key="${item.key}"></div>`
+        : ''
+
+      return `
+        <div class="shuoshuo-item">
+          <div class="container">
+            <div class="shuoshuo-item-header">
+              <div class="shuoshuo-avatar">
+                <img class="no-lightbox" src="${item.avatar || '/img/friend_404.jpg'}">
+              </div>
+              <div class="shuoshuo-info">
+                <div class="shuoshuo-author">${item.author || '小Bob'}</div>
+                <time class="shuoshuo-date" title="${formattedDate}">
+                  ${btf.diffDate(formattedDate, true)}
+                </time>
+              </div>
+            </div>
+            <div class="shuoshuo-content">${addLazyload(item.content)}</div>
+            <div class="shuoshuo-footer ${tags ? 'flex-between' : 'flex-end'}">
+              ${tags ? `<div class="shuoshuo-tags">${tags}</div>` : ''}
+              ${commentButton}
+            </div>
+          </div>
+          ${commentContainer}
+        </div>`
+    }).join('')
+
+    const container = document.getElementById('article-container')
+    container.innerHTML = content
+
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    btf.loadLightbox(document.querySelectorAll('#article-container img:not(.no-lightbox)'))
+  }
+
+  const renderNavigation = () => {
+    const container = document.getElementById('article-container')
+    const existingNav = container.nextElementSibling
+    if (existingNav && existingNav.classList.contains('shuoshuo-navigation')) {
+      existingNav.remove()
+    }
+
+    const pageInfoTemplate = '第 ${current} 页 / 共 ${total} 页'
+    const pageInfoText = pageInfoTemplate
+      .replace(/\$\{current}/g, currentPage)
+      .replace(/\$\{total}/g, totalPages)
+
+    const navHtml = `
+      <div class="shuoshuo-navigation">
+        <button onclick="window.shuoshuoPrevPage()" ${currentPage === 1 ? 'disabled' : ''}><i class="fa-solid fa-chevron-left"></i></button>
+        <span class="shuoshuo-page-info">${pageInfoText}</span>
+        <input type="number" class="shuoshuo-page-input" min="1" max="${totalPages}" placeholder="${currentPage}" onkeydown="window.shuoshuoHandleKeyDown(event)">
+        <button onclick="window.shuoshuoNextPage()" ${currentPage === totalPages ? 'disabled' : ''}><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    `
+    container.insertAdjacentHTML('afterend', navHtml)
+
+    // Add input validation event listeners (only once)
+    if (!inputEventsAttached) {
+      setTimeout(() => {
+        const input = document.querySelector('.shuoshuo-page-input')
+        if (input) {
+          // Clear placeholder when clicking the input box
+          input.addEventListener('focus', (event) => {
+            event.target.placeholder = ''
+          })
+
+          // Restore placeholder if no content when losing focus
+          input.addEventListener('blur', (event) => {
+            if (!event.target.value.trim()) {
+              event.target.placeholder = currentPage
+            }
+          })
+
+          input.addEventListener('input', (event) => {
+            const value = parseInt(event.target.value) || 0
+            let wasInvalid = false
+
+            if (value > totalPages) {
+              event.target.value = totalPages
+              wasInvalid = true
+            } else if (value < 1 && event.target.value !== '') {
+              event.target.value = 1
+              wasInvalid = true
+            }
+
+            // If value is corrected, show red and shake effect
+            if (wasInvalid) {
+              event.target.classList.add('invalid')
+              setTimeout(() => {
+                event.target.classList.remove('invalid')
+              }, 500)
+            }
+          })
+
+          inputEventsAttached = true // Mark that event listeners have been added
+        }
+      }, 0)
+    }
+  }
+
+  const renderPage = (page) => {
+    const start = (page - 1) * itemsPerPage
+    const end = start + itemsPerPage
+    const pageData = data.slice(start, end)
+    renderData(pageData)
+    renderNavigation()
+  }
+
+  window.shuoshuoPrevPage = () => {
+    if (currentPage > 1) {
+      currentPage--
+      renderPage(currentPage)
+    }
+  }
+
+  window.shuoshuoNextPage = () => {
+    if (currentPage < totalPages) {
+      currentPage++
+      renderPage(currentPage)
+    }
+  }
+
+  window.shuoshuoGoToPage = (page) => {
+    if (typeof page === 'number') {
+      // Directly jump to the specified page
+      if (page >= 1 && page <= totalPages && page !== currentPage) {
+        currentPage = page
+        renderPage(currentPage)
+      }
+    } else {
+      // Get page from input box
+      const input = document.querySelector('.shuoshuo-page-input')
+      const inputValue = input.value.trim()
+      const inputPage = inputValue === '' ? currentPage : parseInt(inputValue)
+      if (inputPage >= 1 && inputPage <= totalPages && inputPage !== currentPage) {
+        currentPage = inputPage
+        renderPage(currentPage)
+      } else if (inputValue === '') {
+        // If input box is empty, re-render current page (update placeholder)
+        renderPage(currentPage)
+      }
+    }
+  }
+
+  window.shuoshuoHandleKeyDown = (event) => {
+    const input = event.target
+    const value = input.value + event.key
+
+    // Allow delete, arrow keys, backspace, etc.
+    if (event.key === 'Enter' || event.key === 'Backspace' || event.key === 'Delete' ||
+        event.key === 'ArrowLeft' || event.key === 'ArrowRight' ||
+        event.key === 'Tab' || event.ctrlKey || event.metaKey) {
+      if (event.key === 'Enter') {
+        window.shuoshuoGoToPage()
+      }
+      return
+    }
+
+    // Only allow numbers
+    if (!/^\d$/.test(event.key)) {
+      event.preventDefault()
+      return
+    }
+
+    // Check if the value after input exceeds the range
+    const newValue = parseInt(value) || 0
+    if (newValue > totalPages || (value.length > 1 && newValue === 0)) {
+      event.preventDefault()
+      // Add red and shake effect
+      input.classList.add('invalid')
+      setTimeout(() => {
+        input.classList.remove('invalid')
+      }, 500)
+    }
+  }
+
+  const loadShuoshuo = async () => {
+    try {
+      let originData = []
+      if (false) {
+        const response = await fetch('/')
+        originData = await response.json()
+      } else {
+        const dataElement = document.getElementById('shuoshuo-data')
+        originData = dataElement ? JSON.parse(dataElement.textContent) : []
+      }
+
+      data = filterDataByLimit(sortDataByDate(originData), limitConfig)
+
+      totalPages = Math.ceil(data.length / itemsPerPage)
+
+      renderPage(currentPage)
+    } catch (error) {
+      console.error(error)
+    }
+  };
+
+  window.pjax ? loadShuoshuo() : window.addEventListener('load', loadShuoshuo)
+})()</script></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/friend_404.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小Bob</div><div class="author-info-description">如果提前了解了你所面对的人生，你是否还有勇气前来？</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912/Bob0912.Github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的技术博客！这里分享编程、AI和技术思考。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/17/%E6%89%93%E5%8D%B0%E6%B2%99%E6%BC%8F%E4%BB%85%E4%BB%85%E5%8F%AA%E7%94%A8%E5%8D%81%E5%85%AB%E8%A1%8C%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E9%99%84%E5%A5%BD%E5%8F%8B%E6%9B%B4%E6%96%B0%E5%B0%8F%E9%B1%BC%E8%88%AA%E7%A8%8B/" title="无标题">无标题</a><time datetime="2026-05-16T16:45:28.500Z" title="发表于 2026-05-17 00:45:28">2026-05-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/17/%E4%B8%89%E6%9C%88%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E7%BB%A7%E7%BB%AD%E5%8A%AA%E5%8A%9B%E5%8A%A0%E6%B2%B9nn%E6%83%B3%E8%A6%81%E6%88%90%E4%B8%BA%E4%B8%80%E5%90%8D%E4%BC%98%E7%A7%80%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8B%B1%E8%AF%AD%E4%B9%9F%E6%98%AF%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%E7%9A%84%E5%95%A6/" title="无标题">无标题</a><time datetime="2026-05-16T16:45:28.490Z" title="发表于 2026-05-17 00:45:28">2026-05-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/17/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%96%87%E6%9C%AB%E9%99%84%E8%B5%84%E6%BA%90%E9%A2%86%E5%8F%96%E5%9C%B0%E5%9D%80/" title="无标题">无标题</a><time datetime="2026-05-16T16:45:28.480Z" title="发表于 2026-05-17 00:45:28">2026-05-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/17/%E4%BD%A0%E5%81%B7%E8%B5%B0%E4%BA%86%E6%88%91%E7%9A%84%E5%BD%B1%E5%AD%90%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA/" title="无标题">无标题</a><time datetime="2026-05-16T16:45:28.465Z" title="发表于 2026-05-17 00:45:28">2026-05-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/17/C%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%95%B0%E7%BB%84%E8%A7%A3%E9%A2%98/" title="无标题">无标题</a><time datetime="2026-05-16T16:45:28.455Z" title="发表于 2026-05-17 00:45:28">2026-05-17</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/05/">
+            <span class="card-archive-list-date">
+              五月 2026
+            </span>
+            <span class="card-archive-list-count">12</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">12</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">10.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-16T17:00:28.632Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/theme.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">Theme by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

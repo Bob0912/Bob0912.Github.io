@@ -198,3 +198,19 @@ button:hover,
     padding: 20px !important;
   }
 }
+
+/* 头像悬停旋转效果 */
+#aside-content .card-author-info-avatar,
+#aside-content .avatar-img,
+.author-avatar img,
+.avatar {
+  transition: transform 0.6s ease !important;
+  cursor: pointer;
+}
+
+#aside-content .card-author-info-avatar:hover,
+#aside-content .avatar-img:hover,
+.author-avatar img:hover,
+.avatar:hover {
+  transform: rotate(360deg) !important;
+}
