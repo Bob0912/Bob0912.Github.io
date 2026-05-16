@@ -154,28 +154,6 @@
   </entry>
   
   <entry>
-    <title>C语言之数组解题</title>
-    <link href="http://yoursite.com/2020/02/27/C%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%95%B0%E7%BB%84%E8%A7%A3%E9%A2%98/"/>
-    <id>http://yoursite.com/2020/02/27/C%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%95%B0%E7%BB%84%E8%A7%A3%E9%A2%98/</id>
-    <published>2020-02-27T15:59:00.000Z</published>
-    <updated>2026-05-16T17:26:52.562Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8UbkfKrBj5euuHAo86en7oPicgaqmsILUCic88iaNKJy6CMZZiaoNAGdojJreQ/0?wx_fmt=jpeg" alt="cover_image"></p><h1 id="C语言之数组解题"><a href="#C语言之数组解题" class="headerlink" title="C语言之数组解题"></a>C语言之数组解题</h1><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p><p><em>2020年02月27日 23:59</em> __ _ _ _ _</p><p>在小说阅读器读本章</p><p>去阅读</p><p><img src="https://mmbiz.qpic.cn/mmbiz_gif/4L1MJjsW4SReuBSKmoD3uQvRVGmCZYNbIRYD7f4mnicdFGNzD3AqLliaXAVkft8HdfAclSKgRCwefe9doOCGjSrg/640" alt=""></p><p>今日还为大家找了一份数组的题目。  惊不惊喜，意不意外<br><img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_44.png" alt=""><br><img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_44.png" alt=""><br><img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_44.png" alt=""></p><p>题目很简单，也方便大家阅读。  </p><p>** 题目如下  **  </p><p>用数组  输入十个分数，去掉最高分和最低分后求平均分，保留一位小数。  </p><p>**<br>**</p><p>这道题其实是蛮基础的一道题啦，只需输入分数然后筛选出最高分和最低分就行啦，这里在最后  可能会出现小数的情况  ，所以我们就  使用double  类型啦。</p><p>**<br>**</p><p>** 源代码如下：<br>**</p><hr><pre><code>#include &lt;stdio.h&gt;int main() {    double a[10],n,k;    int i;    double max,min;    for(i=0;i&lt;10;i++){        scanf(&quot;%lf&quot;,&amp;a[i]);    }    max=a[0];    min=a[0];    for(i=1;i&lt;10;i++){        if(max&lt;a[i])        {max=a[i];        }        if(min&gt;a[i]){            min=a[i];        }    }    for(i = 0; i &lt; 10; i++){        n=n+a[i];    }    k=(n-min-max)/8;    printf(&quot;%.1lf&quot;,k);      return 0;}</code></pre><p>** 运行结果如下：  **  </p><p>**<br>**</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8Ubk3oeM1iapSrhCarraibB1G8O5l2Y6xdTf3GyLnkCxEtcicGJ0F8Ra7oExQ/640?wx_fmt=png" alt=""></p><p><img src="https://mmbiz.qpic.cn/mmbiz_gif/YHl1SicJNMuLnI6cMic1JTibrRBUfnKYHWhL7Vd2jYia5XSsNibpsQA7sAAVbhEb5yqNPyNFvmu6bxMauzo3j5d3nmA/640" alt=""></p><p><strong>点击查看往期内容回顾</strong></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484075&idx=1&sn=5dda3309309d6a6119455b6c581753fb&chksm=fb207320cc57fa360c6f05058aec09f28d57059e011c69df0d50201401ee7e616e7f117cc65c&scene=21#wechat_redirect"> ** 最好用的记笔记软件（Notion）来了，没有之一  ** ** **</a>  </p><p>** <a href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484098&idx=2&sn=249d7ff8e2667c9d664e4bdec430f834&chksm=fb207349cc57fa5f99cf8de345bf0c30a79110a48650dca1a78c6af5fdc8f75001d89a32cc41&scene=21#wechat_redirect"> 微信圈子人数已破两百了！</a><br>**</p><p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NTUzODk5MA==&mid=2651168119&idx=1&sn=9c3ec55b79d251e632b223f978aec788&chksm=8b4ce736bc3b6e206e2cf73e15d138f7b5b3040ac171bdaa5b1f9c390f495153a2377b9e02d2&scene=21#wechat_redirect"></a></p><p>公众号：程序员Bob</p><p>一个正在学习C语言的人，致力于将C讲得更透彻！  </p><p>点赞关注<del>谢谢你</del></p><p>长按下图二维码关注，和你一起领悟程序员的魅力。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqL2lckAyqiaFoBuJibZQRWiaJmBN2lJIC6AicnSSEkg5aZNGABrGaJvJRRLDQaCTHg9hRQeV5x14CqxTA/640?wx_fmt=jpeg" alt=""></p><pre><code>![](https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuhpplm16ibb8iaib7RoGQ5iaHEdvAd0o9e1LlUGA2k0Yib222agOxzweXhahA9GuzJcGBg0dA4DzlibxRqw/640?wx_fmt=png)给个[在看]，支持我下吧</code></pre><p>预览时标签不可点</p><p>阅读</p><hr><hr><hr><p>__</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8UbkfKrBj5euuHAo86en7oPicgaqmsILUCic88iaNKJy6CMZZiaoNAGdojJreQ/0?
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>C语言解题之小鱼的航程</title>
     <link href="http://yoursite.com/2020/02/27/C%E8%AF%AD%E8%A8%80%E8%A7%A3%E9%A2%98%E4%B9%8B%E5%B0%8F%E9%B1%BC%E7%9A%84%E8%88%AA%E7%A8%8B/"/>
     <id>http://yoursite.com/2020/02/27/C%E8%AF%AD%E8%A8%80%E8%A7%A3%E9%A2%98%E4%B9%8B%E5%B0%8F%E9%B1%BC%E7%9A%84%E8%88%AA%E7%A8%8B/</id>
@@ -189,6 +167,28 @@
       
       
         &lt;p&gt;&lt;img src=&quot;https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8Ubkicst6MqDWlNKiaic3q2TwoDUHZsGRiaN1z6cFfVc5VRj6DFn2RRlY4ENibg/0
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C语言之数组解题</title>
+    <link href="http://yoursite.com/2020/02/27/C%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%95%B0%E7%BB%84%E8%A7%A3%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/02/27/C%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%95%B0%E7%BB%84%E8%A7%A3%E9%A2%98/</id>
+    <published>2020-02-27T15:59:00.000Z</published>
+    <updated>2026-05-16T17:26:52.562Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8UbkfKrBj5euuHAo86en7oPicgaqmsILUCic88iaNKJy6CMZZiaoNAGdojJreQ/0?wx_fmt=jpeg" alt="cover_image"></p><h1 id="C语言之数组解题"><a href="#C语言之数组解题" class="headerlink" title="C语言之数组解题"></a>C语言之数组解题</h1><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p><p><em>2020年02月27日 23:59</em> __ _ _ _ _</p><p>在小说阅读器读本章</p><p>去阅读</p><p><img src="https://mmbiz.qpic.cn/mmbiz_gif/4L1MJjsW4SReuBSKmoD3uQvRVGmCZYNbIRYD7f4mnicdFGNzD3AqLliaXAVkft8HdfAclSKgRCwefe9doOCGjSrg/640" alt=""></p><p>今日还为大家找了一份数组的题目。  惊不惊喜，意不意外<br><img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_44.png" alt=""><br><img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_44.png" alt=""><br><img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_44.png" alt=""></p><p>题目很简单，也方便大家阅读。  </p><p>** 题目如下  **  </p><p>用数组  输入十个分数，去掉最高分和最低分后求平均分，保留一位小数。  </p><p>**<br>**</p><p>这道题其实是蛮基础的一道题啦，只需输入分数然后筛选出最高分和最低分就行啦，这里在最后  可能会出现小数的情况  ，所以我们就  使用double  类型啦。</p><p>**<br>**</p><p>** 源代码如下：<br>**</p><hr><pre><code>#include &lt;stdio.h&gt;int main() {    double a[10],n,k;    int i;    double max,min;    for(i=0;i&lt;10;i++){        scanf(&quot;%lf&quot;,&amp;a[i]);    }    max=a[0];    min=a[0];    for(i=1;i&lt;10;i++){        if(max&lt;a[i])        {max=a[i];        }        if(min&gt;a[i]){            min=a[i];        }    }    for(i = 0; i &lt; 10; i++){        n=n+a[i];    }    k=(n-min-max)/8;    printf(&quot;%.1lf&quot;,k);      return 0;}</code></pre><p>** 运行结果如下：  **  </p><p>**<br>**</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8Ubk3oeM1iapSrhCarraibB1G8O5l2Y6xdTf3GyLnkCxEtcicGJ0F8Ra7oExQ/640?wx_fmt=png" alt=""></p><p><img src="https://mmbiz.qpic.cn/mmbiz_gif/YHl1SicJNMuLnI6cMic1JTibrRBUfnKYHWhL7Vd2jYia5XSsNibpsQA7sAAVbhEb5yqNPyNFvmu6bxMauzo3j5d3nmA/640" alt=""></p><p><strong>点击查看往期内容回顾</strong></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484075&idx=1&sn=5dda3309309d6a6119455b6c581753fb&chksm=fb207320cc57fa360c6f05058aec09f28d57059e011c69df0d50201401ee7e616e7f117cc65c&scene=21#wechat_redirect"> ** 最好用的记笔记软件（Notion）来了，没有之一  ** ** **</a>  </p><p>** <a href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484098&idx=2&sn=249d7ff8e2667c9d664e4bdec430f834&chksm=fb207349cc57fa5f99cf8de345bf0c30a79110a48650dca1a78c6af5fdc8f75001d89a32cc41&scene=21#wechat_redirect"> 微信圈子人数已破两百了！</a><br>**</p><p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NTUzODk5MA==&mid=2651168119&idx=1&sn=9c3ec55b79d251e632b223f978aec788&chksm=8b4ce736bc3b6e206e2cf73e15d138f7b5b3040ac171bdaa5b1f9c390f495153a2377b9e02d2&scene=21#wechat_redirect"></a></p><p>公众号：程序员Bob</p><p>一个正在学习C语言的人，致力于将C讲得更透彻！  </p><p>点赞关注<del>谢谢你</del></p><p>长按下图二维码关注，和你一起领悟程序员的魅力。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqL2lckAyqiaFoBuJibZQRWiaJmBN2lJIC6AicnSSEkg5aZNGABrGaJvJRRLDQaCTHg9hRQeV5x14CqxTA/640?wx_fmt=jpeg" alt=""></p><pre><code>![](https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuhpplm16ibb8iaib7RoGQ5iaHEdvAd0o9e1LlUGA2k0Yib222agOxzweXhahA9GuzJcGBg0dA4DzlibxRqw/640?wx_fmt=png)给个[在看]，支持我下吧</code></pre><p>预览时标签不可点</p><p>阅读</p><hr><hr><hr><p>__</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIHLb8XkYL18Fm5lXoib8UbkfKrBj5euuHAo86en7oPicgaqmsILUCic88iaNKJy6CMZZiaoNAGdojJreQ/0?
       
     
     </summary>
