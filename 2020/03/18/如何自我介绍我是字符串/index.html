@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>如何自我介绍：我是字符串 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="The real value is not in the stage of life, but in the role we play.真正的价值并不在人生的舞台上，而在我们扮演的角色中。**** 掏心话：别小看那些暂时比你混得差的人，李白也不是说：今天你对我爱理不理,明天我让你高攀不起么。 ，数字还是有点恐怖的。不管怎样，我们自己都还是要提高警惕。  今天我们来讲解一下关于 字符串 的知识，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何自我介绍：我是字符串">
+<meta property="og:url" content="https://dpw09.cn/2020/03/18/%E5%A6%82%E4%BD%95%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D%E6%88%91%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="The real value is not in the stage of life, but in the role we play.真正的价值并不在人生的舞台上，而在我们扮演的角色中。**** 掏心话：别小看那些暂时比你混得差的人，李白也不是说：今天你对我爱理不理,明天我让你高攀不起么。 ，数字还是有点恐怖的。不管怎样，我们自己都还是要提高警惕。  今天我们来讲解一下关于 字符串 的知识，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/theme.jpg">
+<meta property="article:published_time" content="2020-03-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-25T14:38:38.434Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/theme.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何自我介绍：我是字符串",
+  "url": "https://dpw09.cn/2020/03/18/%E5%A6%82%E4%BD%95%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D%E6%88%91%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2/",
+  "image": "https://dpw09.cn/img/theme.jpg",
+  "datePublished": "2020-03-17T16:00:00.000Z",
+  "dateModified": "2026-06-25T14:38:38.434Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/03/18/%E5%A6%82%E4%BD%95%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D%E6%88%91%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '如何自我介绍：我是字符串',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/theme.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo"><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">如何自我介绍：我是字符串</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">如何自我介绍：我是字符串</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-03-17T16:00:00.000Z" title="发表于 2020-03-18 00:00:00">2020-03-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-25T14:38:38.434Z" title="更新于 2026-06-25 22:38:38">2026-06-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/%E7%B3%BB%E7%BB%9F%E4%B8%8E%E7%8E%AF%E5%A2%83/">系统与环境</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIyOULLJEocdGTzYZBafvFlmZfuibVxK5I2dVpm04EKDXvNkgyWzkkGPk7BC4XloqH5SZBNESSfEAQ/0?wx_fmt=jpeg" alt="cover_image"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/4L1MJjsW4SReuBSKmoD3uQvRVGmCZYNbIRYD7f4mnicdFGNzD3AqLliaXAVkft8HdfAclSKgRCwefe9doOCGjSrg/640"><br><strong>The real value is not in the stage of life, but in the role we play.</strong><br>真正的价值并不在人生的舞台上，而在我们扮演的角色中。**<br>**</p>
+<p><strong>掏心话：别小看那些暂时比你混得差的人，李白也不是说：今天你对我爱理不理,明天我让你高攀不起么。</strong></p>
+<p>，数字还是有点恐怖的。不管怎样，我们自己都还是要提高警惕。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIyOULLJEocdGTzYZBafvFlyIv7Ylf2ibzvjwrzf6FNOxsnyQicukNciau9p0Yx3V9ZFzQMW17hjrNLg/640?wx_fmt=png"></p>
+<p>今天我们来讲解一下关于 <strong>字符串</strong> 的知识， ** 字符串是C语言中最有用，最重要的数据类型之一。**<br>C语言库也提供了许多关于字符串的函数，便于我们利用。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIyOULLJEocdGTzYZBafvFlhtKkib4RFJicQLFFEdqwRshHHqicF3HWuy8iafsG1jXWicibIaU5UoWPfCEA/640?wx_fmt=gif"></p>
+<p><strong>字符串简介：</strong></p>
+<p>**<br>**</p>
+<p>字符串或串(String)是由数字、字母、下划线组成的一串字符。一般记为<br>s&#x3D;“a1a2···an”(n&gt;&#x3D;0)。它是编程语言中表示文本的数据类型。在程序设计中，字符串（string）为符号或数值的一个连续序列，如符号串（一串字符）或二进制数字串（一串二进制数字）。</p>
+<p>通常以串的整体作为操作对象，如：在串中查找某个子串、求取一个子串、在串的某个位置上插入一个子串以及删除一个子串等。两个字符串相等的充要条件是：长度相等，并且各个对应位置上的字符都相等。设p、q是两个串，求q在p中首次出现的位置的运算叫做模式匹配。<br><strong>串的两种最基本的存储方式是顺序存储方式和链接存储方式。</strong></p>
+<p><strong>字符串的自我讲述：</strong></p>
+<p>我们一般用字符数组来存储字符串，用char name[100]来定义一个name的字符数组，字符长度为100，当然 ** 数组长度必须是要有确切的值。<br>**</p>
+<p><strong>要提醒大家的是数组赋值后结尾会有一个空字符（\0)，</strong> 容易 <strong>出错的地方</strong><br>就是如：a[]&#x3D;{…};在给数组赋值后系统会自动在结尾补上一个\0,所以这个数组的长度是要比输入的字符串大1的。</p>
+<p>输入的字符和系统补上的空字符都是存储在内存中的，在以后讲解指针时值得注意。</p>
+<p>我们输入字符串时一般都是打的 “ “<br>这种符号，里面的内容我们称之为字符串常量，字符串常量属于静态存储类别，这也就是说我们如果在函数中使用字符串常量，该字符串常量只会被存储一次，简单来说，在整个程序的存在期间，函数可以调用多次。</p>
+<p>我们之前在使用scanf时输入字符时是用的%c，但这里可以用%s,并且后面的指向数组可以不用&amp;。</p>
+<p><strong>字符串函数：</strong></p>
+<p>下表列出了字符串经常要用的一些函数：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIyOULLJEocdGTzYZBafvFlAHnW2A7OJWjAmlnpxfujHdHKKfah5AOg5rHhccvxTgs0QJWSWnyLNQ/640?wx_fmt=png"></p>
+<p><strong>gets函数</strong><br>可以说是简单易用，它可以读取整行输入，直至遇到换行符，然后丢去换行符，存储其余字符，并在字符结尾处添加一个空字符使其成为一个字符串，值得注意的是这个空字符，我们在别的网站刷题时输入的例子结尾可能是不带空字符的，这时我们最好还是不要用gets,用scanf即可。</p>
+<p>**puts函数 ** 经常是和gets函数一起用的，长得也比较像<br>，小编还在这两个函数上翻过车呢。puts用于输出字符串，并在末尾添加换行符，这也是在刷题时值得注意的，得看清题目给出的输出样例是否有换行。</p>
+<p><strong>strcat函数</strong><br>起连接作用，比如strcat(str1,str2);即把str2所指向的字符串追加到str1的结尾，且str1结尾的空字符串会被丢掉。</p>
+<p>**strcpy函数 ** 起复制作用，如strcpy(str1,str2);即把str2中的字符串复制到str1中。</p>
+<p>**strcmp函数 ** 起比较作用， s trcmp函数是用来比较2个字符串的函数，如srcmp（字符串1，字符串2），从第一个字符<br>开始比较，如果到最后两个字符串完全相同，则strcmp（）函数输出的值为0；若开始出现不同的字符，根据这个字符ASCII码进行比较，如果字符串1大于字符串2，则输出值<br>大于0；反之，输出值小于 0；</p>
+<p>**strlen函数 ** 也是用得比较多的，特别是在遍历字符数组时，需要知道字符串的长度。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/YHl1SicJNMuLnI6cMic1JTibrRBUfnKYHWhL7Vd2jYia5XSsNibpsQA7sAAVbhEb5yqNPyNFvmu6bxMauzo3j5d3nmA/640"></p>
+<p><strong>最后的话：</strong></p>
+<p><strong>别让抖音控制你的思想，你是你自己，做自己的主人。</strong></p>
+<p><strong>点击查看往期内容回顾</strong></p>
+<p>1. <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484269&idx=1&sn=d536359dc651a0eca568413b9f29377c&chksm=fb2072e6cc57fbf0f64823bd8e7696d4a94cf646871b43e27154443de822b737c9b4eb5990b7&scene=21#wechat_redirect"> 三月编程语言榜单来袭，Delphi终将没落么？
+</a></p>
+<p>2. <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484218&idx=1&sn=6f1ebceb464ca336768a2447e1d8eae0&chksm=fb2072b1cc57fba76d08ae74208aa7cab44406f61c281d3605a3424c8d93c5e4a6c24e88baee&scene=21#wechat_redirect"> 一个黑客归隐前对linux初学者的建议
+</a></p>
+<p>3. <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247484306&idx=1&sn=9f2b16eb9f1603583e6d9e24980b3b8a&chksm=fb207219cc57fb0f947a804be1b13dbf6c62a0c9d93aefacc39161ace1bdfa4828b594293d30&scene=21#wechat_redirect"> 字符逆序（C语言）
+</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/03/18/%E5%A6%82%E4%BD%95%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D%E6%88%91%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2/">https://dpw09.cn/2020/03/18/%E5%A6%82%E4%BD%95%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D%E6%88%91%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post-share"><div class="social-share" data-image="/img/theme.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/03/19/%E5%8F%88%E4%B8%80%E7%A8%8B%E5%BA%8F%E5%91%98%E6%8C%96%E7%9F%BF%E8%BF%98%E6%98%AF%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%82/" title="又一程序员“挖矿”！还是百度大厂！"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">又一程序员“挖矿”！还是百度大厂！</div></div><div class="info-2"><div class="info-item-1">  To appreciate the pain and frustration, it is our homework, we have totrain, and then break through, so as to be truly free.要感谢痛苦与挫折，它是我们的功课，我们要从中训练，然后突破，这...</div></div></div></a><a class="pagination-related" href="/2020/03/16/%E5%AD%97%E7%AC%A6%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%B0%8F%E7%BC%96%E9%94%99%E8%AF%AF%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6/" title="字符简介与小编错误的统计字符"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">字符简介与小编错误的统计字符</div></div><div class="info-2"><div class="info-item-1"> **No matter how steep mountains, always leave a climbing Road as the horns ofpeople. ** 不管多么险峻的高山，总是为不畏艰难的人留下一条攀登的路。 **掏心话： ** 很多时候我们犯的错是那么的不起眼，而它却占据了我们的大把时...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/04/18/%E4%BD%BF%E7%94%A8Printf%E6%8D%A2%E8%A1%8C%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" title="使用Printf换行时的小技巧"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-18</div><div class="info-item-2">使用Printf换行时的小技巧</div></div><div class="info-2"><div class="info-item-1">  **All the changes in life, all the charm. All the beauties are made of lightand shadow.** 人生的一切变化，一切魅力。一切美都是由光明和阴影构成的。 今天介绍关于Printf的玩法，大家可能觉得Printf就是C语言里用来...</div></div></div></a><a class="pagination-related" href="/2020/04/12/%E7%BB%99IT%E6%8A%80%E6%9C%AF%E7%88%B1%E5%A5%BD%E8%80%85%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/" title="给IT技术爱好者的一封信"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-12</div><div class="info-item-2">给IT技术爱好者的一封信</div></div><div class="info-2"><div class="info-item-1"> 不点蓝字，我们哪来故事？ **The belief in the success of the human brain, such as the role of the alarmclock, you will need to wake up when you need.** 成功的信念在人脑中的作用就如闹钟，...</div></div></div></a><a class="pagination-related" href="/2020/03/30/%E6%AD%A3%E5%B8%B8%E6%A8%A1%E5%BC%8F%E4%B8%ADVim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%BA%E5%A4%A7%E5%AE%B6%E6%95%B4%E7%90%86%E5%AE%8C%E6%AF%95%EF%BC%88%E5%BB%BA%E8%AE%AE%E6%94%B6%E8%97%8F%EF%BC%89/" title="正常模式中Vim最常用命令，为大家整理完毕（建议收藏）"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-30</div><div class="info-item-2">正常模式中Vim最常用命令，为大家整理完毕（建议收藏）</div></div><div class="info-2"><div class="info-item-1"> Things to think twice, but more importantly than think twice before.凡事要三思，但比三思更重要的是三思而行。 </div></div></div></a><a class="pagination-related" href="/2020/10/03/%E4%B9%9D%E6%9C%88%E7%A2%8E%E7%A2%8E%E5%BF%B5%E5%A7%97%E5%A7%97%E6%9D%A5%E8%BF%9F/" title="九月碎碎念 || 姗姗来迟"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-03</div><div class="info-item-2">九月碎碎念 || 姗姗来迟</div></div><div class="info-2"><div class="info-item-1"> 害，Hello,这里是小Bob的“碎碎念”世界啊。 特地开辟了这个“碎碎念”这个小模块，且当日记来写，目前只在微信上发布哦！ 以后可以在下面查看每个月的碎碎念小世界： 2020:  七月  八月  九月又是不平凡的月 ，哈哈，咋感觉啥想法都有。 2020—09—01 有的人活着很痛苦，因为他们每天都要和自己和解...</div></div></div></a><a class="pagination-related" href="/2020/04/19/%E5%9F%BA%E4%BA%8E%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" title="基于结构体的学生信息管理系统"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-19</div><div class="info-item-2">基于结构体的学生信息管理系统</div></div><div class="info-2"><div class="info-item-1">  **Life, the most valuable than time. Life, the most brilliant than the cause.Life, the most happy is not too hard.** 人生，最宝贵的莫过于光阴。人生，最璀璨的莫过于事业。人生，最快乐的莫过于奋斗...</div></div></div></a><a class="pagination-related" href="/2020/09/17/C%E8%AF%AD%E8%A8%80C++IDE%E4%B9%8BClio2020.N%E7%A0%B4%E8%A7%A3/" title="C语言&#x2F;C++ IDE之Clion2020.N破解"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-17</div><div class="info-item-2">C语言&#x2F;C++ IDE之Clion2020.N破解</div></div><div class="info-2"><div class="info-item-1">   每日一句，送给最珍贵的你： 你无需为你的长期想法做决定，因为那真的代表不了什么，或许说想法最终代替不了现实。 </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么我建议：每个人都该学一点金融"/></a><div class="content"><a class="title" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融">为什么我建议：每个人都该学一点金融</a><time datetime="2026-03-14T18:16:00.000Z" title="发表于 2026-03-15 02:16:00">2026-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="石油暴涨，真的和你没关系吗？"/></a><div class="content"><a class="title" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？">石油暴涨，真的和你没关系吗？</a><time datetime="2026-03-12T00:15:00.000Z" title="发表于 2026-03-12 08:15:00">2026-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没人兜底的家庭，工作只是你人生的一个“练级场”"/></a><div class="content"><a class="title" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”">没人兜底的家庭，工作只是你人生的一个“练级场”</a><time datetime="2026-02-24T11:30:00.000Z" title="发表于 2026-02-24 19:30:00">2026-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="除夕夜，和你一起安静一下"/></a><div class="content"><a class="title" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下">除夕夜，和你一起安静一下</a><time datetime="2026-02-16T09:21:00.000Z" title="发表于 2026-02-16 17:21:00">2026-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通家庭的资本觉醒"/></a><div class="content"><a class="title" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒">普通家庭的资本觉醒</a><time datetime="2026-02-14T13:53:00.000Z" title="发表于 2026-02-14 21:53:00">2026-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="写给投资者的十条建议"/></a><div class="content"><a class="title" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议">写给投资者的十条建议</a><time datetime="2026-02-06T15:00:00.000Z" title="发表于 2026-02-06 23:00:00">2026-02-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/theme.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>聊聊Java运算符的那些事 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大家好，我是小 Bob,一个关注软件领域而又执着于计算机底层的开发者~  大家好呀，昨天我们说了 ** Java的数据类型 ** ，类型和其它语言都相差不大，为什么这么说呢，我们得记住Python还有个复数类型哦。 这里主要给大家讲解 ** Java运算符的分类和使用 ** 。  一.运算符分类  说到 运算符，我们可以先了解一下它。运算符简单来说，就是对常量或变量进行操作的符号。在运算符中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊聊Java运算符的那些事">
+<meta property="og:url" content="https://dpw09.cn/2021/08/14/%E8%81%8A%E8%81%8AJava%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="大家好，我是小 Bob,一个关注软件领域而又执着于计算机底层的开发者~  大家好呀，昨天我们说了 ** Java的数据类型 ** ，类型和其它语言都相差不大，为什么这么说呢，我们得记住Python还有个复数类型哦。 这里主要给大家讲解 ** Java运算符的分类和使用 ** 。  一.运算符分类  说到 运算符，我们可以先了解一下它。运算符简单来说，就是对常量或变量进行操作的符号。在运算符中，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/theme.jpg">
+<meta property="article:published_time" content="2021-08-14T15:54:00.000Z">
+<meta property="article:modified_time" content="2026-06-25T14:38:38.456Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/theme.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "聊聊Java运算符的那些事",
+  "url": "https://dpw09.cn/2021/08/14/%E8%81%8A%E8%81%8AJava%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/",
+  "image": "https://dpw09.cn/img/theme.jpg",
+  "datePublished": "2021-08-14T15:54:00.000Z",
+  "dateModified": "2026-06-25T14:38:38.456Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2021/08/14/%E8%81%8A%E8%81%8AJava%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '聊聊Java运算符的那些事',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/theme.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo"><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">聊聊Java运算符的那些事</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">聊聊Java运算符的那些事</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-14T15:54:00.000Z" title="发表于 2021-08-14 23:54:00">2021-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-25T14:38:38.456Z" title="更新于 2026-06-25 22:38:38">2026-06-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqKogmH0jtV3eVmAaIId6mkzicN4wXkh6GAKRHFpya01MT6ZudjZArrlAcicLtARZaacKrmCHk2JX1iag/0?wx_fmt=jpeg" alt="cover_image"></p>
+<blockquote>
+<p>大家好，我是小 Bob,一个关注软件领域而又执着于计算机底层的开发者~</p>
+</blockquote>
+<p>大家好呀，昨天我们说了 ** Java的数据类型 ** ，类型和其它语言都相差不大，为什么这么说呢，我们得记住Python还有个复数类型哦。</p>
+<p>这里主要给大家讲解 ** Java运算符的分类和使用 ** 。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/1prMbIpCa3humOrLAChJmsjMl4Kxia7vzrQE59ny2bGibWz5Cr8YzNvia9NXzt8O2jiclnVwHYxubpFU1Q6dX9FRCQ/640?wx_fmt=png"></p>
+<p>一.运算符分类</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5PYA1G5YGGkjAN1M3sw2tjaT2EzjYhfiax6biaK6IUQxeAFY5cgZQtGqXrMp1oRbNic8EDqpxsg5BjArxBhibLM5XQ/640?wx_fmt=png"></p>
+<p>说到 <strong>运算符</strong><br>，我们可以先了解一下它。运算符简单来说，就是对常量或变量进行操作的符号。在运算符中，我们会经常用到表达式，表达式可以简单认为是运算符和操作数的组合，其中操作数可以是常量、变量或其它表达式，不同运算符连接的表达式体现的是不同类型的表达式。</p>
+<p>比如：Y&#x3D;X*(Z+10)为表达式，那么其中的(Z+10)为子表达式。</p>
+<p>接下来说说运算符的分类，按 ** 功能分类我们一般分为赋值运算符、算术运算符、关系运算符和逻辑运算符 ** ；**<br>按操作数分类则有单目运算符、双目运算符、三目运算符。**</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/1prMbIpCa3humOrLAChJmsjMl4Kxia7vzrQE59ny2bGibWz5Cr8YzNvia9NXzt8O2jiclnVwHYxubpFU1Q6dX9FRCQ/640?wx_fmt=png"></p>
+<p><strong>二.运算符使用</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5PYA1G5YGGkjAN1M3sw2tjaT2EzjYhfiax6biaK6IUQxeAFY5cgZQtGqXrMp1oRbNic8EDqpxsg5BjArxBhibLM5XQ/640?wx_fmt=png"></p>
+<p>首先我们先来讲讲最简单的 <strong>赋值运算符</strong> ，一般形式为 ** 变量名&#x3D;表达式 ** ，即将右边的值赋值给左边的变量。</p>
+<p>再就是算术运算符，在Java中提供了算术运算符来实现数学上的算术运算功能。</p>
+<p>运算符<br>| 说明<br>| 举例</p>
+<p>—|—|—<br>+<br>| 加法运算符<br>| 1+1&#x3D;2</p>
+<p>-<br>| 减法运算符<br>| 1-1&#x3D;0</p>
+<ul>
+<li></li>
+</ul>
+<p>| 乘法运算符 | 1*1&#x3D;1</p>
+<p>&#x2F;<br>| 除法运算符<br>| 1&#x2F;1&#x3D;1</p>
+<p>%<br>| 取余运算符，求操作数相除的余数。<br>| 4%2的取余为0</p>
+<p><strong>复合运算符：Java中有些表达式可以通过符合运算符进行简化。</strong></p>
+<p>**复合运算符 ** 由赋值运算符和算术运算符组合形成，用于对变量自身执行算术运算，比如a&#x3D;a+1可以简化为a+&#x3D;1。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+&#x3D;</td>
+<td>加法运算</td>
+<td>int a&#x3D;1;a+&#x3D;1等同于a&#x3D;a+1;a&#x3D;2;</td>
+</tr>
+<tr>
+<td>-&#x3D;</td>
+<td>减法运算</td>
+<td></td>
+</tr>
+<tr>
+<td>int a&#x3D;1;a-&#x3D;1等同于a&#x3D;a-1;a&#x3D;0;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>*&#x3D;</td>
+<td>乘法运算</td>
+<td></td>
+</tr>
+<tr>
+<td>int a&#x3D;1;a*&#x3D;1等同于a&#x3D;a*1;a&#x3D;1;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>除法运算</td>
+<td></td>
+</tr>
+<tr>
+<td>int a&#x3D;1;a&#x2F;&#x3D;1等同于a&#x3D;a&#x2F;1;a&#x3D;1;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>模运算</td>
+<td>int a&#x3D;1;a%&#x3D;1等同于a&#x3D;a%1;a&#x3D;0;</td>
+</tr>
+</tbody></table>
+<p>复合运算符在使用时效率更高，运算更快，推荐使用。</p>
+<p><strong>推荐使用复合运算符的小作用：</strong></p>
+<ul>
+<li><p>当需要对变量自身进行运算时，建议使用复合运算符，效率会远高于算术运算符。</p>
+</li>
+<li><p>复合赋值运算符的结合性都是自左向右的。</p>
+</li>
+<li><p>Java表达式中使用圆括号与代数中的圆括号作用相同，能增强运算符的优先级。使用圆括号还能增强源代码的可读性，使得计算顺序更加清晰。</p>
+</li>
+</ul>
+<p>说完了复合运算符，这里介绍 <strong>自增自减运算符。</strong></p>
+<p><strong>相关语法：++变量名 或 变量名++ –变量名 或 变量名–</strong></p>
+<p>那为什么符号放前面和后面会有区别呢？</p>
+<p>如果将自增或自减运算符放在变量前面，称之为前缀运算，前缀运算执行的是”先运算后使用的规则。</p>
+<p>比如我们用int a&#x3D;1;int b&#x3D;++a；等同于a&#x3D;a+1;int b&#x3D;a;</p>
+<p>相反，如果将自增或自减运算符放在变量后面，称之为后缀运算，后缀运算执行的是”先使用后运算规则。</p>
+<p><strong>关系型运算符</strong></p>
+<p>1.Java提供了关系运算符，用于进行比较运算</p>
+<p>2.关系运算的结果为Boolean类型</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>| 大于 | 88&gt;100,结果为false。<br>&lt; | 小于<br>| 88&lt;100,结果为true。<br>&#x3D; | 大于或等于<br>| 88&gt;&#x3D;100,结果为false。<br>&lt;&#x3D; | 小于或等于<br>| 88&lt;&#x3D;100,结果为true。<br>&#x3D;&#x3D; | 等于<br>| 88&#x3D;&#x3D;100,结果为false。<br>!&#x3D; | 不等于<br>| 88!&#x3D;100,结果为true。</p>
+</blockquote>
+<p><strong>实例如下：</strong></p>
+<hr>
+<p> public class test { public static void main(String[] args) { boolean bool &#x3D;50&lt;60; System.out.println(bool); }}</p>
+<p><strong>运行结果如下：</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKogmH0jtV3eVmAaIId6mkz28Jw56WbP9vlY8zMyHA4jzE1JNvXBdqsedNeH3QOnnYnoSZXGczWNw/640?wx_fmt=png"></p>
+<p>至于 <strong>逻辑运算符</strong> ，也叫 ** 短路运算符**<br>，它把各个运算的关系表达式连接起来组成一个复杂的逻辑表达式，以判断程序中的表达式是否成立，判断的结果是true或false。</p>
+<p>运算符<br>| 含义</p>
+<p>—|—<br>&amp;&amp; | 与运算符，表示连接条件同时成立<br>|| | 或运算符，表示连接的条件有一个成立即可<br>！ | 非运算，取反</p>
+<p><strong>实例：</strong></p>
+<hr>
+<p> public class test { public static void main(String[] args) { boolean bool1 &#x3D;1&gt;2&amp;&amp;2&gt;1; boolean bool2 &#x3D;1&gt;2||2&gt;1; boolean bool3 &#x3D;!(1&gt;2||2&gt;1); System.out.println(bool1); System.out.println(bool2); System.out.println(bool3); }}</p>
+<p><strong>运行结果如下：</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKogmH0jtV3eVmAaIId6mkzcBOyaHlZFibNH0kht7xtAYNcUIAeVDia2MWFrZuM0mIRsicFP0bO9SH5w/640?wx_fmt=png"></p>
+<p>结果为bool1为false，bool2为true，bool3为false</p>
+<p><strong>说完上面的逻辑运算符，那么三元运算符也是在代码中经常使用到的。“？:”也是Java中唯一一个三目运算符。</strong></p>
+<p>语法：布尔表达式？表达式1:表达式2</p>
+<p>条件表达式的结果由布尔表达式决定，如果布尔表达式的值为true，则返回表达式1的值，反之返回表达式2的值。</p>
+<p><strong>实例：</strong></p>
+<hr>
+<p> public class test { public static void main(String[] args) { int score &#x3D;61; String s &#x3D; score&gt;&#x3D;60 ? “及格” :”不及格”; System.out.println(s); }}</p>
+<p>结果为及格</p>
+<p>另外 <strong>instanceof运算符</strong><br>我们在别的语言几乎没看到过，instanceof运算符的前一个操作数通常是一个引用类型变量，后一个操作数通常是一个类，它用于判断运算符前面的引用变量是否是运算符后面的类型，或其子类型的实例。</p>
+<p><strong>实例：</strong></p>
+<hr>
+<p> public class test { public static void main(String[] args) { String s &#x3D; “java”; boolean bool1&#x3D; s instanceof String; System.out.println(bool1); }}</p>
+<p>结果为true</p>
+<p>判断变量是否为某种类型</p>
+<p>最后我们来讲一下 <strong>位运算符</strong><br>，位运算符起源于C语言的低级操作（因为位运算的操作对象是二进制位），当然这种操作对于计算机而言是非常简单且直接、友好的。</p>
+<p>在简单的低成本处理器上，通常位运算比除法快很多，比乘法快几倍，有时比加法也快一些。</p>
+<p>运算符<br>| 说明<br>| 举例</p>
+<p>—|—|—<br>&amp; | 与 | 操作数相同都为1，那么结果为1<br>| | 或 | 操作数相同位为1，那么结果为1<br>^ | 异或 | 操作数相同位不相同，结果为1<br>&lt;&lt; | 左移 | 若二进制数全部左移N位，高位丢弃，低位补0</p>
+<blockquote>
+<blockquote>
+<p>| 右移 | 若二进制位全部右移N位，若值为正，则在最高位插入0，若值为负，则在最高位插入1</p>
+<blockquote>
+<p>| 无符号右移 | 忽略符号位，空位都以0补齐，正数&gt;&gt;&gt;运算的时候和&gt;&gt;一样，区别在于负数运算</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>下面我们看看在代码中这些运算符的优先级是怎样。</p>
+<p><strong>运算符的优先级：</strong></p>
+<p>顺序<br>| 说明</p>
+<p>—|—<br>1<br>| 括号，()和[]<br>2 | 一元运算符，如++，–和！<br>3 | 算术运算符，如*、&#x2F;、+、-、%<br>4 | 关系运算符，如&gt;、&gt;&#x3D;、&lt; &lt;&#x3D; &#x3D;&#x3D;和！&#x3D;<br>5 | 逻辑运算符，如&amp;&amp;，||<br>6<br>| 条件运算符和赋值运算符，如：？:、&#x3D;、*&#x3D;、&#x2F;&#x3D;、+&#x3D;、-&#x3D;</p>
+<p>那么最后说一下按位取反运算符:</p>
+<p>例如，数字42，它的二进制代码为：00101010，经过按位非运算成为11010101.</p>
+<p>继续干Java~</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz/cZV2hRpuAPia3RFX6Mvw06kePJ7HbmI7b35o17yNJx4WHYPSQj280IElEicRPq2CviaJe8fjL2AeadmIjARqVZWnw/640?wx_fmt=jpeg"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqLmvWUalJWyW6UoE5Gr2ZdK4ZdVq77SUTU4H69wQibXJ6hYMUohzSicP3mJZYdeNic6zWIGgoIgUAmPA/640?wx_fmt=jpeg"></p>
+<p>为你,千千万万遍</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2021/08/14/%E8%81%8A%E8%81%8AJava%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">https://dpw09.cn/2021/08/14/%E8%81%8A%E8%81%8AJava%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post-share"><div class="social-share" data-image="/img/theme.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/08/16/Java%E5%9F%BA%E7%A1%80%E4%B9%8Bmain%E5%85%A5%E5%8F%A3%E5%87%BD%E6%95%B0%E5%8F%8A%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5~/" title="Java基础之main入口函数及循环语句~"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Java基础之main入口函数及循环语句~</div></div><div class="info-2"><div class="info-item-1">  </div></div></div></a><a class="pagination-related" href="/2021/08/13/%E8%81%8A%E8%81%8AJava%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="聊聊Java数据类型的那些事"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">聊聊Java数据类型的那些事</div></div><div class="info-2"><div class="info-item-1">  大家好，我是小 Bob,一个关注软件领域而又执着于计算机底层的开发者~  前面一篇文章说了Java的变量，我们通过 定义变量得到一个名字 ，然后将 某个数据存储在这个变量中 ，简单来说，这也是变量所承担的任务。 那么，接下来我们来聊聊 Java的数据类型。在定义变量时我们会在变量名前面说明变量的类型，比如是数...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/11/08/TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89%E5%8A%BF%E4%B8%8D%E5%8F%AF%E6%8C%A1Pytho%E9%A6%96%E6%AC%A1%E9%97%AF%E8%BF%9B%E5%89%8D%E4%BA%8C/" title="TIOBE十月榜单出炉：势不可挡！Python 首次闯进前二"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-08</div><div class="info-item-2">TIOBE十月榜单出炉：势不可挡！Python 首次闯进前二</div></div><div class="info-2"><div class="info-item-1">  总不能一直停留在过去。  十一月刚到，TIOBE已经为我们准备好了最新的编程语言排行榜，相信很多程序员都会时不时关注一下排行榜的变化,虽然仅起参考作用,但无疑也是个饭后吐槽点****。 TIOBE社区能坚持每个月都推送最新的数据是蛮厉害的,并且收集了很多高级工程师,课程以及第三方供应商提供的数量,比如有:Go...</div></div></div></a><a class="pagination-related" href="/2020/05/05/2020%E5%B9%B45%E6%9C%88%E7%BC%96%E7%A8%8B%E6%8E%92%E8%A1%8C%E6%A6%9CC%E8%AF%AD%E8%A8%80%E5%8F%8D%E8%B6%85Java%E5%A4%BA%E5%86%A0/" title="2020年5月编程排行榜：C语言反超Java夺冠"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-05</div><div class="info-item-2">2020年5月编程排行榜：C语言反超Java夺冠</div></div><div class="info-2"><div class="info-item-1">  **Li ancient events are not only but also have a firm and indomitable willability above common people.** 古之立大事者，不惟有超世之才，亦必有坚韧不拔之志。 TIOBE已发布5月份的编程榜单，此次榜单最大的...</div></div></div></a><a class="pagination-related" href="/2020/05/25/Pycharm%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3%EF%BC%88%E5%90%AB%E8%A7%86%E9%A2%91%E7%89%88%EF%BC%89/" title="Pycharm下载及安装详解（含视频版）"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-25</div><div class="info-item-2">Pycharm下载及安装详解（含视频版）</div></div><div class="info-2"><div class="info-item-1">  People cry， not because they’re weak。It’s because they’ve been strong fortoo long。哭泣，不代表脆弱，只因坚强了太久。 昨天为大家带来了Anaconda的下载以及安装详解，今天将带来Pycharm的下载以及安装详解，步骤其实不难，...</div></div></div></a><a class="pagination-related" href="/2021/02/19/%E5%B0%8FBob%E7%9A%842020%E6%96%87%E7%AB%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93~/" title="小Bob的2020文章系列总结~"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-19</div><div class="info-item-2">小Bob的2020文章系列总结~</div></div><div class="info-2"><div class="info-item-1"> 新年也过得差不多了，之前准备将2020年写的相关文章做个小小的总结，奈何一直没整理。 今天小编准备将相关文章来个汇总，也算是对公众号一年小小的总结吧。 2020年的一月，对于网文一无所知的我，开始了属于自己的创作；还记得第一篇写的是：  入门C语言需要注意的那些事！！！  从在网上找图一直到… 2020-那些学...</div></div></div></a><a class="pagination-related" href="/2020/06/06/TIOBE%E5%85%AD%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89Rust%E9%A6%96%E6%AC%A1%E8%BF%9B%E5%85%A5TIOBE%E6%8C%87%E6%95%B0%E5%89%8D20%E5%90%8D/" title="TIOBE六月榜单出炉,Rust首次进入TIOBE指数前20名!"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-06</div><div class="info-item-2">TIOBE六月榜单出炉,Rust首次进入TIOBE指数前20名!</div></div><div class="info-2"><div class="info-item-1">  The best feeling in the world is when you know your heart issmiling。世间最完美的感受，就是发现自我的心在笑。 六月刚到，TIOBE已经为我们准备好了最新的编程语言排行榜，相信每个程序员都会时不时关注一下排行榜的变化,虽然仅起参考作用,但无疑也...</div></div></div></a><a class="pagination-related" href="/2020/10/09/TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89Pytho%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/" title="TIOBE十月榜单出炉：Python或将超过Java获得第二名"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-09</div><div class="info-item-2">TIOBE十月榜单出炉：Python或将超过Java获得第二名</div></div><div class="info-2"><div class="info-item-1">   每日一句，送给最珍贵的你： 我们一日所度过的所谓的日常，实际上可能是接连不断的奇迹 十月刚到，TIOBE已经为我们准备好了最新的编程语言排行榜，相信很多程序员都会时不时关注一下排行榜的变化,虽然仅起参考作用,但无疑也是个饭后吐槽点****。 TIOBE社区能坚持每个月都推送最新的数据是蛮厉害的,并且收集了很...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么我建议：每个人都该学一点金融"/></a><div class="content"><a class="title" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融">为什么我建议：每个人都该学一点金融</a><time datetime="2026-03-14T18:16:00.000Z" title="发表于 2026-03-15 02:16:00">2026-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="石油暴涨，真的和你没关系吗？"/></a><div class="content"><a class="title" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？">石油暴涨，真的和你没关系吗？</a><time datetime="2026-03-12T00:15:00.000Z" title="发表于 2026-03-12 08:15:00">2026-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没人兜底的家庭，工作只是你人生的一个“练级场”"/></a><div class="content"><a class="title" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”">没人兜底的家庭，工作只是你人生的一个“练级场”</a><time datetime="2026-02-24T11:30:00.000Z" title="发表于 2026-02-24 19:30:00">2026-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="除夕夜，和你一起安静一下"/></a><div class="content"><a class="title" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下">除夕夜，和你一起安静一下</a><time datetime="2026-02-16T09:21:00.000Z" title="发表于 2026-02-16 17:21:00">2026-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通家庭的资本觉醒"/></a><div class="content"><a class="title" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒">普通家庭的资本觉醒</a><time datetime="2026-02-14T13:53:00.000Z" title="发表于 2026-02-14 21:53:00">2026-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="写给投资者的十条建议"/></a><div class="content"><a class="title" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议">写给投资者的十条建议</a><time datetime="2026-02-06T15:00:00.000Z" title="发表于 2026-02-06 23:00:00">2026-02-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/theme.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

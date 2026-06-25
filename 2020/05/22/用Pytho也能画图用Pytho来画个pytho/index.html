@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>用Python也能画图？用Python来画个“python” | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Death is so final， whereas life is so full ofpossibilities。死了可什么都没了，而活着就有无限的可能。《权力的游戏》  往日回顾：  来学Python啦，用Python详细讲解温度转换器  这次咱们开头先详细了解一下Python及其它编程语言，关于编程语言有很多，据说超过六百多种。可真正常用的也就那么几十种，毕竟谁更好用谁就更强大嘛，可谓">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Python也能画图？用Python来画个“python”">
+<meta property="og:url" content="https://dpw09.cn/2020/05/22/%E7%94%A8Pytho%E4%B9%9F%E8%83%BD%E7%94%BB%E5%9B%BE%E7%94%A8Pytho%E6%9D%A5%E7%94%BB%E4%B8%AApytho/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="Death is so final， whereas life is so full ofpossibilities。死了可什么都没了，而活着就有无限的可能。《权力的游戏》  往日回顾：  来学Python啦，用Python详细讲解温度转换器  这次咱们开头先详细了解一下Python及其它编程语言，关于编程语言有很多，据说超过六百多种。可真正常用的也就那么几十种，毕竟谁更好用谁就更强大嘛，可谓">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/theme.jpg">
+<meta property="article:published_time" content="2020-05-22T14:26:00.000Z">
+<meta property="article:modified_time" content="2026-06-25T14:38:38.452Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/theme.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用Python也能画图？用Python来画个“python”",
+  "url": "https://dpw09.cn/2020/05/22/%E7%94%A8Pytho%E4%B9%9F%E8%83%BD%E7%94%BB%E5%9B%BE%E7%94%A8Pytho%E6%9D%A5%E7%94%BB%E4%B8%AApytho/",
+  "image": "https://dpw09.cn/img/theme.jpg",
+  "datePublished": "2020-05-22T14:26:00.000Z",
+  "dateModified": "2026-06-25T14:38:38.452Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/05/22/%E7%94%A8Pytho%E4%B9%9F%E8%83%BD%E7%94%BB%E5%9B%BE%E7%94%A8Pytho%E6%9D%A5%E7%94%BB%E4%B8%AApytho/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '用Python也能画图？用Python来画个“python”',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/theme.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo"><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">用Python也能画图？用Python来画个“python”</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">用Python也能画图？用Python来画个“python”</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-22T14:26:00.000Z" title="发表于 2020-05-22 22:26:00">2020-05-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-25T14:38:38.452Z" title="更新于 2026-06-25 22:38:38">2026-06-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7mun50NgdicYNSyT5p4icrq1NtewHnz0JwABLt8eF56whsJVoFMbibSMuGiaw/0?wx_fmt=jpeg" alt="cover_image"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/4L1MJjsW4SReuBSKmoD3uQvRVGmCZYNbIRYD7f4mnicdFGNzD3AqLliaXAVkft8HdfAclSKgRCwefe9doOCGjSrg/640?wx_fmt=gif"></p>
+<p><strong>Death is so final， whereas life is so full of<br>possibilities。死了可什么都没了，而活着就有无限的可能。《权力的游戏》</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7muMliblq2MicKQFzgDn1bnWicbb2W1T9UCeaQK1PKkKToxVxOHsxsGLlpVw/640?wx_fmt=jpeg"></p>
+<p>往日回顾： <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247485245&idx=1&sn=9092515acae72d89921eb50450010bc5&chksm=fb2076b6cc57ffa0472c3a592b3109cb3ac748dbecfaa4da7cb406b7b2f03b5426097c92df64&scene=21#wechat_redirect"> 来学Python啦，用Python详细讲解温度转换器
+</a></p>
+<p>这次咱们开头先详细了解一下Python及其它编程语言，关于编程语言有很多，据说超过六百多种。可真正常用的也就那么几十种，毕竟谁更好用谁就更强大嘛，可谓说在编程界也有<br>**优胜劣汰 ** 的法则。</p>
+<p>那么大家接触最多的可能就是 ** C语言**<br>了。在C语言中，我们主要学习了它的指针和内存，作为底层语言，它最主要解决的问题是计算机系统的性能问题，也适合做计算机系统的底层程序开发。</p>
+<p>话说C语言可能也是顺应时代，因为它刚好诞生在计算机系统时代。那么还有一种语言也是， ** Java**<br>诞生在网络和Windows时代，当时需要解决的是跨平台问题，而Java作为面向对象的高级语言，提出了用跨平台的方法去解决跨平台的问题，于是Java顺势便火了起来，也一直火到现在，在学Java时，我们通常会学到跨平台，对象，运行时等，主要也是为了解决跨平台问题。</p>
+<p>说到了C语言，那么还有一个 ** C++**<br>，它是在C的基础上发展演变过来的，它有面向对象的特点，又和底层语言C有着相似的地方，一般用来写大型软件的开发，小编在Pr中发现了C++，虽然不知道Pr的全部开发是否为C++，但是至少有C++的成分。在学习C++时我们大概会学对象，多态，继承等。</p>
+<p>还有一类 ** 前端语言**<br>，上面所说的称为后端语言，前端语言包括HTML，CSS，JS等，精通前后端的我们称为全栈工程师。前端语言主要处理的是网页，小程序，网站建设等。</p>
+<p><strong>聊完这些语言后，我们来开始画“Python”咯<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTf0Z2ymo9GuLVHQ2FUAjgzMnhYia2zvQLhex63SAuLkibrrMEP1rxD5dA/640?wx_fmt=png"><br>。</strong></p>
+<p>前有用Python实现温度转换，这有画图功能，感觉Python功能挺多的，不知道下次还会有什么好玩的<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqICFicgjrFPmR7FQngKHNcWW7qyp0x41VuY3BYYbpFFiaibyBtgEwpmh2ygfy2ygibfATamx1XdkfuVAA/640?wx_fmt=png"><br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqICFicgjrFPmR7FQngKHNcWW7qyp0x41VuY3BYYbpFFiaibyBtgEwpmh2ygfy2ygibfATamx1XdkfuVAA/640?wx_fmt=png"><br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqICFicgjrFPmR7FQngKHNcWW7qyp0x41VuY3BYYbpFFiaibyBtgEwpmh2ygfy2ygibfATamx1XdkfuVAA/640?wx_fmt=png"><br>。</p>
+<p>Python之所以能实现画图是因为具有超多的库（听说有超过13w+多的库），而这些库是能够被我们直接拿来用的，全球的开发者都为Python库的扩大做了许多贡献。</p>
+<p>Python的库分为标准库和第三方库，标准库是随解释器安装到系统中的功能模块，而第三方库就得看自己需求独自进行安装了。而下面所说的库是Python的基本标准库。下面所说的库，以及以后会遇到的包，模块等，一般我们现在统称为模块。</p>
+<p><strong>下面我们先看一下它的源代码：</strong></p>
+<hr>
+<p> #PythonDraw.pyimport turtle as tt.setup(650,350,200,200)t.penup()t.fd(-250)t.pendown()t.pensize(25)t.pencolor(“red”)t.seth(-40)for i in range(4): t.circle(40,80) t.circle(-40,80)t.circle(40,80&#x2F;2)t.fd(40)t.circle(16,180)t.fd(40*2&#x2F;3)t.done()</p>
+<p>今天我们来学习一下如何用Python的库来画图。</p>
+<p>1</p>
+<p><strong>GO！</strong></p>
+<p> #PythonDraw.py</p>
+<p>首先我们用了#这个符号来为此程序命名，而#后面的部分并不会写进程序的代码中，因为 ** #和C语言中的&#x2F;&#x2F;符号功能是一样的，叫注释功能。**<br>在#后面可以随便写，不过程序员一般都会用注释来解释程序代码，因为时间长了后可能会忘记部分代码是来干嘛的，毕竟大型程序的代码非常多。</p>
+<p>2</p>
+<p><strong>第一行</strong></p>
+<p> import turtle as t</p>
+<p>此行代码有个 ** 保留字**<br>（上篇Python可能说到了关键字，小编查了一下关键字和保留字的区别，发现还是有些不同的，所以纠正一下哈。保留字是在语言已经定义过的字，使用者不能把这些字作为变量名或过程名使用；而关键字是在语言中有特定含义的，成为语法中一部分的那些字。而它们的区别便是某些保留字并没有运用到当前的语法中，区别不大，大家知道就行）<br><strong>import ** ** ，它引入了一个标准库turtle，没错，它就叫turtle（海龟）。</strong></p>
+<p>**import的主要功能是引入一个模块 ** ，在这个程序中引入了一个模块：绘图库turtle，至于为什么叫海龟，小编也不知啊<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTntGXdgYsUw5oJwQWtibSabkibkUmmZZrDJNGnZicphIPsvicVNLdVvtsrg/640?wx_fmt=png"><br>。</p>
+<p>在turtle后面还有一个as,这是用来干嘛的呢，如果我们没有写as,那么在此行以下的所有语句中t都要改成turtle，是不是感觉很麻烦，所以**<br>as的功能便是用t来代替turtle。**</p>
+<p>其实用import引入库最开始的编码风格是这样的，如下：</p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p> import&lt;库名&gt;&lt;库名&gt;.&lt;函数名&gt;(函数参数)</p>
+<p>import还有一些用法，比如用 from和import两个保留字一起组合，那么在后面调用函数时便不需要写成 &lt;库名&gt;.&lt;函数名&gt; 的形式<br>。是不是要比上面的那种方法简单一点呢，不过这也是有缺点的，如果写的程序比较大，用到的函数比较多，那么就很有可能会造成重名的现象，使程序变得混杂。</p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p> from&lt;库名&gt;import&lt;函数名&gt; #或者from&lt;库名&gt;import*&lt;函数名&gt;</p>
+<p>上面两种都不太方便，第一种写得有点多，第二种容易重名，所以小编用了import+&lt;库名&gt;+as+(自定义名称)的形式，这个自定义名称可以是自己随便起的，这样也会方便很多。</p>
+<p>据说turtle库诞生的时间还蛮早，好像是1969年，它也是入门级的图形绘制函数库。如下图便是用turtle绘制出来的，相信你看完此文后能自己画出更好看的图片。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTq66zviam9icvicqvjjBXKh5FQ9wUpsKBKUGNueUCjEArAmlxibN9u3iaODA/640?wx_fmt=png"></p>
+<p>在turtle库中，我们可以了解turtle库的基本使用方法，如绘图的窗体布局，绘图的坐标系（有空间坐标体系和角度坐标体系），还有大家在买电脑遇到的RGB色域。那么RGB是啥呢，今天我们来简单认识一下它。</p>
+<p><strong>RGB由三种基础色（红，蓝，绿）组合构成了万物色</strong><br>，在RGB色彩模式中，RGB每色取值范围为0<del>255或者0</del>1之间的小数，那么我们怎么用它呢，在turtle中提供了turtle.colormode(mode)来设置模式，如turtle.colormode(1.0)则表示用的是RGB的小数值模式，用turtle.colormode(255)表示使用的是RGB的整数值模式。下面给出了一些基本的颜色数值，还有更多的颜色RGB数值就得靠小伙伴自己去搜索咯。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVT4BCrD9eukDb82iacAicG6yx4qXicc5xic9TxneorYKXHqSu00j2WriczM4Q/640?wx_fmt=png"></p>
+<p>在我们在开始讲turtle库的更多函数时，我们先来个简单分类，turtle程序语法元素有：</p>
+<p><strong>turtle画笔控制函数；</strong></p>
+<p><strong>turtle运动控制函数；</strong></p>
+<p>**turtle方向控制函数 ** 等，因为这个程序大概就讲的这几类控制函数，程序中还有其它的关于循环的语句。</p>
+<p>3</p>
+<p><strong>第二行</strong></p>
+<p> t.setup(650,350,200,200)</p>
+<p>在用turtle写的代码中，运行后我们会看到一个窗体， <strong>它是turtle的一个画布空间，在这个空间中我们使用的最小单位为像素</strong><br>，既然有空间，那么我们就会有坐标来规范它。在我们电脑的屏幕中，最左上角的位置便是（0，0），在画布空间中亦是如此。如果我们自己不设置窗口的位置，那么它会自动默认为在电脑屏幕中间的位置。</p>
+<p>在turtle库中，有 ** turtle.setup函数来控制窗口的位置以及窗口的大小**<br>。它的基本形式为turtle.setup(width,height,startx,starty),前两个为宽度和高度，以及窗口的x,y坐标，x和y可以不填，系统会默认为在电脑屏幕中间位置。其实setup并不是绘图必须要有的，只有当我们需要控制窗口的大小和位置时才会拿出来。</p>
+<p><strong>所以上面语句我们可以理解为在电脑屏幕中生成一个宽度为650像素，高是350像素，窗体的左上角在电脑屏幕中（200，200）的位置。</strong></p>
+<p>在画布窗口这个窗口中，它也是有坐标来规范的，在这个窗口的坐标体系中，有绝对坐标和海龟坐标两种。在绝对坐标中，海龟在窗口的正中心，那么正中心的坐标就为（0，0），海龟的头向着窗口的右侧。如图：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTN6Qjfbum9ID56bteu7QFTtnK4icgqiciabQdicn7FJLhTfHtOQWam3tzaw/640?wx_fmt=png"></p>
+<p>那么海龟怎样运动呢？ ** 运动 ** 又怎么用代码表示呢？turtle提供了一个函数为 ** turtle.goto(x,y)**<br>。如图小编做了一个例子，下图中划有圈圈的地方为坐标原点（0，0）,我们可以看到海龟（实际上看到的是个点）从中心位置出发，顺着箭头到达最终指向的坐标。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTfnLCuOpWaviaYFCt2ldAoyicZOicy2744mT6fJllPz2RBz3dUrzManFMg/640?wx_fmt=png"></p>
+<p>那么海龟运动的方向又是咋样的呢？我们在下图可以看到海龟的运动方向。那么海龟的运动有木有函数可用呢，当然是有的啦，比如<br>海龟向正前方运行就有turtle.forward(d),别名为turtle.fd,向反方向就有turtle.bk(d),还有一个稍微复杂一点的函数表示海龟的运动方向，叫<br>turtle.circle（r,angle)，它表示的是以左侧的某一点为圆心，进行曲线运动，上面的正反方向均为直线运动。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTOPLgcYkj7IJEsPg4WficZjKibCViceEicaqfNsRSG2Wia882rtlyw0TQSvg/640?wx_fmt=png"></p>
+<p>前面说到有空间坐标系和角度坐标系两种，了解了空间坐标系，那么我们来康康角度坐标系把（如下图）。在角度坐标系中，x轴正方向表示0°和360°，y轴正方向表示90°和-270°，这样的一个坐标体系我们称之为绝对坐标。</p>
+<p>恰好前面说到有海龟运动方向，那么在角度坐标系中我们该如何改变海龟的行进方向呢，**<br>turtle提供了一个turtle.seth(angle)函数来改变海龟的行进方向，我们也看到括号内只有angle一个参数，所以它只改变行进方向，并不会改变运动距离。<br>**</p>
+<p>在海龟运动的角度坐标体系中，还有其它的函数来表示海龟的运动角度，如：**<br>turtle.left(angle)表示让当前的海龟向左，turtle.right(angle)表示让当前的海龟向右。**</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqKib2gsf9hjZZiaDvDtc1INVTDYob90XoBtkibYicDCUhC9q2dwwIE5C4XJuoKRPaUWiafJLcUNa0kddHw/640?wx_fmt=png"></p>
+<p>前面说了这么多函数，其实把程序中的有些语句已经包含了，那么我们现在以代码块的形式来为大家讲解。</p>
+<p>4</p>
+<p><strong>画笔控制函数</strong></p>
+<p> t.penup()<br> ###t.fd(-250)<br> t.pendown()<br> t.pensize(25)<br> t.pencolor(“red”)</p>
+<p>接下来我们以语法元素为模块来为大家讲解，上面的语句（忽略第二行，它不是画笔控制函数）。在除开第二行的这四句语句中，我们可以发现它们都有个共同点，那就是前面都有个pen（笔）。<br>在画笔控制函数中，一般penup和pendown是成对出现，既然画笔能up(在上面飞)，那么肯定也会有down（掉下来的时候呀）。turtle.penup和turtle.down也有别名叫turtle.pu和turtle.pd，也就是英文首字母的缩写<br>。</p>
+<p><strong>那么pensize又是用来干嘛的呢，从英文我们也容易看出是和大小有关的，没错，它就是用来控制画笔宽度的，别名为turtle.width。</strong><br>在此程序中，我们将画笔的大小设置为25，程序运行后根据图像来看还是有点大的。</p>
+<p><strong>pencolor也容易看出是与颜色相关的</strong><br>，我们这里用的是颜色字符串(切记颜色字符串必须是小写哦)来为海龟（画笔）涂上一层颜色，还可以用前面讲到的RGB的小数值来表示，如：t.pencolor(0.63,0.13,0.94)，甚至还可以直接将这些小数打包为一个元组值，直接放入pencolor函数中，如t.pencolor((0.63,0.13,0.94))。</p>
+<p>5</p>
+<p><strong>运动控制函数</strong></p>
+<p> t.fd(-250)</p>
+<p><strong>这句可理解为海龟倒退行进250个像素。</strong></p>
+<p> t.circle(40,80)</p>
+<p>控制运动函数在讲解第二行代码时已经讲了一些，这里再补充一下。前面有说到<br><strong>turtle.circle（r,angle)函数，还有一种写法是turtle.circle（r,extent&#x3D;None)，意思是根据半径为r绘制extent角度的弧形。</strong></p>
+<p>一般默认为圆心在海龟的左侧，但如果是负数，那么圆心便在海龟的右侧， 如图为程序实例：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7muGpYXWTpiapkXg4dP2ldbdVxAmgIqqXmoMmJ8uGyDiaSJNNW7QsSZ00ng/640?wx_fmt=png"></p>
+<p>6</p>
+<p><strong>方向控制函数</strong></p>
+<p> t.seth(-40)</p>
+<p>这个函数前面也讲到了，不过我们还是来复习一下，turtle提供了一个 ** turtle.setheading(angle)函数来改变海龟的行进方向<br><strong>，在括号内只有angle一个参数，所以它只改变行进方向，并不会改变运动距离。</strong><br>turtle.setheading(angle)函数的别名便是turtle.seth(angle)。**</p>
+<p>方向控制函数还有用来表示海龟的运动角度，如：turtle.left(angle)表示让当前的海龟向左，turtle.right(angle)表示让当前的海龟向右。</p>
+<p>7</p>
+<p><strong>循环语句</strong></p>
+<p> for i in range(4):#i从0开始计数</p>
+<p> t.circle(40,80)<br> t.circle(-40,80)</p>
+<p>最后我们来讲解一下循环语句和range函数。 ** 循环语句我们用到的是for…in结构（可认为一个固定搭配）**<br>，其中还包含有一个range函数。循环语句的基本结构为：</p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p> for&lt;变量&gt;range(参数)#参数为循环的次数，若次数固定，则循环次数为0~（次数-1） 循环执行语句</p>
+<p><strong>下面演示一个简单程序实例：</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7muiayu8icZRJkXwkobKrmL8J6CKArZI8fZSicTRk1uRno3ITOWTLLw1BOew/640?wx_fmt=png"></p>
+<p><strong>那么range函数在里面起什么作用呢，它的作用是产生循环序列计数。</strong><br>range包含两种使用方法，第一种是range(N),用来产生0~N-1个整数序列；还有一种相差不大，为range(M，N),用来产生从M到N-1个整数序列，共N-<br>M个。</p>
+<p>8</p>
+<p><strong>运行程序</strong></p>
+<p> t.done()</p>
+<p>这里最后还有一句语句，它的作用是不让窗口关闭，若没有此语句，那么窗口在完成绘制“Python”后便会自动关闭。</p>
+<p><strong>下图表示“Python”绘制成功啦。</strong></p>
+<p>是不是看起来不怎么像，其实也还好啦**<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7muCshypekH8OD62iaZ2YicZoGrcBw9PTxaDOvsqzIgmgol69AyRwdIazeg/640?wx_fmt=png"><br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7muCshypekH8OD62iaZ2YicZoGrcBw9PTxaDOvsqzIgmgol69AyRwdIazeg/640?wx_fmt=png"><br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7muCshypekH8OD62iaZ2YicZoGrcBw9PTxaDOvsqzIgmgol69AyRwdIazeg/640?wx_fmt=png"><br>**</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqJdPpia6hFSle0DicIMgEH7mugVG0RQkX2MFCaPXkgKwOLF6nd35H3NDX0ewVt4zeVJrEIjfd5LHykQ/640?wx_fmt=png"></p>
+<p><strong>最后想说的是，大家一定要把英语学好，这个程序中许多函数的名称和英文有很大关系，英语会，程序理解起来也更方便。</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/ckiaYOYicQpQQB5lS21ItkZKeYiaExH5rY5UnyS1KBCcbHEK6zJRNs6KTwYmaAQBVruo1On9EhAc3wBHXiceFIdpPg/640?wx_fmt=gif"></p>
+<p><strong>最后的话：不知道Python认真学起来需要多久，既然开始学了，那就要好好学下去。</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/05/22/%E7%94%A8Pytho%E4%B9%9F%E8%83%BD%E7%94%BB%E5%9B%BE%E7%94%A8Pytho%E6%9D%A5%E7%94%BB%E4%B8%AApytho/">https://dpw09.cn/2020/05/22/%E7%94%A8Pytho%E4%B9%9F%E8%83%BD%E7%94%BB%E5%9B%BE%E7%94%A8Pytho%E6%9D%A5%E7%94%BB%E4%B8%AApytho/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post-share"><div class="social-share" data-image="/img/theme.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/05/23/%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94%E8%B5%9B%E9%A2%98%E5%B0%8F%E7%BC%96%E5%BC%84%E6%87%82%E5%90%8E%E5%86%8D%E4%B8%8E%E5%A4%A7%E5%AE%B6%E5%88%86%E4%BA%AB%E5%93%A6%E9%9A%BE%E5%BA%A6/" title="小编今天发现了一个有趣的彩蛋题，有点难度，特来征求大家，康康有木有啥好的想法，如果有，请一定要发到公众号后台哦。这也是某个比赛的彩蛋题，关于比赛题小编弄懂后再与大家分享哦，难度比较大，和div1的难度差不多啦。"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">小编今天发现了一个有趣的彩蛋题，有点难度，特来征求大家，康康有木有啥好的想法，如果有，请一定要发到公众号后台哦。这也是某个比赛的彩蛋题，关于比赛题小编弄懂后再与大家分享哦，难度比较大，和div1的难度差不多啦。</div></div><div class="info-2"><div class="info-item-1"> 小编今天发现了一个有趣的彩蛋题，有点难度，特来征求大家，康康有木有啥好的想法，如果有，请一定要发到公众号后台哦。这也是某个比赛的彩蛋题，关于比赛题小编弄懂后再与大家分享哦，难度比较大，和div1的难度差不多啦。To：比赛已结束，不会用大家分享的去填到题目里的。 小编今天发现了一个有趣的彩蛋题，有点难度，特来征求...</div></div></div></a><a class="pagination-related" href="/2020/05/21/%E7%94%A8C%E8%AF%AD%E8%A8%80%E5%BB%BA%E4%B8%AA%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" title="用C语言建个单向链表"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">用C语言建个单向链表</div></div><div class="info-2"><div class="info-item-1">  Let life be beautiful like summer flowers and death like autumnleaves。生如夏花之灿烂，死如秋叶之静美。 链表是和数据结构相挂钩的，现在可以先认识一下哦，不一定非要弄懂，但是弄懂也没毛病。学习链表之前要把结构体弄懂哦，还有指针等。基础是一定要...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/05/05/2020%E5%B9%B45%E6%9C%88%E7%BC%96%E7%A8%8B%E6%8E%92%E8%A1%8C%E6%A6%9CC%E8%AF%AD%E8%A8%80%E5%8F%8D%E8%B6%85Java%E5%A4%BA%E5%86%A0/" title="2020年5月编程排行榜：C语言反超Java夺冠"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-05</div><div class="info-item-2">2020年5月编程排行榜：C语言反超Java夺冠</div></div><div class="info-2"><div class="info-item-1">  **Li ancient events are not only but also have a firm and indomitable willability above common people.** 古之立大事者，不惟有超世之才，亦必有坚韧不拔之志。 TIOBE已发布5月份的编程榜单，此次榜单最大的...</div></div></div></a><a class="pagination-related" href="/2021/02/19/%E5%B0%8FBob%E7%9A%842020%E6%96%87%E7%AB%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93~/" title="小Bob的2020文章系列总结~"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-19</div><div class="info-item-2">小Bob的2020文章系列总结~</div></div><div class="info-2"><div class="info-item-1"> 新年也过得差不多了，之前准备将2020年写的相关文章做个小小的总结，奈何一直没整理。 今天小编准备将相关文章来个汇总，也算是对公众号一年小小的总结吧。 2020年的一月，对于网文一无所知的我，开始了属于自己的创作；还记得第一篇写的是：  入门C语言需要注意的那些事！！！  从在网上找图一直到… 2020-那些学...</div></div></div></a><a class="pagination-related" href="/2020/10/09/TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89Pytho%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/" title="TIOBE十月榜单出炉：Python或将超过Java获得第二名"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-09</div><div class="info-item-2">TIOBE十月榜单出炉：Python或将超过Java获得第二名</div></div><div class="info-2"><div class="info-item-1">   每日一句，送给最珍贵的你： 我们一日所度过的所谓的日常，实际上可能是接连不断的奇迹 十月刚到，TIOBE已经为我们准备好了最新的编程语言排行榜，相信很多程序员都会时不时关注一下排行榜的变化,虽然仅起参考作用,但无疑也是个饭后吐槽点****。 TIOBE社区能坚持每个月都推送最新的数据是蛮厉害的,并且收集了很...</div></div></div></a><a class="pagination-related" href="/2020/05/25/Pycharm%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3%EF%BC%88%E5%90%AB%E8%A7%86%E9%A2%91%E7%89%88%EF%BC%89/" title="Pycharm下载及安装详解（含视频版）"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-25</div><div class="info-item-2">Pycharm下载及安装详解（含视频版）</div></div><div class="info-2"><div class="info-item-1">  People cry， not because they’re weak。It’s because they’ve been strong fortoo long。哭泣，不代表脆弱，只因坚强了太久。 昨天为大家带来了Anaconda的下载以及安装详解，今天将带来Pycharm的下载以及安装详解，步骤其实不难，...</div></div></div></a><a class="pagination-related" href="/2021/08/14/%E8%81%8A%E8%81%8AJava%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="聊聊Java运算符的那些事"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-14</div><div class="info-item-2">聊聊Java运算符的那些事</div></div><div class="info-2"><div class="info-item-1">  大家好，我是小 Bob,一个关注软件领域而又执着于计算机底层的开发者~  大家好呀，昨天我们说了 ** Java的数据类型 ** ，类型和其它语言都相差不大，为什么这么说呢，我们得记住Python还有个复数类型哦。 这里主要给大家讲解 ** Java运算符的分类和使用 ** 。  一.运算符分类  说到 运算...</div></div></div></a><a class="pagination-related" href="/2020/09/10/TIOBE%E4%B9%9D%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89C++%E5%81%9A%E5%BE%97%E5%BE%88%E5%A5%BD%E8%A6%81%E5%B4%9B%E8%B5%B7%E4%B9%88/" title="TIOBE九月榜单出炉：C++做得很好，要崛起么？"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-10</div><div class="info-item-2">TIOBE九月榜单出炉：C++做得很好，要崛起么？</div></div><div class="info-2"><div class="info-item-1">   每日一句，送给最珍贵的你： 如果一个人丢掉了过去，他就无法找到未来。 九月刚到，TIOBE已经为我们准备好了最新的编程语言排行榜，相信很多程序员都会时不时关注一下排行榜的变化,虽然仅起参考作用,但无疑也是个饭后吐槽点****。 TIOBE社区能坚持每个月都推送最新的数据是蛮厉害的,并且收集了很多高级工程师,...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么我建议：每个人都该学一点金融"/></a><div class="content"><a class="title" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融">为什么我建议：每个人都该学一点金融</a><time datetime="2026-03-14T18:16:00.000Z" title="发表于 2026-03-15 02:16:00">2026-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="石油暴涨，真的和你没关系吗？"/></a><div class="content"><a class="title" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？">石油暴涨，真的和你没关系吗？</a><time datetime="2026-03-12T00:15:00.000Z" title="发表于 2026-03-12 08:15:00">2026-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没人兜底的家庭，工作只是你人生的一个“练级场”"/></a><div class="content"><a class="title" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”">没人兜底的家庭，工作只是你人生的一个“练级场”</a><time datetime="2026-02-24T11:30:00.000Z" title="发表于 2026-02-24 19:30:00">2026-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="除夕夜，和你一起安静一下"/></a><div class="content"><a class="title" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下">除夕夜，和你一起安静一下</a><time datetime="2026-02-16T09:21:00.000Z" title="发表于 2026-02-16 17:21:00">2026-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通家庭的资本觉醒"/></a><div class="content"><a class="title" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒">普通家庭的资本觉醒</a><time datetime="2026-02-14T13:53:00.000Z" title="发表于 2026-02-14 21:53:00">2026-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="写给投资者的十条建议"/></a><div class="content"><a class="title" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议">写给投资者的十条建议</a><time datetime="2026-02-06T15:00:00.000Z" title="发表于 2026-02-06 23:00:00">2026-02-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/theme.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Wi，dows10下JDK8下载及java环境配置 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="每日一句，送给最珍贵的你： 心灵的自知，全靠个人修行。 最近感觉心态不怎么平静，在公众号上写的文章并没有之前那么让读者喜爱，当然也是有读者反映。在之前发的几篇是直接转载别人的，所以如果有不好的阅读体验还请大家谅解，小编还是会一直坚持写下去的。 前几天一直在写关于数据结构的文章，关于学习数据结构，小编还是建议大家多敲敲代码，可以试着写几个小程序，或者去洛谷，牛客网刷ACM也是可以的。 今天突然">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wi，dows10下JDK8下载及java环境配置">
+<meta property="og:url" content="https://dpw09.cn/2020/09/29/Widows10%E4%B8%8BJDK8%E4%B8%8B%E8%BD%BD%E5%8F%8Ajava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="每日一句，送给最珍贵的你： 心灵的自知，全靠个人修行。 最近感觉心态不怎么平静，在公众号上写的文章并没有之前那么让读者喜爱，当然也是有读者反映。在之前发的几篇是直接转载别人的，所以如果有不好的阅读体验还请大家谅解，小编还是会一直坚持写下去的。 前几天一直在写关于数据结构的文章，关于学习数据结构，小编还是建议大家多敲敲代码，可以试着写几个小程序，或者去洛谷，牛客网刷ACM也是可以的。 今天突然">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/theme.jpg">
+<meta property="article:published_time" content="2020-09-29T13:41:00.000Z">
+<meta property="article:modified_time" content="2026-06-25T14:38:38.415Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="洛谷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/theme.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Wi，dows10下JDK8下载及java环境配置",
+  "url": "https://dpw09.cn/2020/09/29/Widows10%E4%B8%8BJDK8%E4%B8%8B%E8%BD%BD%E5%8F%8Ajava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/",
+  "image": "https://dpw09.cn/img/theme.jpg",
+  "datePublished": "2020-09-29T13:41:00.000Z",
+  "dateModified": "2026-06-25T14:38:38.415Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/09/29/Widows10%E4%B8%8BJDK8%E4%B8%8B%E8%BD%BD%E5%8F%8Ajava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Wi，dows10下JDK8下载及java环境配置',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/theme.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo"><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">Wi，dows10下JDK8下载及java环境配置</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Wi，dows10下JDK8下载及java环境配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-29T13:41:00.000Z" title="发表于 2020-09-29 21:41:00">2020-09-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-25T14:38:38.415Z" title="更新于 2026-06-25 22:38:38">2026-06-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">878</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicrAuqrk8L0dtX4GYH8J6MDGF3LhvVQLDqYS4GpbwiahffiabFS9Hvz8lg/0?wx_fmt=jpeg" alt="cover_image"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/ia7LjohUxr0lkupLS4IOWNeTFO9YNGyQwwdpBJolYE59a4AgSUlcyFvaHH0WbJa6AHfMw3sXx1LoSiaHicDQhficpQ/640?wx_fmt=png"></p>
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_gif/Zbvg1twtSgvaVPeZflLb4UOQusuWn5SM8DszFbwEQkYpCibMWbgtOZAMjBqoiaeiaPGPYp2s8GzcHgia4ZGHkLSq1A/640?wx_fmt=gif"></p>
+<p><strong>每日一句，送给最珍贵的你：</strong></p>
+<p>心灵的自知，全靠个人修行。</p>
+<p>最近感觉心态不怎么平静，在公众号上写的文章并没有之前那么让读者喜爱，当然也是有读者反映。在之前发的几篇是直接转载别人的，所以如果有不好的阅读体验还请大家谅解，小编还是会一直坚持写下去的。</p>
+<p>前几天一直在写关于数据结构的文章，关于学习数据结构，小编还是建议大家多敲敲代码，可以试着写几个小程序，或者去洛谷，牛客网刷ACM也是可以的。</p>
+<p>今天突然想到之前重装系统后一直没有把Java的环境配好，虽说小编Java还没开始学，但准备工作还是得做好，哈哈哈。</p>
+<p>下面就开始介绍Java的环境配置啦，首先我们得下载JDK，这里以Java8为例。</p>
+<p>下载JDK8</p>
+<p><strong>下载官网</strong> ：<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase-">https://www.oracle.com/java/technologies/javase/javase-</a><br>jdk8-downloads.html</p>
+<p>在网址中大家可以看到如下的各个版本，在这里小编的是windows×64位的，所以小编选择的是划红线的，然后点击旁边的jdk-8u261-windows-×64.exe即可，大家根据自己的电脑版本选择即可。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicPCFkxuxhjxiaxnNYQxL42acfcXial1sXr0htkRicl603EgPEKFcjkKwpQ/640?wx_fmt=png"></p>
+<p>接下来会出现下面这个页面， <strong>点击我接受，再点击下载按钮。</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicqovHSFy5aoEno8mcNDibB0dgb7pB1U2zub9h2SLSfqGQnBPiao0Makgg/640?wx_fmt=png"></p>
+<p>之后会跳转到Orcle的登录页面，这里大家可以自己创建一个账号，或者百度orcle账号，网上也会有账号分享的啦。小编是从网上直接找的。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicXaJtvictxlAfFxaZd3EiaCRlQiaQqK9R5iatM7qaibE5vfKFxdoKq9F0KKQ/640?wx_fmt=jpeg"></p>
+<p>登录之后就开始下载了（可能会有点慢）。</p>
+<p>安装包下载完成后我们就可以开始安装啦。</p>
+<p>安装JDK8</p>
+<p>打开安装包，会出现安装向导：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicuiaWXUPib80CwAiah116fLT6UbJpzvmSVE88JImmFVD6O8BwTPckjC3nA/640?wx_fmt=png"></p>
+<p>然后点击下一步，会出现安装路径，这里大家根据自己的喜好安装到合适的文件即可，比如小编就安装到了D盘：</p>
+<p><strong>To:如果对文件管理不是特别好还是建议大家别动安装路径，一直默认即可。</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkic7Fp1BQqfPQIlIT06CicDNGnZSuBvXwPMBRI19dibTAdUqjmp41XibLDMQ/640?wx_fmt=png"></p>
+<p>之后会出现jre的安装路径，小编依旧选择了D盘，弄好安装路径后点击下一步即可：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicpjlia5rR62NsGc8zObPwm0WzicViawTyNehP99LaQCyncTFpEdQ09xB9w/640?wx_fmt=png"></p>
+<p>出现下面页面即说明正在安装啦！</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicgYsLo9HCXabUzQskd7zd9kxBTGEmEa6Qzibmk1Y3U8icQxq1OFYDia2nA/640?wx_fmt=png"></p>
+<p>以下页面即说明安装完成啦。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkic7yumKWibWlOxz4WXfQT4eHaLOuI8CmTzbrkfTgmCtKZibkGyz8t43NPQ/640?wx_fmt=png"></p>
+<p>最后重要的便是配置java环境啦。</p>
+<p>Java环境配置</p>
+<p>找到 <strong>我的电脑：</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkic0mYXIib9cKLopiaUUunzlicZCdgtGuiaGTN9JFohHlkRlfJUBwmsdibWP5w/640?wx_fmt=png"></p>
+<p>右键找到并点击 ** 属性 ** ，在最左边找到并点击 ** 高级系统设置 ** ：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkic7vbzyA1kLYPp99EDAzvrUmVaHBZTpMtAPWNPjNocg5ic2NTLnnOOHYA/640?wx_fmt=png"></p>
+<p>然后会出现下面的 <strong>系统属性</strong> ，找到 ** 高级 ** 中的 ** 环境变量 ** ：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkiciaaRvlETicJ5k9hGUaCFZgFrajQgIZv3FD4C00baKAEtM8apqQ3rovbw/640?wx_fmt=png"></p>
+<p><strong>我们需要在系统变量中进行修改，切记不是上面的用户变量！！！</strong></p>
+<p>然后点击 ** 新建 ** ，</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicZ17n20QZHhOkib4SMz68AicKRPcHThlfHC2bGC4HLianqich11w1LZ726g/640?wx_fmt=png"></p>
+<p><strong>会出现如下的页面， ** ** 配置为：</strong></p>
+<p>变量名： CLASSPATH</p>
+<p>变量值：这里填你的jdk安装路径，如小编的是：D:\Program Files\Java\jdk1.8.0_261</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicFAFPQg8Gkpib3PI6cFn9o7jFBOB1hZiak22zJM51k2DDc5QI7g1W85Uw/640?wx_fmt=png"></p>
+<p>最后一步是找到系统变量中的 ** Path ** 并点击，出现如下页面，点击 ** 新建 ** ，然后**<br>将下载的jdk目录下的bin目录复制到刚刚新建的地方 ** ，如下图：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicZW2jLZH3HvyImvVbVf4ibVVW2TAUDCqcEqPOeEh7MlFLEyd4P9Pib0Iw/640?wx_fmt=png"></p>
+<p>最后一直点击确定即可。</p>
+<p><strong>大家也可以打开cmd窗口（Win+R后输入cmd）查看是否已配置成功。</strong></p>
+<p>打开cmd后输入Java，出现下图即说明配置成功：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkicEQmR3MI6gviaYmC7DB0zyrZWUQjw1C0picrX4kCOa3J3rsBAjsmJOmNw/640?wx_fmt=png"></p>
+<p>然后重新打开cmd窗口，输入Javac出现如下图说明配置成功。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIXvxtqqpHhKVxWvGepTHkic3WWMyVSqVldYvVuKP9icUDIAvUraSaSPDL0VTlY6zd8Lf2VB9eocQtQ/640?wx_fmt=png"></p>
+<p><strong>至此说明Java的环境配置已成功！</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz/cZV2hRpuAPia3RFX6Mvw06kePJ7HbmI7b35o17yNJx4WHYPSQj280IElEicRPq2CviaJe8fjL2AeadmIjARqVZWnw/640?wx_fmt=jpeg"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/09/29/Widows10%E4%B8%8BJDK8%E4%B8%8B%E8%BD%BD%E5%8F%8Ajava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">https://dpw09.cn/2020/09/29/Widows10%E4%B8%8BJDK8%E4%B8%8B%E8%BD%BD%E5%8F%8Ajava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B4%9B%E8%B0%B7/">洛谷</a><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post-share"><div class="social-share" data-image="/img/theme.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/09/29/Windows10%E4%B8%8BJDK8%E4%B8%8B%E8%BD%BD%E5%8F%8Ajava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="Windows10下JDK8下载及java环境配置"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Windows10下JDK8下载及java环境配置</div></div><div class="info-2"><div class="info-item-1">  </div></div></div></a><a class="pagination-related" href="/2020/09/28/WindowsXP%E6%BA%90%E4%BB%A3%E7%A0%81%E9%81%AD%E6%B3%84%E9%9C%B2%E4%B8%93%E5%AE%B6%E8%A1%A8%E7%A4%BA%E9%97%AE%E9%A2%98%E4%B8%8D%E5%A4%A7/" title="WindowsXP源代码遭泄露 专家表示问题不大"><img class="cover" src="/img/theme.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">WindowsXP源代码遭泄露 专家表示问题不大</div></div><div class="info-2"><div class="info-item-1">  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/10/05/IDEA%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%96%B0%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E9%A1%B9%E7%9B%AE%EF%BC%88Helloworld%EF%BC%89/" title="IDEA下载及新建第一个Java项目（Helloworld）"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-05</div><div class="info-item-2">IDEA下载及新建第一个Java项目（Helloworld）</div></div><div class="info-2"><div class="info-item-1">   秋天里~愿你我御风而飞  有小伙伴最近问我关于IDEA怎么创建一个Java项目，正巧小编上次配置好Java环境后并没有开始耍IDEA，这次就来试一下咯！ 首先我们得下好IDEA，先进入jetbrains的官网：https://www.jetbrains.com/ 找到Tools下面的IDEA，点击进去找到D...</div></div></div></a><a class="pagination-related" href="/2020/10/02/%E6%B4%9B%E8%B0%B7%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="洛谷 || 明明的随机数"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-02</div><div class="info-item-2">洛谷 || 明明的随机数</div></div><div class="info-2"><div class="info-item-1">   每日一句，送给最珍贵的你： 时间并不能证明一切，有些东西还是得靠自己去争取。 本题的解法还是蛮多的，大家有时间还是可以自己研究研究。 题目描述 明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了NN个11到10001000之间的随机整数(N≤100)(N≤100)，对于其中重复...</div></div></div></a><a class="pagination-related" href="/2021/02/19/%E5%B0%8FBob%E7%9A%842020%E6%96%87%E7%AB%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93~/" title="小Bob的2020文章系列总结~"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-19</div><div class="info-item-2">小Bob的2020文章系列总结~</div></div><div class="info-2"><div class="info-item-1"> 新年也过得差不多了，之前准备将2020年写的相关文章做个小小的总结，奈何一直没整理。 今天小编准备将相关文章来个汇总，也算是对公众号一年小小的总结吧。 2020年的一月，对于网文一无所知的我，开始了属于自己的创作；还记得第一篇写的是：  入门C语言需要注意的那些事！！！  从在网上找图一直到… 2020-那些学...</div></div></div></a><a class="pagination-related" href="/2020/10/26/%E6%B4%9B%E8%B0%B7%E6%8B%BC%E6%95%B0(C%E8%AF%AD%E8%A8%80)/" title="洛谷 || 拼数(C语言)"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-26</div><div class="info-item-2">洛谷 || 拼数(C语言)</div></div><div class="info-2"><div class="info-item-1">   Success does not consist in never making mistakes but in never making the sameone a second time.成功并不在于从不犯错，而在于不重蹈覆辙。  **题目描述 ** 设有 n个正整数 a1…an将它们联接成一排，相邻数...</div></div></div></a><a class="pagination-related" href="/2020/10/04/%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%8E%A9%E8%BD%AC%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87%E5%88%86%E6%9E%90%E4%B8%8E%E8%BF%90%E7%94%A8%EF%BC%88%E6%B3%A2%E6%B5%AA%E7%BA%BF%E4%B8%8E%E6%B1%9F%E6%81%A9%E7%BA%BF%EF%BC%89/" title="零基础玩转投资理财 || 技术指标分析与运用（波浪线与江恩线）"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-04</div><div class="info-item-2">零基础玩转投资理财 || 技术指标分析与运用（波浪线与江恩线）</div></div><div class="info-2"><div class="info-item-1">   每日一句，送给最珍贵的你： 贪于近者则贵远，溺于利者则伤名。 </div></div></div></a><a class="pagination-related" href="/2021/10/26/Java%E7%B3%BB%E5%88%97%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B~/" title="Java系列：构造函数重载和普通函数的那些事~"><img class="cover" src="/img/theme.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="info-item-2">Java系列：构造函数重载和普通函数的那些事~</div></div><div class="info-2"><div class="info-item-1">  </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">362</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么我建议：每个人都该学一点金融"/></a><div class="content"><a class="title" href="/2026/03/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BB%BA%E8%AE%AE%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E8%AF%A5%E5%AD%A6%E4%B8%80%E7%82%B9%E9%87%91%E8%9E%8D/" title="为什么我建议：每个人都该学一点金融">为什么我建议：每个人都该学一点金融</a><time datetime="2026-03-14T18:16:00.000Z" title="发表于 2026-03-15 02:16:00">2026-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="石油暴涨，真的和你没关系吗？"/></a><div class="content"><a class="title" href="/2026/03/12/%E7%9F%B3%E6%B2%B9%E6%9A%B4%E6%B6%A8%E7%9C%9F%E7%9A%84%E5%92%8C%E4%BD%A0%E6%B2%A1%E5%85%B3%E7%B3%BB%E5%90%97/" title="石油暴涨，真的和你没关系吗？">石油暴涨，真的和你没关系吗？</a><time datetime="2026-03-12T00:15:00.000Z" title="发表于 2026-03-12 08:15:00">2026-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没人兜底的家庭，工作只是你人生的一个“练级场”"/></a><div class="content"><a class="title" href="/2026/02/24/%E6%B2%A1%E4%BA%BA%E5%85%9C%E5%BA%95%E7%9A%84%E5%AE%B6%E5%BA%AD%E5%B7%A5%E4%BD%9C%E5%8F%AA%E6%98%AF%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%80%E4%B8%AA%E7%BB%83%E7%BA%A7%E5%9C%BA/" title="没人兜底的家庭，工作只是你人生的一个“练级场”">没人兜底的家庭，工作只是你人生的一个“练级场”</a><time datetime="2026-02-24T11:30:00.000Z" title="发表于 2026-02-24 19:30:00">2026-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="除夕夜，和你一起安静一下"/></a><div class="content"><a class="title" href="/2026/02/16/%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜，和你一起安静一下">除夕夜，和你一起安静一下</a><time datetime="2026-02-16T09:21:00.000Z" title="发表于 2026-02-16 17:21:00">2026-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="普通家庭的资本觉醒"/></a><div class="content"><a class="title" href="/2026/02/14/%E6%99%AE%E9%80%9A%E5%AE%B6%E5%BA%AD%E7%9A%84%E8%B5%84%E6%9C%AC%E8%A7%89%E9%86%92/" title="普通家庭的资本觉醒">普通家庭的资本觉醒</a><time datetime="2026-02-14T13:53:00.000Z" title="发表于 2026-02-14 21:53:00">2026-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议"><img src="/img/theme.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="写给投资者的十条建议"/></a><div class="content"><a class="title" href="/2026/02/06/%E5%86%99%E7%BB%99%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E5%8D%81%E6%9D%A1%E5%BB%BA%E8%AE%AE/" title="写给投资者的十条建议">写给投资者的十条建议</a><time datetime="2026-02-06T15:00:00.000Z" title="发表于 2026-02-06 23:00:00">2026-02-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/theme.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
