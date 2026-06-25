@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="62" x2="1518" y2="844" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#153047"/>
+      <stop offset="0.55" stop-color="#2d5f86"/>
+      <stop offset="1" stop-color="#89b6d5"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1072 207) rotate(51) scale(276 226.32)">
+      <stop stop-color="rgba(255,255,255,0.44)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1390 764) rotate(180) scale(440 300)">
+      <stop stop-color="rgba(8,12,16,0.28)"/>
+      <stop offset="1" stop-color="rgba(8,12,16,0)"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="36" flood-color="rgba(5, 12, 18, 0.24)"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" rx="44" fill="url(#bg)"/>
+  <rect width="1600" height="900" rx="44" fill="url(#glowA)"/>
+  <rect width="1600" height="900" rx="44" fill="url(#glowB)"/>
+
+  <g opacity="0.16">
+    <path d="M-42 686C161 554 313 550 451 618c126 62 248 61 388-6 164-79 296-86 425-29 128 58 255 59 378-5V900H-42V686z" fill="rgba(255, 227, 157, 0.2)"/>
+    <path d="M-10 741C145 653 289 646 404 694c140 59 268 56 401-16 160-86 327-98 495-30 110 44 214 49 320 13V900H-10V741z" fill="rgba(255,255,255,0.08)"/>
+  </g>
+
+  <g opacity="0.12">
+    <path d="M104 0V900" stroke="white" stroke-width="1"/><path d="M312 0V900" stroke="white" stroke-width="1"/><path d="M520 0V900" stroke="white" stroke-width="1"/><path d="M728 0V900" stroke="white" stroke-width="1"/><path d="M936 0V900" stroke="white" stroke-width="1"/><path d="M1144 0V900" stroke="white" stroke-width="1"/><path d="M1352 0V900" stroke="white" stroke-width="1"/>
+    <path d="M0 132H1600" stroke="white" stroke-width="1"/><path d="M0 272H1600" stroke="white" stroke-width="1"/><path d="M0 412H1600" stroke="white" stroke-width="1"/><path d="M0 552H1600" stroke="white" stroke-width="1"/><path d="M0 692H1600" stroke="white" stroke-width="1"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="116" width="744" height="624" rx="38" fill="rgba(15, 16, 22, 0.18)"/>
+    <rect x="90" y="116" width="744" height="624" rx="38" stroke="rgba(255,255,255,0.12)"/>
+  </g>
+
+  <g transform="translate(0 0) rotate(1 1204 436)">
+    <circle cx="1236" cy="338" r="183" fill="rgba(255,255,255,0.08)"/>
+    <circle cx="1126" cy="484" r="166" fill="rgba(255,255,255,0.05)"/>
+  </g>
+
+  
+      <g opacity="0.24">
+        <path d="M982 582h428" stroke="rgba(255, 227, 157, 0.2)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M1048 523l66-94 72 44 75-119 76 62 88-116" stroke="#ffe39d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M1396 262l45-24-9 52" stroke="#ffe39d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </g>
+      <g opacity="0.15000000000000002">
+        <rect x="1040" y="486" width="48" height="96" rx="16" fill="rgba(255, 255, 255, 0.13)"/>
+        <rect x="1128" y="438" width="48" height="144" rx="16" fill="rgba(255, 255, 255, 0.13)"/>
+        <rect x="1216" y="382" width="48" height="200" rx="16" fill="rgba(255, 255, 255, 0.13)"/>
+        <rect x="1304" y="336" width="48" height="246" rx="16" fill="rgba(255, 255, 255, 0.13)"/>
+      </g>
+    
+
+  <g>
+    <rect x="126" y="152" rx="16" ry="16" width="272" height="44" fill="rgba(255, 255, 255, 0.13)"/>
+    <text x="150" y="180" font-size="21" font-family="'Avenir Next', 'PingFang SC', sans-serif" fill="rgba(247, 251, 255, 0.78)">投资 / 财经</text>
+  </g>
+
+  <text x="126" y="350" font-size="74" font-weight="700" letter-spacing="1.2" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" fill="#f7fbff">
+    <tspan x="126" y="350">二月碎碎念 || 寻找改变</tspan>
+  </text>
+
+  <text x="126" y="668" font-size="28" font-family="'Avenir Next', 'PingFang SC', sans-serif" fill="rgba(247, 251, 255, 0.78)">
+    编程 · 系统与环境 · Linux
+  </text>
+  <text x="126" y="730" font-size="24" font-family="'Avenir Next', 'PingFang SC', sans-serif" fill="rgba(247, 251, 255, 0.78)">
+    记录技术、阅读与生活，也把每一篇文章做成自己的入口。
+  </text>
+
+  <g opacity="0.92">
+    <rect x="126" y="780" width="196" height="2" fill="#ffe39d"/>
+    <text x="126" y="820" font-size="23" font-family="'Avenir Next', 'PingFang SC', sans-serif" fill="#f7fbff">
+      bob0912.github.io
+    </text>
+  </g>
+</svg>
