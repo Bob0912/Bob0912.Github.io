@@ -8,8 +8,6 @@
     生活随笔: "写给当下的想法、经历与阶段性总结。"
   };
 
-  const text = (selector, scope = document) => scope.querySelector(selector)?.textContent?.trim() || "";
-
   const dedupeSegments = raw => {
     const segments = raw
       .split(/(?<=[。！？!?])/)
@@ -49,11 +47,12 @@
     return `${raw.slice(0, length).trim()}...`;
   };
 
-  const createElement = (tag, className, html) => {
-    const element = document.createElement(tag);
-    if (className) element.className = className;
-    if (html !== undefined) element.innerHTML = html;
-    return element;
+  const cleanupLegacyBlocks = () => {
+    document.querySelector(".home-spotlight")?.remove();
+    document.querySelector(".home-filter-panel")?.remove();
+    document.querySelector(".page-summary-card")?.remove();
+    document.querySelector(".post-insight-card")?.remove();
+    document.querySelectorAll(".recent-post-item.is-hidden").forEach(item => item.classList.remove("is-hidden"));
   };
 
   const normalizeRecentPostCards = () => {
@@ -68,6 +67,7 @@
 
       const cleaned = clampText(cleanSnippet(content.textContent || ""));
       const fallback = CARD_FALLBACK[category] || `收录在「${category || "博客"}」栏目，继续阅读全文查看完整内容。`;
+
       content.textContent = cleaned || fallback;
       card.dataset.category = category || "未分类";
     });
@@ -80,131 +80,18 @@
     });
   };
 
-  const initHomeSpotlight = () => {
-    document.querySelector(".home-spotlight")?.remove();
-  };
-
-  const initHomeFilters = () => {
-    document.querySelector(".home-filter-panel")?.remove();
-    document.querySelectorAll(".recent-post-item.is-hidden").forEach(item => item.classList.remove("is-hidden"));
-  };
-
-  const initPageSummary = () => {
-    const page = document.querySelector("#page");
-    if (!page) return;
-
-    page.querySelector(".page-summary-card")?.remove();
-
-    if (document.querySelector(".tag-cloud-tags")) {
-      const tagLinks = Array.from(document.querySelectorAll(".tag-cloud-tags a"));
-      const summary = createElement(
-        "section",
-        "page-summary-card",
-        `
-          <div>
-            <span class="eyebrow">TAG MAP</span>
-            <h2>按标签快速找到同主题内容</h2>
-            <p>适合从一个具体话题切入，连续阅读相关笔记。</p>
-          </div>
-          <div class="summary-metrics">
-            <div><span>标签数量</span><strong>${tagLinks.length}</strong></div>
-            <div><span>高频标签</span><strong>${tagLinks.slice(0, 3).map(link => link.textContent?.trim()).join(" / ")}</strong></div>
-          </div>
-        `
-      );
-      page.insertBefore(summary, page.firstChild);
-    }
-
-    if (document.querySelector(".category-lists")) {
-      const categories = Array.from(document.querySelectorAll(".category-list > .category-list-item"));
-      const summary = createElement(
-        "section",
-        "page-summary-card",
-        `
-          <div>
-            <span class="eyebrow">CATEGORY MAP</span>
-            <h2>按内容结构浏览整站文章</h2>
-            <p>如果你更偏向系统阅读，分类页会比时间归档更高效。</p>
-          </div>
-          <div class="summary-metrics">
-            <div><span>一级分类</span><strong>${categories.length}</strong></div>
-            <div><span>内容主轴</span><strong>编程 / 生活 / 阅读 / 理财</strong></div>
-          </div>
-        `
-      );
-      page.insertBefore(summary, page.firstChild);
-    }
-  };
-
-  const initPostInsights = () => {
-    const post = document.querySelector("#post");
-    const article = document.querySelector("#article-container");
-    if (!post || !article) return;
-
-    post.querySelector(".post-insight-card")?.remove();
-
-    const headings = article.querySelectorAll("h1, h2, h3").length;
-    const readTime = text(".post-meta-wordcount span:last-child");
-    const categories = Array.from(document.querySelectorAll(".post-meta-categories")).map(item => item.textContent?.trim()).filter(Boolean);
-    const tags = Array.from(document.querySelectorAll(".post-meta__tag-list .post-meta__tags")).map(item => item.textContent?.trim()).filter(Boolean);
-    const wordCountNode = document.querySelector(".word-count");
-    const wordCount = wordCountNode?.textContent?.trim() || "";
-
-    if (wordCount === "0") {
-      document.querySelector(".post-meta-wordcount")?.classList.add("is-empty");
-    }
-
-    const insight = createElement(
-      "section",
-      "post-insight-card",
-      `
-        <div class="post-insight-card__main">
-          <span class="eyebrow">ARTICLE OVERVIEW</span>
-          <h2>先快速扫一眼，再决定怎么读</h2>
-          <p>这篇文章适合先看目录和标签，再选择顺序阅读全文或按章节跳读。</p>
-        </div>
-        <div class="post-insight-card__meta">
-          <div class="chip-row">
-            ${readTime ? `<span class="chip">阅读时长 ${readTime}</span>` : ""}
-            ${wordCount && wordCount !== "0" ? `<span class="chip">总字数 ${wordCount}</span>` : ""}
-            <span class="chip">章节标题 ${headings}</span>
-            ${categories.slice(0, 2).map(item => `<span class="chip">${item}</span>`).join("")}
-            ${tags.slice(0, 2).map(item => `<span class="chip chip-ghost"># ${item}</span>`).join("")}
-          </div>
-          <button class="copy-link-btn" type="button">复制文章链接</button>
-        </div>
-      `
-    );
-
-    article.parentNode.insertBefore(insight, article);
-
-    const copyButton = insight.querySelector(".copy-link-btn");
-    copyButton?.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        copyButton.textContent = "链接已复制";
-        window.setTimeout(() => {
-          copyButton.textContent = "复制文章链接";
-        }, 1600);
-      } catch {
-        copyButton.textContent = "复制失败";
-        window.setTimeout(() => {
-          copyButton.textContent = "复制文章链接";
-        }, 1600);
-      }
-    });
-  };
-
   const initReadingProgress = () => {
     let bar = document.querySelector(".reading-progress");
     if (!bar) {
-      bar = createElement("div", "reading-progress");
+      bar = document.createElement("div");
+      bar.className = "reading-progress";
       document.body.appendChild(bar);
     }
 
     const article = document.querySelector("#article-container");
     if (!article) {
       bar.style.width = "0%";
+      bar.classList.add("is-hidden");
       return;
     }
 
@@ -215,6 +102,7 @@
       const progress = ((window.scrollY - start) / Math.max(1, end - start)) * 100;
       const value = Math.max(0, Math.min(100, progress));
       bar.style.width = `${value}%`;
+      bar.classList.remove("is-hidden");
     };
 
     update();
@@ -234,12 +122,9 @@
   };
 
   const init = () => {
+    cleanupLegacyBlocks();
     normalizeRecentPostCards();
     normalizeRelatedCards();
-    initHomeSpotlight();
-    initHomeFilters();
-    initPageSummary();
-    initPostInsights();
     initReadingProgress();
     initExternalLinks();
   };
