@@ -18,9 +18,13 @@ body {
 }
 
 #nav {
-  width: min(1120px, calc(100% - 140px));
-  margin: 22px auto 0;
-  padding: 0 10px;
+  left: 0 !important;
+  right: 0 !important;
+  width: min(1080px, calc(100% - 160px)) !important;
+  max-width: 1080px !important;
+  margin: 22px auto 0 !important;
+  padding: 0 18px !important;
+  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
   background: rgba(22, 28, 38, 0.16);
@@ -31,6 +35,8 @@ body {
 #page-header.nav-fixed #nav,
 #page-header.not-home-page #nav,
 #page-header.not-top-img #nav {
+  width: min(1080px, calc(100% - 160px)) !important;
+  max-width: 1080px !important;
   border-color: rgba(73, 177, 245, 0.12);
   background: rgba(255, 255, 255, 0.78);
   box-shadow: 0 16px 36px rgba(31, 45, 61, 0.1);
@@ -286,8 +292,9 @@ body {
 
 @media screen and (max-width: 768px) {
   #nav {
-    width: calc(100% - 24px);
-    padding: 0 8px;
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+    padding: 0 8px !important;
     border-radius: 16px;
   }
 
