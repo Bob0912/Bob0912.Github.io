@@ -121,12 +121,204 @@
     });
   };
 
+  const syncPageClass = () => {
+    document.body.classList.remove("page-shuoshuo", "page-music", "page-link");
+    const path = window.location.pathname.replace(/\/+$/, "");
+    if (path === "/shuoshuo") document.body.classList.add("page-shuoshuo");
+    if (path === "/music") document.body.classList.add("page-music");
+    if (path === "/link") document.body.classList.add("page-link");
+  };
+
+  const initTechSky = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let canvas = document.querySelector(".tech-sky");
+    if (!canvas) {
+      canvas = document.createElement("canvas");
+      canvas.className = "tech-sky";
+      canvas.setAttribute("aria-hidden", "true");
+      document.body.prepend(canvas);
+    }
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const state = window.__blogTechSky || {};
+    if (state.frame) cancelAnimationFrame(state.frame);
+
+    const resize = () => {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * ratio);
+      canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+
+    const count = window.innerWidth < 768 ? 28 : 54;
+    const points = Array.from({ length: count }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 1.5 + 0.6
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const dark = document.documentElement.dataset.theme === "dark";
+      const dot = dark ? "rgba(98, 232, 255, 0.62)" : "rgba(36, 102, 155, 0.42)";
+      const line = dark ? "rgba(98, 232, 255, 0.12)" : "rgba(36, 102, 155, 0.1)";
+
+      points.forEach((point, index) => {
+        point.x += point.vx;
+        point.y += point.vy;
+        if (point.x < -20) point.x = window.innerWidth + 20;
+        if (point.x > window.innerWidth + 20) point.x = -20;
+        if (point.y < -20) point.y = window.innerHeight + 20;
+        if (point.y > window.innerHeight + 20) point.y = -20;
+
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, point.r, 0, Math.PI * 2);
+        ctx.fillStyle = dot;
+        ctx.fill();
+
+        for (let i = index + 1; i < points.length; i += 1) {
+          const other = points[i];
+          const distance = Math.hypot(point.x - other.x, point.y - other.y);
+          if (distance > 132) continue;
+          ctx.beginPath();
+          ctx.moveTo(point.x, point.y);
+          ctx.lineTo(other.x, other.y);
+          ctx.strokeStyle = line;
+          ctx.globalAlpha = 1 - distance / 132;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+      });
+
+      state.frame = requestAnimationFrame(draw);
+    };
+
+    resize();
+    draw();
+
+    window.removeEventListener("resize", window.__blogTechSkyResize || (() => {}));
+    window.__blogTechSkyResize = resize;
+    window.addEventListener("resize", resize, { passive: true });
+    window.__blogTechSky = state;
+  };
+
+  const showToast = message => {
+    let toast = document.querySelector(".copy-toast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.className = "copy-toast";
+      document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+    clearTimeout(window.__blogToastTimer);
+    window.__blogToastTimer = setTimeout(() => toast.classList.remove("is-visible"), 1800);
+  };
+
+  const initCopyFeedback = () => {
+    document.querySelectorAll(".copy-button, .copy-btn, .highlight-tools .copy").forEach(button => {
+      if (button.dataset.copyFeedback === "true") return;
+      button.dataset.copyFeedback = "true";
+      button.addEventListener("click", () => showToast("代码已复制，可以直接去试试。"));
+    });
+  };
+
+  const initClickWords = () => {
+    if (window.__blogClickWordsReady) return;
+    window.__blogClickWordsReady = true;
+    const words = ["Keep coding", "Keep reading", "Keep shipping"];
+    let index = 0;
+
+    document.addEventListener("click", event => {
+      const target = event.target;
+      if (target?.closest?.("a, button, input, textarea, select, .aplayer")) return;
+
+      const word = document.createElement("span");
+      word.textContent = words[index % words.length];
+      index += 1;
+      Object.assign(word.style, {
+        position: "fixed",
+        left: `${event.clientX}px`,
+        top: `${event.clientY}px`,
+        zIndex: 1003,
+        color: "var(--bob-cyan)",
+        fontWeight: "800",
+        fontSize: "14px",
+        pointerEvents: "none",
+        textShadow: "0 0 14px rgba(33, 212, 253, 0.38)",
+        transform: "translate(-50%, -50%)",
+        transition: "opacity 0.8s ease, transform 0.8s ease"
+      });
+      document.body.appendChild(word);
+      requestAnimationFrame(() => {
+        word.style.opacity = "0";
+        word.style.transform = "translate(-50%, -120%)";
+      });
+      setTimeout(() => word.remove(), 850);
+    });
+  };
+
+  const enhanceEmptyPages = () => {
+    const page = document.querySelector("#page #article-container");
+    if (!page || page.dataset.emptyEnhanced === "true") return;
+
+    const path = window.location.pathname.replace(/\/+$/, "");
+    const hasBodyText = page.textContent.trim().length > 18;
+    const hasWidget = page.querySelector("meting-js, .aplayer, .flink, .tag-cloud-list, .category-lists, #category, #tag");
+
+    if (path === "/shuoshuo" && !hasBodyText) {
+      page.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="empty-page-panel">
+          <h2>最近动态</h2>
+          <p>这里会放一些阶段性的学习记录、博客维护进度和日常碎片。</p>
+          <p>如果暂时没有更多内容，可以先从首页继续翻文章。</p>
+        </div>`
+      );
+      page.dataset.emptyEnhanced = "true";
+      return;
+    }
+
+    if (path === "/music" && !page.querySelector(".music-page-note")) {
+      page.insertAdjacentHTML(
+        "beforeend",
+        `<div class="music-page-note">音乐组件依赖外部平台加载，如果播放器没有出现，通常是网络或平台接口暂时不可用。</div>`
+      );
+      page.dataset.emptyEnhanced = "true";
+      return;
+    }
+
+    if (!hasBodyText && !hasWidget) {
+      page.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="empty-page-panel">
+          <h2>内容正在整理中</h2>
+          <p>这个页面已经接入站点样式，后续可以继续补充更完整的内容。</p>
+        </div>`
+      );
+      page.dataset.emptyEnhanced = "true";
+    }
+  };
+
   const init = () => {
+    syncPageClass();
     cleanupLegacyBlocks();
     normalizeRecentPostCards();
     normalizeRelatedCards();
     initReadingProgress();
     initExternalLinks();
+    initTechSky();
+    initCopyFeedback();
+    initClickWords();
+    enhanceEmptyPages();
   };
 
   document.addEventListener("DOMContentLoaded", init);
