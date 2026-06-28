@@ -10,7 +10,29 @@
   <rights>All rights reserved 2026, 小Bob</rights>
   <subtitle>如果提前了解了你所面对的人生，你是否还有勇气前来？</subtitle>
   <title>小Bob的博客</title>
-  <updated>2026-06-25T15:15:54.648Z</updated>
+  <updated>2026-06-28T17:10:44.479Z</updated>
+  <entry>
+    <author>
+      <name>小Bob</name>
+    </author>
+    <category term="编程" scheme="https://dpw09.cn/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="工具链" scheme="https://dpw09.cn/categories/%E7%BC%96%E7%A8%8B/%E5%B7%A5%E5%85%B7%E9%93%BE/"/>
+    <category term="Hexo" scheme="https://dpw09.cn/tags/Hexo/"/>
+    <category term="博客" scheme="https://dpw09.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="前端" scheme="https://dpw09.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    <content>
+      <![CDATA[<p>这两天把博客重新修了一遍。</p><p>说是“修”，其实更像是把一个搬了很多次家的房间重新收拾了一遍。以前它能打开，文章也都在，分类、标签、归档这些东西也没有丢。但每次点进去，总觉得差点意思：页面有些地方空，有些地方挤，有些地方像临时拼起来的，尤其是首页往下滚之后，背景和卡片之间的关系不太自然。</p><p>这一次没有想着推倒重来。博客已经写了这么多年，里面有早期学 C 语言、Python、Java 的笔记，也有读书、电影、生活和理财的记录。它不应该被改成一个完全陌生的网站，更像是要在原来的基础上，把灰擦掉，把灯调亮，把动线理顺。</p><p><img src="/img/covers/generated/blog-renovation-202606.svg" alt="博客改版封面"></p><h2 id="先解决最扎眼的地方"><a href="#先解决最扎眼的地方" class="headerlink" title="先解决最扎眼的地方"></a>先解决最扎眼的地方</h2><p>最开始注意到的是首页导航。</p><p>顶部那一条导航栏原本没有跟着浏览器宽度铺开，看起来像是悬在中间的一段。这个问题不大，但很容易被看见。后来把它改成了跟随浏览器宽度拉满，只留一点边距，整体会更像一个完整的页面，而不是一个贴在背景图上的小组件。</p><p>首页的大图没有换。那张图已经有记忆点了，换掉反而会少一点熟悉感。所以改动主要放在覆盖层、导航质感、文字阴影和移动端裁切上，让它在桌面和手机上都更稳一些。</p><h2 id="下拉之后，不能只剩一块纯色"><a href="#下拉之后，不能只剩一块纯色" class="headerlink" title="下拉之后，不能只剩一块纯色"></a>下拉之后，不能只剩一块纯色</h2><p>之前首页首屏还可以，往下滚之后就会进入一块比较平的背景。文章卡片、侧边栏和背景之间没有什么呼吸感，内容多的时候会显得有点累。</p><p>这次给全站加了一层很轻的网格背景，又加了动态星点连线。效果没有做得特别重，主要是想让页面有一点“技术博客”的气质，但不能抢文章本身的注意力。博客不是作品集首页，最终还是要让人读东西。</p><p>文章卡片也重新调了一遍：圆角、阴影、边框、hover 状态、封面图缩放，都做得更统一。以前有些卡片像孤立的小块，现在看起来更像同一个系统里的组件。</p><h2 id="文章页要舒服一点"><a href="#文章页要舒服一点" class="headerlink" title="文章页要舒服一点"></a>文章页要舒服一点</h2><p>博客最重要的地方还是文章页。</p><p>这次补了阅读进度条。它不需要很显眼，只要在顶部安静地告诉你读到哪里了就行。外链也加了标记，复制代码时会有提示，代码块的边框和阴影也重新调过，尽量让技术文章读起来更清楚。</p><p>我还打开了一些 Butterfly 自带但之前没有认真处理的功能，比如结构化数据、标题美化、锚点滚动、图片懒加载。它们单独看都不是什么大功能，但放在一起，会让网站更像一个长期维护的东西。</p><h2 id="说说和音乐页也补了一下"><a href="#说说和音乐页也补了一下" class="headerlink" title="说说和音乐页也补了一下"></a>说说和音乐页也补了一下</h2><p>“说说”页之前有点像空壳，数据其实在，但呈现层不完整，看起来像什么都没有。现在把它做成了时间线卡片，适合放一些博客维护记录、阶段想法和日常碎片。</p><p>音乐页保留了原来的播放器方案，只是补了一段提示。外部音乐组件有时候会受网络和平台接口影响，加载不出来时至少页面不会显得坏掉。</p><p>这也是这次改版里比较重要的一个想法：不是所有功能都要做得很重，但至少不能让人摸不着头脑。</p><h2 id="这次改了哪些东西"><a href="#这次改了哪些东西" class="headerlink" title="这次改了哪些东西"></a>这次改了哪些东西</h2><p>简单记一下：</p><ul><li>首页导航改成跟随浏览器宽度铺满，移动端也单独处理了位置和裁切。</li><li>全站背景加了网格和星点连线，往下滚不再是一整块单调底色。</li><li>文章列表、侧边栏、标签、分页、右下角按钮统一成新的视觉风格。</li><li>文章页加了阅读进度、复制提示、外链标记和更清楚的代码块样式。</li><li>说说页改成时间线卡片，音乐页补了加载提示。</li><li>开启了一些更适合长期维护的配置，比如结构化数据、锚点滚动和图片懒加载。</li></ul><h2 id="后面还想继续补的"><a href="#后面还想继续补的" class="headerlink" title="后面还想继续补的"></a>后面还想继续补的</h2><p>这次主要是把视觉和基础体验先修到一个舒服的状态。后面还可以继续补站内搜索、评论、文章专题页，还有一些老文章的标题和分类也值得慢慢整理。</p><p>不过博客这种东西，可能本来就不适合一次性“完工”。它更像一个长期住着的地方，今天修一盏灯，明天换一张桌子，过段时间再把旧箱子翻出来整理一下。</p><p>只要还愿意打开它，就还有继续写下去的理由。</p>]]>
+    </content>
+    <id>https://dpw09.cn/2026/06/29/%E6%8A%8A%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E4%BF%AE%E4%BA%86%E4%B8%80%E9%81%8D%EF%BC%9A%E4%BB%8E%E8%83%BD%E7%94%A8%E5%88%B0%E6%9B%B4%E6%84%BF%E6%84%8F%E6%89%93%E5%BC%80/</id>
+    <link href="https://dpw09.cn/2026/06/29/%E6%8A%8A%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E4%BF%AE%E4%BA%86%E4%B8%80%E9%81%8D%EF%BC%9A%E4%BB%8E%E8%83%BD%E7%94%A8%E5%88%B0%E6%9B%B4%E6%84%BF%E6%84%8F%E6%89%93%E5%BC%80/"/>
+    <published>2026-06-29T13:30:00.000Z</published>
+    <summary>
+      <![CDATA[<p>这两天把博客重新修了一遍。</p>
+<p>说是“修”，其实更像是把一个搬了很多次家的房间重新收拾了一遍。以前它能打开，文章也都在，分类、标签、归档这些东西也没有丢。但每次点进去，总觉得差点意思：页面有些地方空，有些地方挤，有些地方像临时拼起来的，尤其是首页往下滚之后，背景和]]>
+    </summary>
+    <title>把博客重新修了一遍：从能用到更愿意打开</title>
+    <updated>2026-06-28T17:10:44.479Z</updated>
+  </entry>
   <entry>
     <author>
       <name>小Bob</name>
@@ -345,24 +367,5 @@
     </summary>
     <title>Ubuntu20.04如何开启VNC远程服务~</title>
     <updated>2026-06-25T15:15:54.706Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>小Bob</name>
-    </author>
-    <category term="编程" scheme="https://dpw09.cn/categories/%E7%BC%96%E7%A8%8B/"/>
-    <category term="系统与环境" scheme="https://dpw09.cn/categories/%E7%BC%96%E7%A8%8B/%E7%B3%BB%E7%BB%9F%E4%B8%8E%E7%8E%AF%E5%A2%83/"/>
-    <category term="Linux" scheme="https://dpw09.cn/tags/Linux/"/>
-    <content>
-      <![CDATA[<p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqLPrk2ZgTrXKvsBbrlWiaEWkQGsSmNtiaVPgOPleANRbbbv7dZlte8vBayZPvn0iaTtPYiakFMU2SEicEQ/0?wx_fmt=jpeg" alt="cover_image"></p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/b96CibCt70iaar9X1mfok3Ria5XR28q08sHuROfonuVichHte5rexfwibQAcFpzq5b7Zy5NmKNX7UWlQmZCMIIJv5XA/640?wx_fmt=png"></p>]]>
-    </content>
-    <id>https://dpw09.cn/2022/01/13/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%B3%BB%E5%88%97WSL2-%E9%80%82%E7%94%A8%E4%BA%8ELiux%E7%9A%84Widows%E5%AD%90%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%AE%89%E8%A3%85%EF%BC%89/</id>
-    <link href="https://dpw09.cn/2022/01/13/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%B3%BB%E5%88%97WSL2-%E9%80%82%E7%94%A8%E4%BA%8ELiux%E7%9A%84Widows%E5%AD%90%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%AE%89%E8%A3%85%EF%BC%89/"/>
-    <published>2022-01-13T13:13:00.000Z</published>
-    <summary>
-      <![CDATA[<p><img src="https://mmbiz.qlogo.cn/mmbiz_jpg/JpOJyFtoIqLPrk2ZgTrXKvsBbrlWiaEWkQGsSmNtiaVPgOPleANRbbbv7dZlte8vBayZPvn0iaTtPYiakFMU2SEicEQ/0?]]>
-    </summary>
-    <title>双系统系列：WSL2-适用于 Linux 的 Windows 子系统（安装）</title>
-    <updated>2026-06-25T15:15:54.643Z</updated>
   </entry>
 </feed>
