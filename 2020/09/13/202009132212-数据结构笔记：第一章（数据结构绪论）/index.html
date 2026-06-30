@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据结构笔记：第一章（数据结构绪论） | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="小Bob 小Bob Bob来啦 ;) 2020年09月13日 22:12 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 每一个不曾起舞的日子，都是对生命的辜负。尼采 这学期终于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构笔记：第一章（数据结构绪论）">
+<meta property="og:url" content="https://dpw09.cn/2020/09/13/202009132212-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA%EF%BC%89/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="小Bob 小Bob Bob来啦 ;) 2020年09月13日 22:12 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 每一个不曾起舞的日子，都是对生命的辜负。尼采 这学期终于">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202009132212-a73cb94c.jpg">
+<meta property="article:published_time" content="2020-09-13T14:12:00.000Z">
+<meta property="article:modified_time" content="2020-09-13T14:12:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202009132212-a73cb94c.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数据结构笔记：第一章（数据结构绪论）",
+  "url": "https://dpw09.cn/2020/09/13/202009132212-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA%EF%BC%89/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202009132212-a73cb94c.jpg",
+  "datePublished": "2020-09-13T14:12:00.000Z",
+  "dateModified": "2020-09-13T14:12:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/09/13/202009132212-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构笔记：第一章（数据结构绪论）',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202009132212-a73cb94c.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">数据结构笔记：第一章（数据结构绪论）</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据结构笔记：第一章（数据结构绪论）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-13T14:12:00.000Z" title="发表于 2020-09-13 22:12:00">2020-09-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-13T14:12:00.000Z" title="更新于 2020-09-13 22:12:00">2020-09-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p>
+<p><em>2020年09月13日 22:12</em> __ _ _ _ _</p>
+<p><img src="/img/boblaila/posts/202009132212-a73cb94c/01.jpg" alt="文章配图" loading='lazy'></p>
+<p>点击上方「  蓝字  」关注”程序员Bob”</p>
+<p>每天与你不见不散！</p>
+<p><img src="/img/boblaila/posts/202009132212-a73cb94c/02.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>每日一句，送给最珍贵的你：</strong></p>
+<p>每一个不曾起舞的日子，都是对生命的辜负。-尼采</p>
+<p>这学期终于要开始数据结构啦，由于学校这门课安排得比较晚，应该安排上一学期的，可毕竟是学校安排的。于是小编就趁着没事时学了一点，哈哈哈。</p>
+<p>学校考试也接近尾声了，每天坚持一篇文章的输出其实不难，让小编想到的是如何让大家都能看懂，甚至能做到既能让大家读懂，也能让各位读者读出有趣感，这对于我个人而言显然不是那么的容易，但还是想试试，哈哈，<br><strong>若有写得不好的地方，还请大家积极指出呀。</strong></p>
+<hr>
+<p><strong>数据结构的起源</strong></p>
+<p>可能大家在开始接触编程时面对黑黑的输出窗口显得茫然，既没有移动手机上的视觉感，也没有电脑上软件的操作感，那种感觉仿佛进入了一个  假的专业<br>，我这是学的计算机？就一团黑漆漆的窗口？？？<br><img src="/img/boblaila/posts/202009132212-a73cb94c/03.jpg" alt="文章配图" loading='lazy'></p>
+<p>扯得有点远哈，回到编程，我们最开始写程序其实也是挺简单的，只需能运行成功即可，  <strong>木有出现红色的报错那真就叫一个激动</strong><br>。可能这也是留住我们的原因，hahaha,这理由有点牵强。</p>
+<p>那么我们回到 <strong>编程的实质</strong><br>，我们为什么要写程序呢？简单来说就是为了解决某个问题，那么我们在开始解决一个问题之前应该做些什么呢？是否应该要从某个具体问题中抽象出一个解决模型，比如应该先做什么，再做什么，然后我们还会考虑到这个模型是要给别人使用的，那么这就会产生一些用户数据，将这个模型和用户数据联合起来我们便会得到一个适当的数据模型。</p>
+<p>然后我们将这个 <strong>数据模型和设计的算法（后面会讲到）糅合到一起</strong> 写成一个程序，便会得到一个实际的软件。</p>
+<p>显然数据结构并不是独立存在的，所以对于它的定义小编其实是不太喜欢的，对于一个非独立的名词去定义它其实意义并不大。但是小编还是会给大家放出来啦！</p>
+<p><strong>数据结构：是计算机中存储、组织数据的方式。（来源于维基百科）</strong></p>
+<p><strong>基本概念和术语</strong> <strong>数据：<strong>是描述客观事物的符号，是</strong>计算机中可以操作的对象</strong>，是能被计算机识别，并输入给<strong>计算机处理的符号集合</strong> 。</p>
+<p>To：那么数据都有哪些呢？其实数据也就是符号，而这些符号具备两个前提：可以输入到计算机中；能被计算机程序处理。这里举几个例子：比如我们我们听歌的mp3便是声音数据，图片便是图片数据，或者直接说万物皆可数据化<br><img src="/img/boblaila/posts/202009132212-a73cb94c/04.jpg" alt="文章配图" loading='lazy'><br>。</p>
+<p><img src="/img/boblaila/posts/202009132212-a73cb94c/05.jpg" alt="文章配图" loading='lazy'></p>
+<p>**数据元素：**是组成数据的，<strong>有一定意义的基本单位</strong>，在计算机中通常作为整体处理，也被称为记录。比如在某类动物中某个动物就是单个的数据元素。**数据项：**一个数据元素可以由若干个数据项组成。数据项是数据不可分割的最小单位。数据项也是数据的最小单位，但在讨论问题时，我们习惯于将数据元素当作数据结构中建立数据模型的着眼点。**数据对象：**是性质相同的数据元素的集合，是数据的子集，在不产生混淆的情况下，也可将数据对象简称为数据。**数据结构：**结构则是指各个组成部分相互搭配和排列的方式，那么数据结构相互之间存在一种或多种特定的数据元素的集合。<strong>两大结构：逻辑结构和物理结构</strong> **<br>**</p>
+<p><strong>逻辑结构（为了解决某个问题，面向问题）和物理结构（面向计算机）</strong></p>
+<hr>
+<p><strong>逻辑结构</strong> ：  指对象中数据对象中数据元素之间的相互关系，主要分为以下四种。</p>
+<ol>
+<li><p><strong>集合结构</strong> ：集合结构中的数据元素除了同属一个集合外，它们之间没有其它关系。</p>
+</li>
+<li><p><strong>线性结构</strong> ：线性结构中的数据元素之间是一对一的关系。</p>
+</li>
+<li><p><strong>树形结构</strong> ：树形结构中的元素之间是一对多的层次关系。</p>
+</li>
+<li><p><strong>图形结构</strong> ：图形结构中的数据元素是多对多的关系。</p>
+</li>
+</ol>
+<p><img src="/img/boblaila/posts/202009132212-a73cb94c/06.jpg" alt="文章配图" loading='lazy'></p>
+<hr>
+<p><strong>物理结构（存储结构）：</strong> <strong>是指数据的逻辑结构在计算机中的存储形式。</strong></p>
+<p>聊到存储结构，还得再聊聊存储器：主要针对内存而言的，像DVD光盘，硬盘，软盘等外部存储器的数据组织通常就是用文件结构来描述的。</p>
+<p>数据元素的存储结构（数据的存储结构应正确反映数据元素之间的逻辑关系）有两种： <strong>顺序存储和链式存储。</strong></p>
+<hr>
+<p><strong>1.顺序存储结构</strong>：是把数据元素存放在地址<strong>连续的</strong>存储单元里，其数据间逻辑关系和物理关系是一致的。可以简单理解为大家在打饭排队一样，是按顺序的排好。<strong>2.链式存储结构</strong>：是把数据元素存放在任意的存储单元里，这组存储单元可以是连续的，也可以是不连续的。在链式存储中大多需要指针来存放一个数据的地址，然后通过地址便能找到相关数据元素的地址。在指针加入后，链式存储就显得灵活多了，不管我们将数据存储在那个地方，只需有一个指针存放了该数据的地址，我们便能找到它。<strong>抽象数据类型</strong> <strong>数据类型：是指一组性质相同的值的集合及定义在此集合上的一些操作的总称。</strong> <strong>抽象</strong>是指抽取出事物具有的普遍性的本质。需要注意的是它抽出问题的特征而忽略非本质的细节。其实抽象也算是人的大脑思考的一种方式，将某个事物进行拆分，然后找到其本质特征。<strong>抽象数据类型：</strong><br>是指一个数学模型及定义在该模型上的一组操作。它的定义也仅仅取决于它的一组逻辑特性，与在计算机内部怎么实现它无关，抽象数据类型体现了程序设计中问题分解，抽象和信息隐藏的特性，也就是说它把实际中的生活问题分解成多个小且容易解决的问题，然后建立一个计算机能处理的数据模型，并把每个功能模块的实现细节作为一个独立的单元，从而使具体的实现过程隐藏起来。</p>
+<p>以上内容部分定义出自书籍《大话数据结构》若有侵权，侵删</p>
+<p><img src="/img/boblaila/posts/202009132212-a73cb94c/07.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>往期推荐：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488233&idx=1&sn=c2f78eedd5a2af906e7fe1604ee4bcc5&chksm=fb206362cc57ea741bd4a3364ec17e0a6fe4b3a7014fd062827cefaa311165d784e2600272a3&scene=21#wechat_redirect"> TIOBE九月榜单出炉：C++做得很好，要崛起么？  2020-09-10<br><img src="/img/boblaila/posts/202009132212-a73cb94c/08.jpg" alt="文章配图" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488126&idx=1&sn=88a9f4be2449507232c3e2fe370f2bac&chksm=fb2063f5cc57eae3daec7daad4f24e696c33d6ee3e27d31bba7ea7e3c26fe3968288ea7fb293&scene=21#wechat_redirect"> Python字符串及Time库介绍  2020-09-03<br><img src="/img/boblaila/posts/202009132212-a73cb94c/09.jpg" alt="文章配图" loading='lazy'>
+</a></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488059&idx=1&sn=c4af81ec0634c2dd27d333fc1d6726e8&chksm=fb2063b0cc57eaa6755aff25fa07eb35bf4c99a616ac7d8adf300d6401b0a9643eff3827cb7c&scene=21#wechat_redirect"> 八月碎碎念 || 每一次尝试，我们都得努力坚持
+</a></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488059&idx=1&sn=c4af81ec0634c2dd27d333fc1d6726e8&chksm=fb2063b0cc57eaa6755aff25fa07eb35bf4c99a616ac7d8adf300d6401b0a9643eff3827cb7c&scene=21#wechat_redirect"> 2020-08-31
+</a></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488059&idx=1&sn=c4af81ec0634c2dd27d333fc1d6726e8&chksm=fb2063b0cc57eaa6755aff25fa07eb35bf4c99a616ac7d8adf300d6401b0a9643eff3827cb7c&scene=21#wechat_redirect"><br><img src="/img/boblaila/posts/202009132212-a73cb94c/10.jpg" alt="文章配图" loading='lazy'>
+</a></p>
+<p>为你,千千万万遍.</p>
+<p>关注  <strong>程序员Bob</strong> 公众号,  与你  一起终  生学习</p>
+<p><img src="/img/boblaila/posts/202009132212-a73cb94c/11.jpg" alt="文章配图" loading='lazy'></p>
+<p>一键三连，就差你了<br><img src="/img/boblaila/posts/202009132212-a73cb94c/12.jpg" alt="文章配图" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/09/13/202009132212-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA%EF%BC%89/">https://dpw09.cn/2020/09/13/202009132212-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202009132212-a73cb94c.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/09/13/202009132212-%E7%94%A8Hexo+GithubPages%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%87%8D%E4%B8%8Bgit%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%BB%A5%E5%8F%8A%E6%8A%A5%E9%94%99/" title="用Hexo+Github Pages搭建私人博客:重下git配置个人信息以及报错"><img class="cover" src="/img/boblaila/covers/202009132212-1d2a7268.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">用Hexo+Github Pages搭建私人博客:重下git配置个人信息以及报错</div></div><div class="info-2"><div class="info-item-1">2020年09月13日 22:12 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 人生没有目的，只有过程，所谓的终极目的是虚无的。《查拉图斯特拉如是说》-尼采 昨天重装了系统，关于博客也是得重新配置，这里给大家说明一下在重新下好Git后我们...</div></div></div></a><a class="pagination-related" href="/2020/09/11/202009112151-%E4%BB%80%E4%B9%88%E6%98%AFPython%E7%9A%84%E2%80%9C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E2%80%9D/" title="什么是Python的 “内存管理机制”"><img class="cover" src="/img/boblaila/covers/202009112151-2a71d4cc.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">什么是Python的 “内存管理机制”</div></div><div class="info-2"><div class="info-item-1"> Bob来啦  2020年09月11日 21:51 __ _ _ _ _ 编者荐语： 可以让大家简单了解了解内存。 以下文章来源于程序员小灰  ，作者头文件 程序员小灰 .  全网70W+程序员粉丝，专注于编程、算法、AI、副业、个人成长的分享。  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/09/07/202009072340-Python%E5%A4%9A%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%85%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%EF%BC%88%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%89%E4%BB%8B%E7%BB%8D/" title="Python || 多分支结构及其操作符（异常处理）介绍"><img class="cover" src="/img/boblaila/covers/202009072340-a2799914.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-07</div><div class="info-item-2">Python || 多分支结构及其操作符（异常处理）介绍</div></div><div class="info-2"><div class="info-item-1">2020年09月07日 23:40 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 集中精力看好眼前的路，才不会跌跤，才不会走岔道，给自己一个机会，重新开始。 往日推荐：  如何用Python写个文本进度条？  上次我们学到了如何新建一个进度...</div></div></div></a><a class="pagination-related" href="/2021/04/06/202104062254-%E5%8D%8E%E4%B8%BA%E4%BA%91%E9%AB%98%E6%A0%A1%E8%81%94%E7%9B%9F%E6%B4%BB%E5%8A%A8Python%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E9%A2%98%E7%9B%AE%E5%B1%95%E7%A4%BA%EF%BC%88%E4%B8%80%EF%BC%89/" title="华为云高校联盟活动~Python课程相关题目展示（一）"><img class="cover" src="/img/boblaila/covers/202104062254-0a702c42.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-06</div><div class="info-item-2">华为云高校联盟活动~Python课程相关题目展示（一）</div></div><div class="info-2"><div class="info-item-1">2021年04月06日 22:54 __ _ _ _ _  上面写的是：“过程就是奖励。”他喜欢强调，Mac团队是一支有着崇高使命的特殊队伍。未来的某一天，他们会回顾这段共同度过的时光，对于那些痛苦的时刻，只是过眼云烟，或者付之一笑，他们会把这段时光看做人生中奇妙的巅峰时刻。 ——《史蒂夫-乔布斯传》  小编在上...</div></div></div></a><a class="pagination-related" href="/2020/12/04/202012042300-%E5%BD%93%E6%95%B0%E7%A0%81%E7%AE%A1%E9%81%87%E4%B8%8A%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%8Cpython%E6%9C%80%E7%BB%88%E6%88%90%E4%B8%BA%E5%82%AC%E5%8C%96%E5%89%82/" title="当数码管遇上系统时间，python最终成为催化剂"><img class="cover" src="/img/boblaila/covers/202012042300-97f35b4c.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-04</div><div class="info-item-2">当数码管遇上系统时间，python最终成为催化剂</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年12月04日 23:00 __ _ _ _ _  彼方为谁，无我有问 九月露湿，待君之前。 ——《你的名字》 冬天来了，保暖的同时也要注意疫情哦~ lambda函数 lambda函数： 是一种匿名函数，能够返回一个函数名作为结果，也叫无名函数。在使用lambda保...</div></div></div></a><a class="pagination-related" href="/2021/02/03/202102032346-Python%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AE%89%E8%A3%85Scrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="Python爬虫系列：安装Scrapy框架的那些事"><img class="cover" src="/img/boblaila/covers/202102032346-ea022ea0.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-03</div><div class="info-item-2">Python爬虫系列：安装Scrapy框架的那些事</div></div><div class="info-2"><div class="info-item-1">2021年02月03日 23:46 __ _ _ _ _  对每个人而言，真正的职责只有一个：找到自我…………所有其他的路都是不完整的，是人的逃避方式，是对大众理想的懦弱回归，是随波逐流，是内心的恐惧。 -《德米安 彷徨少年时》 最近小编在学Python爬虫时遇到  安装Scrapy框架时出错，具体原因是安装某个...</div></div></div></a><a class="pagination-related" href="/2020/06/12/202006122345-%E6%9D%A5%E5%AD%A6Python%E5%95%A6%EF%BC%8C%E5%A4%A7%E8%AF%9D%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="来学Python啦，大话字符串"><img class="cover" src="/img/boblaila/covers/202006122345-33d5215a.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-12</div><div class="info-item-2">来学Python啦，大话字符串</div></div><div class="info-2"><div class="info-item-1">2020年06月12日 23:45 __ _ _ _ _  To be a happy man， reading， travel， hard work， care for the body andmind。做一个幸福的人，读书，旅行，努力工作，关心身体和心境。  远方的路，还很远… 前面我们讲解过关于用Pytho...</div></div></div></a><a class="pagination-related" href="/2020/06/10/202006102332-Python%E4%B8%93%E8%BE%91%E5%A4%A7%E8%AF%9D%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B/" title="Python专辑:大话数字类型"><img class="cover" src="/img/boblaila/covers/202006102332-1595189e.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-10</div><div class="info-item-2">Python专辑:大话数字类型</div></div><div class="info-2"><div class="info-item-1">2020年06月10日 23:32 __ _ _ _ _  I will honour myself by showing up powerfully in my lifetoday。我会为在今日努力生活的自我而感到自豪。  前面我们讲解过关于用Python写温度转换器，画“Python”以及天天学习的代码讲解。...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

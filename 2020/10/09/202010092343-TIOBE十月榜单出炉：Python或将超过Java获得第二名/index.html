@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>TIOBE十月榜单出炉：Python或将超过Java获得第二名 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="小Bob 小Bob Bob来啦 ;) 2020年10月09日 23:43 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 我们一日所度过的所谓的日常，实际上可能是接连不断的奇迹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TIOBE十月榜单出炉：Python或将超过Java获得第二名">
+<meta property="og:url" content="https://dpw09.cn/2020/10/09/202010092343-TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89%EF%BC%9APython%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="小Bob 小Bob Bob来啦 ;) 2020年10月09日 23:43 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 我们一日所度过的所谓的日常，实际上可能是接连不断的奇迹">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202010092343-385ee0dd.jpg">
+<meta property="article:published_time" content="2020-10-09T15:43:00.000Z">
+<meta property="article:modified_time" content="2020-10-09T15:43:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202010092343-385ee0dd.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TIOBE十月榜单出炉：Python或将超过Java获得第二名",
+  "url": "https://dpw09.cn/2020/10/09/202010092343-TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89%EF%BC%9APython%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202010092343-385ee0dd.jpg",
+  "datePublished": "2020-10-09T15:43:00.000Z",
+  "dateModified": "2020-10-09T15:43:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/10/09/202010092343-TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89%EF%BC%9APython%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'TIOBE十月榜单出炉：Python或将超过Java获得第二名',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202010092343-385ee0dd.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">TIOBE十月榜单出炉：Python或将超过Java获得第二名</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">TIOBE十月榜单出炉：Python或将超过Java获得第二名</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-09T15:43:00.000Z" title="发表于 2020-10-09 23:43:00">2020-10-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-09T15:43:00.000Z" title="更新于 2020-10-09 23:43:00">2020-10-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">669</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p>
+<p><em>2020年10月09日 23:43</em> __ _ _ _ _</p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/01.jpg" alt="文章配图" loading='lazy'></p>
+<p>点击上方「  蓝字  」关注”程序员Bob”</p>
+<p>每天与你不见不散！</p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/02.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>每日一句，送给最珍贵的你：</strong></p>
+<p>我们一日所度过的所谓的日常，实际上可能是接连不断的奇迹</p>
+<p>十月刚到，TIOBE已经为我们准备好了最新的编程语言排行榜，相信很多程序员都会时不时关注一下排行榜的变化,虽然仅起参考作用,但无疑也是个<br><strong>饭后吐槽点</strong><br>**<img src="/img/boblaila/posts/202010092343-385ee0dd/03.jpg" alt="文章配图" loading='lazy'><br><img src="/img/boblaila/posts/202010092343-385ee0dd/04.jpg" alt="文章配图" loading='lazy'><br><img src="/img/boblaila/posts/202010092343-385ee0dd/05.jpg" alt="文章配图" loading='lazy'><br>** 。</p>
+<p>TIOBE社区能坚持每个月都推送最新的数据是蛮厉害的,并且收集了很多高级工程师,课程以及第三方供应商提供的数量,比如有:Google, Bing,<br>Yahoo!, Wikipedia, Amazon, YouTube和百度等.</p>
+<p>根据  TIOBE结果显示，  榜单前十相较于上个月没有大的变化，C语言连续三个月蝉联第一，Java和Python仍紧随其后。</p>
+<p><strong>TIOBE开发者说：</strong><br>去年，Python夺取了TIOBE指数的第三名，但它的受欢迎程度仍在上升。本月已达到历史新高11.28％。自从2001年Java接近其历史最低点以来，Python和Java越来越接近。差距现在小于1.3％。</p>
+<p>Python在此月TIOBE指数中依然排名第三。其评级仍在稳定上涨中，Tiobe 社区认为Python将很快超越<br>Java；Python和Java的评级已非常接近，差距现在不到 1.3%；R 语言和 PHP 再次对换。</p>
+<p>前十最新榜单如下:</p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/06.jpg" alt="文章配图" loading='lazy'></p>
+<p>从名次上来看，本月相较于9月榜单前十的位次变化不大，变化较大的是十至二十。</p>
+<p><strong>十至二十排名如下:</strong></p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/07.jpg" alt="文章配图" loading='lazy'></p>
+<p>相较于9月排名下降的：</p>
+<p>Go（11→14）；</p>
+<p>Swift（12→16）；</p>
+<p>Assembly language（14→17）。</p>
+<p>相较于9月排名上升的：</p>
+<p>Perl（13→11）；</p>
+<p>Ruby（15→13）；</p>
+<p>MATLAB（16→15）；</p>
+<p>Groovy（17→12）；</p>
+<p>Objective-C（19→18）。</p>
+<p><strong>前十语言在近些年的变化如下:</strong></p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/08.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>近十年“年度最佳编程语言”获奖者</strong></p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/09.jpg" alt="文章配图" loading='lazy'></p>
+<p>上个月榜单如下  ： <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488233&idx=1&sn=c2f78eedd5a2af906e7fe1604ee4bcc5&chksm=fb206362cc57ea741bd4a3364ec17e0a6fe4b3a7014fd062827cefaa311165d784e2600272a3&scene=21#wechat_redirect"> TIOBE九月榜单出炉：C++做得很好，要崛起么？
+</a></p>
+<p><strong>最后值得注意的是TIOBE 指数并不能代表语言的好坏，开发者可以根据该榜单检查自身的编程技能是否需要更新，或者在开始构建新软件时对某一语言做出选择。</strong></p>
+<p><img src="/img/boblaila/posts/202010092343-385ee0dd/10.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>往期推荐：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488989&idx=1&sn=2add2e8e8375a4503f22b2757625cc38&chksm=fb206456cc57ed40e2353e4462aed50c9da008a19fba3241a2c9da1f7d92bf396ce76893e236&scene=21#wechat_redirect"> My SQL服务库下载安装走起！  2020-10-08<br><img src="/img/boblaila/posts/202010092343-385ee0dd/11.jpg" alt="文章配图" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488873&idx=1&sn=9e8507ac731251386cad8d5517df0218&chksm=fb2064e2cc57edf4d7f38de0751485cc8407c6ab29198e6966a74ad81da9df718d7963850568&scene=21#wechat_redirect"> 关于小编  2020-10-06<br><img src="/img/boblaila/posts/202010092343-385ee0dd/12.jpg" alt="文章配图" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488852&idx=1&sn=94a2acc50d824f0ee1f4fce73108ac3f&chksm=fb2064dfcc57edc90da39a498bbe4c08aade7785d10d5b3e53a4f387a5745e794b3c9fd6dcf5&scene=21#wechat_redirect"> IDEA下载及新建第一个Java项目（Helloworld）  2020-10-05<br><img src="/img/boblaila/posts/202010092343-385ee0dd/13.jpg" alt="文章配图" loading='lazy'>
+</a></p>
+<p>为你,千千万万遍.</p>
+<p>关注  <strong>程序员Bob</strong> 公众号,  与你  一起终  生学习</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqIfq5QUEVJa5xaAhDzC5zgbOTWvFwSc3qCHlh9eeJkDp8YPoBrSIVDthrtPibZyiaKXiaCiaDKfT4AKJA/640?wx_fmt=jpeg" loading='lazy'></p>
+<p>一键三连，就差你了<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIfNrrlvu8TtoWzKYbNrlRMAXjLyoFicvXwjMtHNFTEA6TYwdrz0LqroWibagkHg14j3eqria6OkxyuQ/640?wx_fmt=png" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/10/09/202010092343-TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89%EF%BC%9APython%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/">https://dpw09.cn/2020/10/09/202010092343-TIOBE%E5%8D%81%E6%9C%88%E6%A6%9C%E5%8D%95%E5%87%BA%E7%82%89%EF%BC%9APython%E6%88%96%E5%B0%86%E8%B6%85%E8%BF%87Java%E8%8E%B7%E5%BE%97%E7%AC%AC%E4%BA%8C%E5%90%8D/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202010092343-385ee0dd.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/10/10/202010102202-NavicatPremium15%E8%BF%9E%E6%8E%A5MySQL%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="Navicat Premium 15 连接MySQL安装教程"><img class="cover" src="/img/boblaila/covers/202010102202-1751adb3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Navicat Premium 15 连接MySQL安装教程</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年10月10日 22:02 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 学会反省，并改变！ 玩过MySQL的应该都知道  Navicat Premium ，  Navicatpremium作...</div></div></div></a><a class="pagination-related" href="/2020/10/08/202010082208-MySQL%E6%9C%8D%E5%8A%A1%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E8%B5%B0%E8%B5%B7%EF%BC%81/" title="My SQL服务库下载安装走起！"><img class="cover" src="/img/boblaila/covers/202010082208-e73e4437.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">My SQL服务库下载安装走起！</div></div><div class="info-2"><div class="info-item-1">2020年10月08日 22:08 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 成熟，就是在某一个突如其来的时刻，把你的骄傲狠狠的踩到地上，任其开成花或者烂成泥。 最近在琢磨写个小程序后会用到数据库的缘故，于是将MySQL在电脑上安装了一...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/05/28/202005282230-C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8D%95%E9%93%BE%E8%A1%A8%E9%80%86%E7%BD%AE/" title="C语言实现单链表逆置"><img class="cover" src="/img/boblaila/covers/202005282230-21eaea1d.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-28</div><div class="info-item-2">C语言实现单链表逆置</div></div><div class="info-2"><div class="info-item-1">2020年05月28日 22:30 __ _ _ _ _  Life is either a daring adventure or nothing at all。生活要么大胆尝试，要么什么都不是。 学完C语言你会发现真的不难，可能就指针有点绕，其余的都是小打小闹。链表是数据结构里的内容，数据结构和算法是程序设计...</div></div></div></a><a class="pagination-related" href="/2021/07/22/202107222359-%E5%A6%82%E4%BD%95%E5%8A%A0%E5%BC%BA%E8%87%AA%E5%B7%B1%E5%AF%B9Java%E7%9A%84%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" title="如何加强自己对Java的编码规范"><img class="cover" src="/img/boblaila/covers/202107222359-e27abc14.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-22</div><div class="info-item-2">如何加强自己对Java的编码规范</div></div><div class="info-2"><div class="info-item-1">2021年07月22日 23:59 __ _ _ _ _  永远不要把你自己不满意的东西拿给客户。——《文案的基本修养》   大家好，我是小Bob,一个关注软件领域而又执着于计算机底层的开发者~  Java ，无疑是现在计算机专业最容易找到工作的语言，使用的人也非常多，各大语言排行榜前三一般都会有Java。 那么...</div></div></div></a><a class="pagination-related" href="/2020/11/18/202011182351-PythonRandom%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Python || Random库的使用"><img class="cover" src="/img/boblaila/covers/202011182351-30a3d1d4.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-18</div><div class="info-item-2">Python || Random库的使用</div></div><div class="info-2"><div class="info-item-1">2020年11月18日 23:51 __ _ _ _ _  每日一句，送给最珍贵的你： 人们内心的恐惧，有部分来自于过去事实所造成的伤害，但另一部分，却是源自我们对恐惧的想像和无限放大。  在C语言我们可以用rand和srand函数来生成随机数，且这些函数需要用到的库为  &lt;stdlib.h&gt;。 那么...</div></div></div></a><a class="pagination-related" href="/2021/01/21/202101212357-%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%BA%E7%9A%84%E5%BF%85%E5%A4%87%E6%8A%80%E8%83%BD%EF%BC%9A%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/" title="互联网人的必备技能：系统重装"><img class="cover" src="/img/boblaila/covers/202101212357-f29dfa3d.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-21</div><div class="info-item-2">互联网人的必备技能：系统重装</div></div><div class="info-2"><div class="info-item-1">2021年01月21日 23:57 __ _ _ _ _  我现在不和人争吵了，因为我开始认识到，每个人只能在他的认知水准基础上思考，以后有人告诉我２＋２等于１０，我会说，你真厉害．．． ——马斯克   重装系统作为互联网人经常遇到的事情之一，可不不不要太频繁了。 遇到问题无法解决？还记得99%靠重装&#x2F;...</div></div></div></a><a class="pagination-related" href="/2020/05/05/202005052300-2020%E5%B9%B45%E6%9C%88%E7%BC%96%E7%A8%8B%E6%8E%92%E8%A1%8C%E6%A6%9C%EF%BC%9AC%E8%AF%AD%E8%A8%80%E5%8F%8D%E8%B6%85Java%E5%A4%BA%E5%86%A0/" title="2020年5月编程排行榜：C语言反超Java夺冠"><img class="cover" src="/img/boblaila/covers/202005052300-f8e36777.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-05</div><div class="info-item-2">2020年5月编程排行榜：C语言反超Java夺冠</div></div><div class="info-2"><div class="info-item-1">2020年05月05日 23:00 __ _ _ _ _  **Li ancient events are not only but also have a firm and indomitable willability above common people.** **古之立大事者，不惟有超世之才，亦必有坚韧...</div></div></div></a><a class="pagination-related" href="/2020/05/28/202005282230-%E7%94%A8Python%E5%AE%9E%E7%8E%B0%E4%B8%AA%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8/" title="用Python实现个简单计算器"><img class="cover" src="/img/boblaila/covers/202005282230-786cc829.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-28</div><div class="info-item-2">用Python实现个简单计算器</div></div><div class="info-2"><div class="info-item-1"> Bob来啦  2020年05月28日 22:30 __ _ _ _ _  Honesty is the best policy。做人以诚信为本。 本以为用Python写个计算器最少也得需要几行代码,实际上两行代码就能满足了,想想C语言两行能写什么?一个头文件加一个主函数?其简洁性简直不要不要的. 数值运算##*...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

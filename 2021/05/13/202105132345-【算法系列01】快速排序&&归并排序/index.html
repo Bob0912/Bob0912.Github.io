@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【算法系列01】:快速排序&amp;&amp;归并排序 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="2021年05月13日 23:45 你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。 ——《洛克菲勒写给儿子的38封信》 大家好哇，这里是小编记录算法模板的宝地啦">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【算法系列01】:快速排序&amp;&amp;归并排序">
+<meta property="og:url" content="https://dpw09.cn/2021/05/13/202105132345-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9701%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&&%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="2021年05月13日 23:45 你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。 ——《洛克菲勒写给儿子的38封信》 大家好哇，这里是小编记录算法模板的宝地啦">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202105132345-0ad99a05.jpg">
+<meta property="article:published_time" content="2021-05-13T15:45:00.000Z">
+<meta property="article:modified_time" content="2021-05-13T15:45:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202105132345-0ad99a05.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【算法系列01】:快速排序&&归并排序",
+  "url": "https://dpw09.cn/2021/05/13/202105132345-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9701%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&&%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202105132345-0ad99a05.jpg",
+  "datePublished": "2021-05-13T15:45:00.000Z",
+  "dateModified": "2021-05-13T15:45:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2021/05/13/202105132345-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9701%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&amp;&amp;%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【算法系列01】:快速排序&&归并排序',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202105132345-0ad99a05.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">【算法系列01】:快速排序&amp;&amp;归并排序</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【算法系列01】:快速排序&amp;&amp;归并排序</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-13T15:45:00.000Z" title="发表于 2021-05-13 23:45:00">2021-05-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-13T15:45:00.000Z" title="更新于 2021-05-13 23:45:00">2021-05-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><em>2021年05月13日 23:45</em> __ _ _ _ _</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/MlaNLiaOhpr8uXB9Gq0ezYQrmuJS6t7V4jnkGJNSGiaBwkUN6a6asCfTgiaH9MUHWYU5VBzicp1mBM1CyTZGLrvexw/640?wx_fmt=png" loading='lazy'></p>
+<p>你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。</p>
+<p>——《洛克菲勒写给儿子的38封信》</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/gCK7rX45sgMYibLXnW6kJ31BwSYCSve0GMDTt682m2iaFjS22s521fEvZdoShIPCOx2biaLSWSYL8gHWibYM7duyag/640?wx_fmt=png" loading='lazy'></p>
+<blockquote>
+<p>大家好哇，这里是小编记录算法模板的宝地啦，其中也会包含小编平时学习的一些心得。现在，让我们一起进入算法的世界吧~</p>
+</blockquote>
+<p>1.快速排序</p>
+<p><strong>快速排序</strong> 是在冒泡排序基础上的改进，其基本思想是  <strong>基于分治</strong> 。<br>在写代码之前最好是找到自己要写代码的大致步骤：</p>
+<ol>
+<li><p>找分界点：可以是数据的两端或中间，当然随机值也可。</p>
+</li>
+<li><p>调整区间：使得一个区间的数据小于一个值，另一个区间的值大于一个值。</p>
+</li>
+<li><p>递归处理：分别对两个区间进行递归处理。</p>
+</li>
+</ol>
+<p><strong>To:在找分界点时，当数据加强后最好是不要选择两边端点的值，之前小编便遇到过内存过载的ERROR。</strong><br>按照教材上说的，我们在进行快排时会使用两个数组，用于存放两个区间的值，存放之前还会对之前的数据进行扫描，对于时间复杂度和空间复杂度都是不小的开销。</p>
+<p>y总提供了一种优美的解决方案，即  <strong>用两个指针分别指向数据集的两端i、j，再取其分界点x。</strong><br><strong>大致思路</strong><br>是i和j分别向中间走，其中当i大于x时便停下来，j小于x时也是【假设从小到大排序】。然后当i和j两个指针都停下来，便交换两边的值。最后当两个指针相遇时，便确保了一个区间的值是小于x的，另一个区间的值大于x的。<br><strong>快速排序例子：</strong> <strong>输入格式</strong>输入共两行，第一行包含整数 n。  第二行包含 n 个整数（所有整数均在 1∼10的9次方范围内），表示整个数列。** 输出格式<br><strong>输出共一行，包含 n个整数，表示排好序的数列。</strong> 数据范围  <strong>1≤n≤100000</strong> 输入样例：  <strong>5  3 1 2 4 5</strong> 输出样例：  <strong>1 2 3 4 5</strong> 源代码：  **</p>
+<hr>
+<pre><code>#include &lt;iostream&gt;
+const int N=1e6+10;int a[N];
+void Sorttest(int l,int r){     if(l&gt;=r){         return ;     }     //判断数据集     int i=l-1,j=r+1;     int x=a[(l+r)/2];     //取中间值     while(i&lt;j){         do i++;while(a[i]&lt;x);         do j--; while(a[j]&gt;x);         if(i&lt;j){             std::swap(a[i],a[j]);             //交换数据         }     }         Sorttest(l,j);Sorttest(j+1,r);         //分别处理两个区间的数据}int main(){using namespace std;    int n,i;    cin&gt;&gt;n;    //输入排序数据集    for(i=0;i&lt;n;i++){        scanf(&quot;%d&quot;,&amp;a[i]);    }//Sorttest函数进行排序    Sorttest(0,n-1);//使用循环输出排序后的数据    for(i=0;i&lt;n;i++){        printf(&quot;%d &quot;,a[i]);    }return 0;}
+</code></pre>
+<p><strong>快速排序模板：</strong></p>
+<hr>
+<pre><code>void Sorttest(int l,int r){     if(l&gt;=r){         return ;     }     int i=l-1,j=r+1;     int x=a[(l+r)/2];     while(i&lt;j){         do i++;while(a[i]&lt;x);         do j--; while(a[j]&gt;x);         if(i&lt;j){             std::swap(a[i],a[j]);         }     }         Sorttest(l,j);Sorttest(j+1,r);}
+</code></pre>
+<p><strong>To：可能会有人问为啥会有模板，在处理大部分排序时，模板都能起到很大的作用，平时可以多敲敲模板，关于临界值的处理则需要自己去记忆了。</strong></p>
+<p>2.归并排序</p>
+<p>归并排序是一种稳定的排序，而快速排序则是一种不稳定的，归并排序也基于分治。</p>
+<p><strong>To：原序列中2个数相同，位置不发生变化我们便说这个排序是稳定的；反之则是不稳定的。</strong></p>
+<p>大致思路步骤为：</p>
+<ol>
+<li><p>确定分界点，即mid&#x3D;(l+r)&#x2F;2。</p>
+</li>
+<li><p>递归排序左边和右边。</p>
+</li>
+<li><p>归并：合二为一，将排序后的数据合并，也是归并排序中最重要的一个环节。</p>
+</li>
+</ol>
+<p>在归并排序中，我们也用到  <strong>两个指针</strong><br>，分别指向排好序数据的最左端，并开始比较，值小的就拿出来【以从小到大排序】放入另一个数组中，依次比较，如果遇到相等的数，我们倾向于将第一个序列的值先放入另一个数组中；如果当第一个指针指向序列的最后一个值时，我们便把另一个序列直接补到数组后面。</p>
+<p><strong>归并排序例子：</strong><br><strong>输入格式</strong>输入共两行，第一行包含整数 n。  第二行包含 n 个整数（所有整数均在 1∼10的9次方范围内），表示整个数列。** 输出格式<br><strong>输出共一行，包含 n个整数，表示排好序的数列。</strong> 数据范围  <strong>1≤n≤100000</strong> 输入样例：  <strong>5  3 1 2 4 5</strong> 输出样例：  <strong>1 2 3 4 5</strong> 源代码：  **</p>
+<hr>
+<pre><code>#include&lt;iostream&gt;using namespace std;
+const int N = 1000010;int a[N], temp[N], n;
+void Sorttest(int a[], int l, int r) {    if (l &gt;= r) {        return;    }//判断数据集    int mid = l + r &gt;&gt; 1;//取中间值    Sorttest(a, l, mid);    Sorttest(a, mid + 1, r);//递归左右两边    int k = 0, i = l, j = mid + 1;    while (i &lt;= mid &amp;&amp; j &lt;= r)        if (a[i] &lt;= a[j]) {            temp[k++] = a[i++];        } else {            temp[k++] = a[j++];        }//排序：比较大小，将较小的数据放入temp数组中    while (i &lt;= mid) temp[k++] = a[i++];    while (j &lt;= r) temp[k++] = a[j++];//判断某一个序列是否未放入temp数组中，并将其放入    for (i = l, j = 0; i &lt;= r; i++, j++) {        a[i] = temp[j];    }}
+int main() {    scanf(&quot;%d&quot;, &amp;n);    for (int i = 0; i &lt; n; i++) {        scanf(&quot;%d&quot;, &amp;a[i]);    }
+    Sorttest(a, 0, n - 1);
+    for (int i = 0; i &lt; n; i++) {        printf(&quot;%d &quot;, a[i]);    }    return 0;}
+</code></pre>
+<p><strong>归并排序模板：</strong></p>
+<hr>
+<pre><code>void Sorttest(int a[], int l, int r) {    if (l &gt;= r) {        return;    }
+    int mid = l + r &gt;&gt; 1;
+    Sorttest(a, l, mid);    Sorttest(a, mid + 1, r);
+    int k = 0, i = l, j = mid + 1;    while (i &lt;= mid &amp;&amp; j &lt;= r)        if (a[i] &lt;= a[j]) {            temp[k++] = a[i++];        } else {            temp[k++] = a[j++];        }    while (i &lt;= mid) temp[k++] = a[i++];    while (j &lt;= r) temp[k++] = a[j++];    for (i = l, j = 0; i &lt;= r; i++, j++) {        a[i] = temp[j];    }}
+</code></pre>
+<p><strong>平时也可多敲敲模板哦！</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz/cZV2hRpuAPia3RFX6Mvw06kePJ7HbmI7b35o17yNJx4WHYPSQj280IElEicRPq2CviaJe8fjL2AeadmIjARqVZWnw/640?wx_fmt=jpeg" loading='lazy'></p>
+<p>**最后的话：****<strong>刷题要找自己的不足，然后去专攻。</strong> ** ** **</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqLmvWUalJWyW6UoE5Gr2ZdK4ZdVq77SUTU4H69wQibXJ6hYMUohzSicP3mJZYdeNic6zWIGgoIgUAmPA/640?wx_fmt=jpeg" loading='lazy'></p>
+<p>为你,千千万万遍.</p>
+<p>往期推荐：</p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247493019&idx=1&sn=1490ecb44f8d71870baa7443fff0dbf7&chksm=fb239410cc541d069fe1a80a3119fba63bee8405c53af4ae434ab0d4cfcd4a5536f74453a0cf&scene=21#wechat_redirect"> 洛谷 || 奖学金(排序)  2021-05-08<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqK5iawURnqzo6sI6K3sDueicevnoL5BUJTHvRTJfiags5nztk4sUQS9cDWKtcRFCvYc1RyPbpR8ic8kLQ/640?wx_fmt=jpeg" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247492985&idx=1&sn=f83a695d773775db439ea31f81e8fefe&chksm=fb2394f2cc541de4d25dc58ce24f471724536b402cb170bc045ace2f9e654606d1e1de39161a&scene=21#wechat_redirect"> 洛谷 || 车厢重组(排序)  2021-05-06<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqKibuIk03Vib5P0shxB1eH5En9pBuiaxRdUoZ9KibYcbutK1olvJHyrOu1BRsNKiaWHOHa0AGaeajeCVFA/640?wx_fmt=jpeg" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247492968&idx=1&sn=fda4b55f44a222876e8a68edb7618dec&chksm=fb2394e3cc541df5946e94f57ae4036ebe04e7dcdd9bcc72283d6d749d652d9b1cc0c5aecde2&scene=21#wechat_redirect"> 四月碎碎念 || 给自己一个空间~  2021-04-30<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqKsACSRkBSEajiakicbl7YqiclnSZTecCWgby92jqnLbm7c3a3qFqwnmVaueFF5wO7UvsgtOnpHUAk1w/640?wx_fmt=jpeg" loading='lazy'>
+</a></p>
+<p>一键三连，就差你了<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIfNrrlvu8TtoWzKYbNrlRMAXjLyoFicvXwjMtHNFTEA6TYwdrz0LqroWibagkHg14j3eqria6OkxyuQ/640?wx_fmt=png" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2021/05/13/202105132345-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9701%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&amp;&amp;%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">https://dpw09.cn/2021/05/13/202105132345-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9701%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&amp;&amp;%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202105132345-0ad99a05.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/06/01/202106012357-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9702%E3%80%91%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E6%80%8E%E4%B9%88%E7%8E%A9%EF%BC%9F/" title="【算法系列02】整数二分怎么玩？"><img class="cover" src="/img/boblaila/covers/202106012357-f4ad4761.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【算法系列02】整数二分怎么玩？</div></div><div class="info-2"><div class="info-item-1">2021年06月01日 23:57 __ _ _ _ _  你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。 ——《洛克菲勒写给儿子的38封信》   大家好哇，这里是小编记录算法模板的宝地啦，其中也会包含小编平时学习的一些心得。现在，让我们一起进入算法的世...</div></div></div></a><a class="pagination-related" href="/2021/05/08/202105080017-%E6%B4%9B%E8%B0%B7%E5%A5%96%E5%AD%A6%E9%87%91(%E6%8E%92%E5%BA%8F)/" title="洛谷 || 奖学金(排序)"><img class="cover" src="/img/boblaila/covers/202105080017-23b2530d.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">洛谷 || 奖学金(排序)</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2021年05月08日 00:17 __ _ _ _ _  人始终要保持活力，保持坚强，不论遭遇怎样的失败与挫折，这是我唯一能做的事情。 ** ** ** 题目描述  **某小学最近得到了一笔赞助，打算拿出其中一部分为学习成绩优秀的前5名学生发奖学金。期末，每个学生都有3门...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/11/12/202011122330-%E8%B6%A3%E5%91%B3C%E8%AF%AD%E8%A8%80%EF%BC%88C%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%B0%8F%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98%EF%BC%89/" title="趣味C语言（C语言游戏小飞机大战）"><img class="cover" src="/img/boblaila/covers/202011122330-3ceb858d.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="info-item-2">趣味C语言（C语言游戏小飞机大战）</div></div><div class="info-2"><div class="info-item-1">2020年11月12日 23:30 __ _ _ _ _  不是说一定要先有了面包才能拥有爱情，而是当你把面包吃好，爱情对于你来说会有更多的可能性。  杂谈小卖部 在看书时看到有人在评论里写了存在主义哲学家萨特剧本《禁闭》里面的一段话。“他人即地狱”表面看上去是充满了负能量，它也告诉我们，每一个人生活在世界之中，...</div></div></div></a><a class="pagination-related" href="/2021/06/01/202106012357-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9702%E3%80%91%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E6%80%8E%E4%B9%88%E7%8E%A9%EF%BC%9F/" title="【算法系列02】整数二分怎么玩？"><img class="cover" src="/img/boblaila/covers/202106012357-f4ad4761.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="info-item-2">【算法系列02】整数二分怎么玩？</div></div><div class="info-2"><div class="info-item-1">2021年06月01日 23:57 __ _ _ _ _  你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。 ——《洛克菲勒写给儿子的38封信》   大家好哇，这里是小编记录算法模板的宝地啦，其中也会包含小编平时学习的一些心得。现在，让我们一起进入算法的世...</div></div></div></a><a class="pagination-related" href="/2020/06/28/202006282351-%E3%80%8A%E6%97%A0%E9%97%AE%E8%A5%BF%E4%B8%9C%E3%80%8B%E5%88%B0%E5%BA%95%E5%A5%BD%E4%B8%8D%E5%A5%BD%E7%9B%B8%E4%BF%A1%E6%AF%8F%E4%B8%AA%E7%9C%9F%E5%AE%9E%E7%9A%84%E8%87%AA%E6%88%91%E9%83%BD%E6%9C%89%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%80%E4%BB%BD%E7%AD%94%E6%A1%88%EF%BC%81/" title="《无问西东》到底好不好?相信每个真实的自我都有属于自己的一份答案！"><img class="cover" src="/img/boblaila/covers/202006282351-b5e47296.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-28</div><div class="info-item-2">《无问西东》到底好不好?相信每个真实的自我都有属于自己的一份答案！</div></div><div class="info-2"><div class="info-item-1">2020年06月28日 23:51 __ _ _ _ _  如果提前了解了你所面对的人生，你是否还有勇气前来？ ——电影《无问西东》 前天观看了电影《无问西东》，这部电影是为清华百年校庆所准备，但由于种种原因并未在百年校庆时上映，因为电影并没有过审，所以推迟了几年，并最终于2018年1月在内地上映。 开始电影以张...</div></div></div></a><a class="pagination-related" href="/2021/04/30/202104302355-%E5%9B%9B%E6%9C%88%E7%A2%8E%E7%A2%8E%E5%BF%B5%E7%BB%99%E8%87%AA%E5%B7%B1%E4%B8%80%E4%B8%AA%E7%A9%BA%E9%97%B4/" title="四月碎碎念 || 给自己一个空间~"><img class="cover" src="/img/boblaila/covers/202104302355-6cb66a1f.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-30</div><div class="info-item-2">四月碎碎念 || 给自己一个空间~</div></div><div class="info-2"><div class="info-item-1">2021年04月30日 23:55 __ _ _ _ _ 嘿，Hello, 这里是小Bob的“碎碎念”世界啊~ 特地开辟了这个“碎碎念”这个小模块，且当日记来写，目前只在微信上发布哦！ 以后可以在下面查看每个月的碎碎念小世界： 2020:  七月  八月  九月  十一月  十二月  2021:   一月  二月...</div></div></div></a><a class="pagination-related" href="/2021/03/12/202103122310-%E6%B4%9B%E8%B0%B7%E6%B7%B7%E5%90%88%E7%89%9B%E5%A5%B6MixingMilk%EF%BC%88%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%89/" title="洛谷 || 混合牛奶 Mixing Milk（贪心算法）"><img class="cover" src="/img/boblaila/covers/202103122310-69f8e5f9.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-12</div><div class="info-item-2">洛谷 || 混合牛奶 Mixing Milk（贪心算法）</div></div><div class="info-2"><div class="info-item-1">2021年03月12日 23:10 __ _ _ _ _  我真心想要追寻的地方是哪儿？不是别人告诉我，我应该去的地方，而是我每每想起，都会激动不已、愿意义无反顾前往的地方。那是我之所以来到这个世界、走这一遭的真相。 ——《生而不凡》 题目描述 由于乳制品产业利润很低，所以降低原材料（牛奶）价格就变得十分重要。帮...</div></div></div></a><a class="pagination-related" href="/2020/07/05/202007052311-%E7%94%A8Hexo+GithubPages%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%99%EF%BC%89/" title="用Hexo+Github Pages搭建私人博客（第二站）"><img class="cover" src="/img/boblaila/covers/202007052311-169a8e61.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-05</div><div class="info-item-2">用Hexo+Github Pages搭建私人博客（第二站）</div></div><div class="info-2"><div class="info-item-1">2020年07月05日 23:11 __ _ _ _ _  Sometimes God doesn’t give you what you want, not because you don’t deserveit, but because you deserve more. 有时候，上天没有给你想要的，不是因为...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

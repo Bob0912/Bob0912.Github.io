@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>从 ChatGPT 到 Agent，我这三年到底经历了什么 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="毕业那年，AI 闯进了我的生活 01 你好呀，今天聊点个人的。 2023 年对我来说是特别的一年。不仅大学毕业，AI 突然也火了。 第一次用 ChatGPT，我被震住了 还记得实习的时候，我碰到一个功能需求。逻辑不复杂，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 ChatGPT 到 Agent，我这三年到底经历了什么">
+<meta property="og:url" content="https://dpw09.cn/2026/05/20/202605202149-%E4%BB%8EChatGPT%E5%88%B0Agent%EF%BC%8C%E6%88%91%E8%BF%99%E4%B8%89%E5%B9%B4%E5%88%B0%E5%BA%95%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="毕业那年，AI 闯进了我的生活 01 你好呀，今天聊点个人的。 2023 年对我来说是特别的一年。不仅大学毕业，AI 突然也火了。 第一次用 ChatGPT，我被震住了 还记得实习的时候，我碰到一个功能需求。逻辑不复杂，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202605202149-3530483c.jpg">
+<meta property="article:published_time" content="2026-05-20T13:49:00.000Z">
+<meta property="article:modified_time" content="2026-05-20T13:49:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202605202149-3530483c.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "从 ChatGPT 到 Agent，我这三年到底经历了什么",
+  "url": "https://dpw09.cn/2026/05/20/202605202149-%E4%BB%8EChatGPT%E5%88%B0Agent%EF%BC%8C%E6%88%91%E8%BF%99%E4%B8%89%E5%B9%B4%E5%88%B0%E5%BA%95%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202605202149-3530483c.jpg",
+  "datePublished": "2026-05-20T13:49:00.000Z",
+  "dateModified": "2026-05-20T13:49:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2026/05/20/202605202149-%E4%BB%8EChatGPT%E5%88%B0Agent%EF%BC%8C%E6%88%91%E8%BF%99%E4%B8%89%E5%B9%B4%E5%88%B0%E5%BA%95%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从 ChatGPT 到 Agent，我这三年到底经历了什么',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202605202149-3530483c.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">从 ChatGPT 到 Agent，我这三年到底经历了什么</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">从 ChatGPT 到 Agent，我这三年到底经历了什么</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-20T13:49:00.000Z" title="发表于 2026-05-20 21:49:00">2026-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-20T13:49:00.000Z" title="更新于 2026-05-20 21:49:00">2026-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>毕业那年，AI 闯进了我的生活  01<br><img src="/img/boblaila/posts/202605202149-3530483c/01.jpg" alt="文章配图" loading='lazy'><br>你好呀，今天聊点个人的。  2023 年对我来说是特别的一年。不仅大学毕业，AI 突然也火了。</p>
+<p>第一次用 ChatGPT，我被震住了  还记得实习的时候，我碰到一个功能需求。逻辑不复杂，但要处理大量图片和判断，纯手工写估计得好几天。  我当时想，试试<br>ChatGPT 吧，看它能帮上多少。  我把思路和需求一股脑输进去。不到一小时，它给我返回了完整的代码框架，还带了注释和思路说明。<br>我当时盯着屏幕看了好几秒。  不是因为代码写得多完美，而是它居然真的”懂”我要什么。<br>那种感觉很奇怪，一半是惊讶，一半是——妈的，这东西以后可能会让我失业。  从那之后，我对 AI 的看法彻底变了。</p>
+<p>比百度好用，不是一点点  2023年初申请到 ChatGPT 的时候，我的第一反应是：  这玩意比百度好用太多了。<br>你搜百度，它给你一堆链接，你得自己点进去找答案。  你问 ChatGPT，它直接给你答案，还能跟你对话、帮你理清思路、推翻你刚才的想法。<br>这种体验，一旦用过就回不去了。</p>
+<p>国内大模型百花齐放，但我只留下了 DeepSeek  2024 年上半年到2025年，国内大模型开始冒出来。<br>文心一言、通义千问、讯飞星火、ChatGLM……那段时间，几乎每周都有新模型发布。  我基本都试了一遍。<br>说实话，大部分用完就删了，没有”想留下来继续用”的冲动。  唯独DeepSeek让我觉得，嗯，这个可以。  理由很简单：</p>
+<ul>
+<li><p>响应快</p>
+</li>
+<li><p>代码能力强</p>
+</li>
+<li><p>免费（这个很重要）</p>
+</li>
+<li><p>不需要精心雕琢提示词就能用</p>
+</li>
+</ul>
+<p>其他的模型，试了一下就没再深入了。不是它们不好，而是我找不到留下的理由。<br><img src="/img/boblaila/posts/202605202149-3530483c/02.jpg" alt="文章配图" loading='lazy'><br>2024-2025：应用框架和微调的狂欢  02<br>在 ChatGPT 爆火之后，大家玩得比较多的是大模型应用框架。  那个时期大家都在想同一件事：大模型很强，但怎么把它用到实际场景里？  答案就是应用框架。</p>
+<p>LangChain 火了  LangChain 的核心思路很简单：把大模型”串”起来。  比如你想做一个公司文档问答系统，流程是这样的：</p>
+<ol>
+<li>把文档切成小块</li>
+<li>每块转成向量（embedding）</li>
+<li>存到向量数据库</li>
+<li>用户提问时，先去数据库找最相关的内容</li>
+<li>把找到的内容 + 用户问题一起扔给大模型</li>
+<li>大模型基于这些上下文生成答案</li>
+</ol>
+<p>LangChain 把这整套流程封装成了”链”（Chain），你可以像搭积木一样组合不同组件。  那段时间，LangChain 的教程满天飞，几乎每个做<br>AI 应用的团队都在用它。</p>
+<p>大模型微调也在火  另一个热门方向是微调（Fine-tuning）。  大思路是：通用大模型很强，但如果你让它学习你领域的专业数据，它就能变得更专业。<br>比如：</p>
+<ul>
+<li><p>法律 AI：用法律条文和案例微调</p>
+</li>
+<li><p>医疗 AI：用医学文献和病历微调</p>
+</li>
+<li><p>客服 AI：用历史对话记录微调</p>
+</li>
+</ul>
+<p>那时候 Hugging Face 的 Transformers 库几乎人手一份，各种微调教程、各种开源模型，真的是百花齐放。<br><img src="/img/boblaila/posts/202605202149-3530483c/03.jpg" alt="文章配图" loading='lazy'><br>2026年：Agent 元年  03<br><img src="/img/boblaila/posts/202605202149-3530483c/04.jpg" alt="文章配图" loading='lazy'><br>如果给 2026 年贴一个标签，我会说：  Agent 元年。</p>
+<p>什么是 Agent？  之前的大模型是”你问它答”，它是个顾问。  Agent 是”你给它一个目标，它自己拆解、自己执行、自己完成”，它是个员工。<br>这个变化，比从百度换到 ChatGPT 还要大。</p>
+<p>年底的两个大事件  2025 年年底，有两件事让我觉得，AI 的应用层终于爆发了。  第一件：豆包的智能手机助手  字节的豆包推出了智能手机助手，可以让<br>AI 直接操作你的手机。  点外卖、发微信、查地图，全都可以用自然语言指挥 AI 完成。  这意味着 AI<br>不再是”对话框里的助手”，而是真的能”动手干活”的助手。  第二件：OpenClaw 出现了  这个可能很多人还没听说过，我来解释一下。  OpenClaw<br>到底是什么？  很多人可能不知道 OpenClaw 是干啥的。  我用一个比喻：  大模型就像一台裸发动机，OpenClaw<br>就是给它装上方向盘、轮胎、底盘，让你真的能”开”起来。  本质上，OpenClaw 也是调用大模型，但它给大模型上了一个脚手架。  这个脚手架包括：</p>
+<ul>
+<li><p>工具调用能力  ：大模型可以调用外部 API、执行代码、读写文件</p>
+</li>
+<li><p>记忆系统  ：记住你之前的对话和偏好</p>
+</li>
+<li><p>任务规划能力  ：把一个大目标拆解成多个小步骤</p>
+</li>
+<li><p>多模型编排  ：不同任务用不同模型（比如代码生成用 Claude，搜索用别的）</p>
+</li>
+</ul>
+<p>有了这个脚手架，大模型才真正从”聊天机器人”变成了”能干活的数字员工”。  你可以跟它说：”帮我调研一下竞争对标产品，整理成一份报告。”  它会自己：</p>
+<ol>
+<li>去网上搜索相关资料</li>
+<li>提取关键信息</li>
+<li>整理成结构化文档</li>
+<li>输出给你</li>
+</ol>
+<p>整个过程你不需要一步步指导，它自己搞定。  这就是”解放双手”的含义。</p>
+<p>顺便解释一下：Skill 和 MCP  这两个概念最近提得很多，但很多人搞不清楚它们是什么关系。<br><img src="/img/boblaila/posts/202605202149-3530483c/05.jpg" alt="文章配图" loading='lazy'><br>Skill：给 AI 装上一个”技能包”  Skill 是什么？  简单说，就是扩展 AI 能力的一个模块。  比如你有一个”微信读书笔记导出”的<br>Skill，那么 AI 就多了一个能力：帮你导出微信读书的笔记。  Skill 通常包括：</p>
+<ul>
+<li><p>这个技能能做什么</p>
+</li>
+<li><p>怎么调用（参数、格式）</p>
+</li>
+<li><p>注意事项（坑点）</p>
+</li>
+</ul>
+<p>有了 Skill，AI 就不是只会”说话”，而是真的能”做事”。  MCP：AI 的”万能插座”  MCP（Model Context Protocol）是<br>Anthropic 提出的一个协议，解决的是另一个问题：  怎么让 AI 方便地连接各种外部工具和数据源？  你可以把 MCP 理解成一个”万能插座”。</p>
+<ul>
+<li><p>你的数据库是一个”插头”</p>
+</li>
+<li><p>你的文件系统是一个”插头”</p>
+</li>
+<li><p>你的日历是一个”插头”</p>
+</li>
+</ul>
+<p>MCP 就是那个”插座”，让 AI 能插上这些插头，调用这些工具  有了 MCP，AI 助手就能：</p>
+<ul>
+<li><p>读取你本地的文件</p>
+</li>
+<li><p>查询你的数据库</p>
+</li>
+<li><p>访问你的日历</p>
+</li>
+<li><p>调用各种第三方 API</p>
+</li>
+</ul>
+<p>Skill 和 MCP 的关系是什么？  简单说：</p>
+<ul>
+<li><p>Skill 是”能力描述”  ：告诉 AI”你能做什么”</p>
+</li>
+<li><p>MCP 是”连接方式”  ：告诉 AI”怎么连接到工具”</p>
+</li>
+</ul>
+<p>一个 Skill 可以基于 MCP 来实现，也可以不基于。但 MCP 让 Skill 的开发变得更标准、更简单。<br><img src="/img/boblaila/posts/202605202149-3530483c/06.jpg" alt="文章配图" loading='lazy'><br>写在最后  04<br>这三年，我从一个”AI 小白”变成了一个”AI 工具重度用户”。<br><img src="/img/boblaila/posts/202605202149-3530483c/07.jpg" alt="文章配图" loading='lazy'></p>
+<p>有时候，我会想，再过几年，当更多Agent和智能设备进入生活，AI可能不只是助手，而像一个懂你习惯的伙伴，能提前帮你把事情安排好。想想就有点激动，又有点紧张——毕竟，这意味着我们的生活方式可能会彻底不同。</p>
+<p>个人来说，这一路体验下来，每一次新功能、新平台的尝试，都像在认识一个新朋友——有惊喜、有好奇，也有摸索，但最终你会发现，这个朋友带来的便利和价值，远超你最初的想象。</p>
+<p>未来，或许我们和AI的关系不会只是“使用”，而会变成“  合作  ”——它帮你做事情，你帮它“学会”你的习惯和思路。那种感觉，既奇妙又让人期待。</p>
+<p>你最近在用哪些 AI 工具？有没有哪个让你觉得”哇，这个真的好用”？欢迎在评论区聊聊，我打算整理一期”2026 年最值得用的 AI<br>工具清单”，你的推荐可能会出现在下一篇文章里。<br><img src="/img/boblaila/posts/202605202149-3530483c/08.jpg" alt="文章配图" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2026/05/20/202605202149-%E4%BB%8EChatGPT%E5%88%B0Agent%EF%BC%8C%E6%88%91%E8%BF%99%E4%B8%89%E5%B9%B4%E5%88%B0%E5%BA%95%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88/">https://dpw09.cn/2026/05/20/202605202149-%E4%BB%8EChatGPT%E5%88%B0Agent%EF%BC%8C%E6%88%91%E8%BF%99%E4%B8%89%E5%B9%B4%E5%88%B0%E5%BA%95%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202605202149-3530483c.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/06/29/20260629002457-%E9%99%A4%E5%A4%95%E5%A4%9C%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%AE%89%E9%9D%99%E4%B8%80%E4%B8%8B/" title="除夕夜和你一起安静一下"><img class="cover" src="/img/boblaila/covers/20260629002457-f4cb8d75.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">除夕夜和你一起安静一下</div></div><div class="info-2"><div class="info-item-1">   __  Bob来啦今天除夕。如果你正和家人围坐一桌，希望你今晚只做一件事：好好吃饭。如果你一个人，也别急着和世界比较。这一年不容易，能坚持走到今天，本身就值得尊重。新的一年，我们慢慢来，把重要的事，交给时间。除夕快乐。 </div></div></div></a><a class="pagination-related" href="/2026/05/14/202605142153-%E3%80%8A%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95%E3%80%8B%EF%BC%9A%E7%99%BE%E5%B9%B4%E8%82%A1%E5%B8%82%EF%BC%8C%E4%BA%BA%E6%80%A7%E6%9C%AA%E5%8F%98/" title="《股票大作手回忆录》：百年股市，人性未变"><img class="cover" src="/img/boblaila/covers/202605142153-edb916cc.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">《股票大作手回忆录》：百年股市，人性未变</div></div><div class="info-2"><div class="info-item-1">记住：市场永远是对的，错的是你的执念。  说来惭愧，这本之前《股票大作手回忆录》在书架上放了快两年，后来才真正静下心来读完。害，一开始是被”回忆录”三个字骗了，以为是那种自传式的鸡汤文。  结果读完第一个感受是：100 年前的人性，和今天一模一样。01  为什么要读这本书？  先说结论：如果你想理解市场是怎么运作...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/12/06/202012062156-%E6%B4%9B%E8%B0%B7%E6%A0%88%EF%BC%88C%E8%AF%AD%E8%A8%80%EF%BC%89/" title="洛谷 || 栈（C语言）"><img class="cover" src="/img/boblaila/covers/202012062156-a6d03a59.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-06</div><div class="info-item-2">洛谷 || 栈（C语言）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年12月06日 21:56 __ _ _ _ _  以彗星为龙，以彗星为绳结。描绘出割裂的彗星舞动的形态。又是一轮岁月。 ——《你的名字》  题目背景 栈是计算机中经典的数据结构，简单的说，栈就是限制在一端进行插入删除操作的线性表。 栈有两种最重要的操作，即 pop...</div></div></div></a><a class="pagination-related" href="/2021/05/13/202105132345-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9701%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&&%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="【算法系列01】:快速排序&amp;&amp;归并排序"><img class="cover" src="/img/boblaila/covers/202105132345-0ad99a05.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-13</div><div class="info-item-2">【算法系列01】:快速排序&amp;&amp;归并排序</div></div><div class="info-2"><div class="info-item-1">2021年05月13日 23:45 __ _ _ _ _  你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。 ——《洛克菲勒写给儿子的38封信》   大家好哇，这里是小编记录算法模板的宝地啦，其中也会包含小编平时学习的一些心得。现在，让我们一起进入算法的世...</div></div></div></a><a class="pagination-related" href="/2021/06/01/202106012357-%E3%80%90%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%9702%E3%80%91%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E6%80%8E%E4%B9%88%E7%8E%A9%EF%BC%9F/" title="【算法系列02】整数二分怎么玩？"><img class="cover" src="/img/boblaila/covers/202106012357-f4ad4761.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="info-item-2">【算法系列02】整数二分怎么玩？</div></div><div class="info-2"><div class="info-item-1">2021年06月01日 23:57 __ _ _ _ _  你需要知道，人的事业就如同浪潮，如果你踩到浪头，功名随之而来；而一旦错失，则终其一生都将受困于浅滩与悲哀。 ——《洛克菲勒写给儿子的38封信》   大家好哇，这里是小编记录算法模板的宝地啦，其中也会包含小编平时学习的一些心得。现在，让我们一起进入算法的世...</div></div></div></a><a class="pagination-related" href="/2020/07/07/202007072227-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%90%8E%EF%BC%8C%E6%88%91%E6%9C%80%E7%BB%88%E8%BF%98%E6%98%AF%E9%80%89%E6%8B%A9%E4%BA%86%E8%80%83%E7%A0%94/" title="工作一年后，我最终还是选择了考研"><img class="cover" src="/img/boblaila/covers/202007072227-b1eceb0c.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-07</div><div class="info-item-2">工作一年后，我最终还是选择了考研</div></div><div class="info-2"><div class="info-item-1">Lawson  Lawson   Bob来啦  2020年07月07日 22:27 __ _ _ _ _  本文来自Lawson同学的投稿，记录了他大学时代考研失败、被迫就业及辞职考研的过程，有梦想的人生总是精彩的。非常喜欢他文中一句话“我们越是往前走，我们便有更多的，不得不割舍的道路。”  人虽是成长型动物，但...</div></div></div></a><a class="pagination-related" href="/2021/04/22/202104222305-Python%E6%A8%A1%E6%8B%9FMOBA%E6%89%8B%E6%B8%B8%E9%93%AD%E6%96%87%E7%AF%87/" title="Python模拟MOBA手游~铭文篇"><img class="cover" src="/img/boblaila/covers/202104222305-098c2455.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-22</div><div class="info-item-2">Python模拟MOBA手游~铭文篇</div></div><div class="info-2"><div class="info-item-1">2021年04月22日 23:05 __ _ _ _ _  当你真正为自己、为好朋友或家人做一些事时，你就不会轻易放弃。但如果你不热爱这件事，那么你就不会多走一步，也不情愿在周末加班，只会安于现状。  上回说到MOBA手游中最重要的是  英雄，那么其次于英雄的便属于英雄加成，在MOBA中表现为** 铭文装配  *...</div></div></div></a><a class="pagination-related" href="/2021/02/01/202102012300-%E6%B4%9B%E8%B0%B7%E5%93%A5%E5%BE%B7%E5%B7%B4%E8%B5%AB%E7%8C%9C%E6%83%B3%EF%BC%88C%E8%AF%AD%E8%A8%80%EF%BC%89/" title="洛谷 || 哥德巴赫猜想（C语言）"><img class="cover" src="/img/boblaila/covers/202102012300-2c1eb334.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-01</div><div class="info-item-2">洛谷 || 哥德巴赫猜想（C语言）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2021年02月01日 23:00 __ _ _ _ _  对每个人而言，真正的职责只有一个：找到自我。然后在心中坚守其一生，全心全意，永不停息。所有其它的路都是不完整的，是人的逃避方式，是对大众理想的懦弱回归，是随波逐流，是对内心的恐惧 -《德米安 彷徨少年时》  题目描...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

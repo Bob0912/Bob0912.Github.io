@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>当数码管遇上系统时间，python最终成为催化剂 | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="小Bob 小Bob Bob来啦 ;) 2020年12月04日 23:00 彼方为谁，无我有问 九月露湿，待君之前。 ——《你的名字》 冬天来了，保暖的同时也要注意疫情哦 lambda函数 lambda函数： 是一种匿名函">
+<meta property="og:type" content="article">
+<meta property="og:title" content="当数码管遇上系统时间，python最终成为催化剂">
+<meta property="og:url" content="https://dpw09.cn/2020/12/04/202012042300-%E5%BD%93%E6%95%B0%E7%A0%81%E7%AE%A1%E9%81%87%E4%B8%8A%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%8Cpython%E6%9C%80%E7%BB%88%E6%88%90%E4%B8%BA%E5%82%AC%E5%8C%96%E5%89%82/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="小Bob 小Bob Bob来啦 ;) 2020年12月04日 23:00 彼方为谁，无我有问 九月露湿，待君之前。 ——《你的名字》 冬天来了，保暖的同时也要注意疫情哦 lambda函数 lambda函数： 是一种匿名函">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202012042300-97f35b4c.jpg">
+<meta property="article:published_time" content="2020-12-04T15:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-04T15:00:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202012042300-97f35b4c.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "当数码管遇上系统时间，python最终成为催化剂",
+  "url": "https://dpw09.cn/2020/12/04/202012042300-%E5%BD%93%E6%95%B0%E7%A0%81%E7%AE%A1%E9%81%87%E4%B8%8A%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%8Cpython%E6%9C%80%E7%BB%88%E6%88%90%E4%B8%BA%E5%82%AC%E5%8C%96%E5%89%82/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202012042300-97f35b4c.jpg",
+  "datePublished": "2020-12-04T15:00:00.000Z",
+  "dateModified": "2020-12-04T15:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/12/04/202012042300-%E5%BD%93%E6%95%B0%E7%A0%81%E7%AE%A1%E9%81%87%E4%B8%8A%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%8Cpython%E6%9C%80%E7%BB%88%E6%88%90%E4%B8%BA%E5%82%AC%E5%8C%96%E5%89%82/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '当数码管遇上系统时间，python最终成为催化剂',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202012042300-97f35b4c.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">当数码管遇上系统时间，python最终成为催化剂</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">当数码管遇上系统时间，python最终成为催化剂</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-04T15:00:00.000Z" title="发表于 2020-12-04 23:00:00">2020-12-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-04T15:00:00.000Z" title="更新于 2020-12-04 23:00:00">2020-12-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p>
+<p><em>2020年12月04日 23:00</em> __ _ _ _ _</p>
+<p><img src="/img/boblaila/posts/202012042300-97f35b4c/01.jpg" alt="文章配图" loading='lazy'></p>
+<p>彼方为谁，无我有问 九月露湿，待君之前。</p>
+<p>——《你的名字》</p>
+<p><img src="/img/boblaila/posts/202012042300-97f35b4c/02.jpg" alt="文章配图" loading='lazy'><br>冬天来了，保暖的同时也要注意疫情哦~</p>
+<p>lambda函数</p>
+<p><strong>lambda函数：</strong> 是一种匿名函数，能够返回一个函数名作为结果，也叫无名函数。在使用lambda保留字定义，函数名是返回结果。<br>使用：lambda函数用于定义简单的，能够在一行内表示的函数，实际上并不常用。</p>
+<p><strong>函数使用模板：  &lt;函数名&gt; &#x3D;lambda &lt;参数&gt; :&lt;表达式&gt;</strong></p>
+<p>其返回的结果为可以赋值为函数名字。<br><strong>实例：</strong></p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<pre><code>f=lambda x,y:x+yprint(f(1,1))
+</code></pre>
+<p>其运行结果为2。</p>
+<p>一般情况下，lambda函数主要用作一些特定函数或方法的参数，通常还是使用def来定义普通函数。</p>
+<p>**七段数码管实现<br>** ** 什么是七段数码管？  **</p>
+<p>数码管的一种是半导体发光器件，数码管可分为七段数码管和八段数码管，区别在于八段数码管比七段数码管多一个用于显示小数点的发光二极管单元DP，其基本单元是发光二极管。</p>
+<p>在用python实现七段数码管时是利用turtle库来实现一个类似于数码管的显示效果。  其简单步骤如下：</p>
+<ol>
+<li><p>绘制单个数字对应的数码管</p>
+</li>
+<li><p>获得一串数字，绘制对应的数码管</p>
+</li>
+<li><p>获得当前系统时间，绘制对应的数码管</p>
+</li>
+</ol>
+<p>对于为什么是七段，可以简单理解为它就是由七个基本线条构成的。所以，第一步，我们得首先绘制这七个基本线条，而且这  七个线条也是有顺序的哦  。基本图形如下：</p>
+<p><img src="/img/boblaila/posts/202012042300-97f35b4c/03.jpg" alt="文章配图" loading='lazy'></p>
+<p>在绘制数码管时，得先绘制一条线，然后再绘制七条线。</p>
+<p>加上之前学的函数，便可以将部分功能拆分出来，将部分功能模块化，也可以提高代码的可读性。</p>
+<p>turtle库在之前用过，相关的库函数也已经了解过。</p>
+<p>** turtle库复习传送门：  <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247485633&idx=1&sn=ea2e004ffffbe1b712e611e755eab7a3&chksm=fb20794acc57f05ce7eb6a8b594ee126a306baa1b809d805400f684e363a37733648609559fe&scene=21#wechat_redirect">用Python也能画图？用Python来画个“python”</a>用turtle实现一条线代码：*****importturtledefdrawLine(draw):turtle.pendown()ifdrawelseturtle.penup()#用draw判断是否真实绘制一条线还是让海龟飞过去turtle.fd(40)上面只是一个函数模块，函数并不会自己去执行，而是在被调用后才会被执行。当一条线绘制完成后，那么七条线也就简单了：*********************************importturtledefdrawLine(draw):turtle.pendown()ifdrawelseturtle.penup()turtle.fd(40)turtle.right(90)#绘制第一个数码管defdrawDigit(digit):#绘制线的函数，在绘制一条线后会右转90度，四条线，可以绘制出一个0字形drawLine(True)ifdigitin[2,3,4,5,6,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,1,3,4,5,6,7,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,2,3,5,6,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,2,6,8]elsedrawLine(False)turtle.left(90)#再回到前进方向再进行三次右转drawLine(True)ifdigitin[0,4,5,6,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,2,3,5,6,7,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,1,2,3,4,7,8,9]elsedrawLine(False)turtle.left(180)turtle.penup()#为绘制后续数字确定位置turtle.fd(20)#为绘制后续数字确定位置defdrawData(data):#获得输出的数字foriindata:drawDigit(eval(i))#通过eval函数将数字变为整数defmain():turtle.setup(800,350,200,200)turtle.penup()turtle.fd(-300)turtle.pensize(5)drawData(‘20210101’)#将一串字符串拆分成单个字符的函数turtle.hideturtle()turtle.done()main()**那么系统时间如何获得呢？**还记得time这个标准库么，没错，便是用它来实现获取系统时间，其实我们以后要是自己写一个app，那么显示在app内显示时间的部分我们便知道怎么用了，要记得哦。添加系统时间步骤：使用time库获得系统当前时间，并且还可以在增加年月日的同时增加颜色，是不是很有趣呢？**代码实现如下：*******************************************************importturtleimporttimedefdrawGap():#绘制数码管间隔函数turtle.penup()turtle.fd(5)defdrawLine(draw):drawGap()turtle.pendown()ifdrawelseturtle.penup()turtle.fd(40)drawGap()turtle.right(90)#绘制第一个数码管defdrawDigit(digit):#绘制线的函数，在绘制一条线后会右转90度，四条线，可以绘制出一个0字形drawLine(True)ifdigitin[2,3,4,5,6,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,1,3,4,5,6,7,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,2,3,5,6,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,2,6,8]elsedrawLine(False)turtle.left(90)#再回到前进方向再进行三次右转drawLine(True)ifdigitin[0,4,5,6,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,2,3,5,6,7,8,9]elsedrawLine(False)drawLine(True)ifdigitin[0,1,2,3,4,7,8,9]elsedrawLine(False)turtle.left(180)turtle.penup()#为绘制后续数字确定位置turtle.fd(20)#为绘制后续数字确定位置defdrawDate(date):#date为日期，格式为’%Y-%m&#x3D;%d+’turtle.pencolor(“red”)foriindate:ifi&#x3D;&#x3D;’-‘:turtle.write(‘年’,font&#x3D;(“Arial”,18,”normal”))turtle.pencolor(“green”)turtle.fd(40)elifi&#x3D;&#x3D;’&#x3D;’:turtle.write(‘月’,font&#x3D;(“Arial”,18,”normal”))turtle.pencolor(“blue”)turtle.fd(40)elifi&#x3D;&#x3D;’+’:turtle.write(‘日’,font&#x3D;(“Arial”,18,”normal”))else:drawDigit(eval(i))defmain():turtle.setup(800,350,200,200)turtle.penup()turtle.fd(-300)turtle.pensize(5)drawDate(time.strftime(‘%Y-%m&#x3D;%d+’,time.gmtime()))#获取系统时间turtle.hideturtle()turtle.done()main()<strong>运行结果如下：</strong><img src="/img/boblaila/posts/202012042300-97f35b4c/04.jpg" alt="文章配图" loading='lazy'>自己也可以尝试不同的颜色哦~（Python系列）未完待续…<img src="/img/boblaila/posts/202012042300-97f35b4c/05.jpg" alt="文章配图" loading='lazy'> 最后的话： ****<strong>刷题要找自己的不足，然后去专攻。</strong> ** ** ** ** 往期推荐：  **</p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247490593&idx=1&sn=05e0e176025a5ca7d443acaa2f33323c&chksm=fb206daacc57e4bc7658b271e205955af41d753b17cf5b13221b0aa729603977b0c9bad002c6&scene=21#wechat_redirect"> 十一月碎碎念 || 假如时间只剩31天  2020-12-01<br><img src="/img/boblaila/posts/202012042300-97f35b4c/06.jpg" alt="文章配图" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247490613&idx=1&sn=736072620765f8c95368e8e4c039b523&chksm=fb206dbecc57e4a8e894a839232ee5db698611d2d61ceff65ad1d79e4345b8eccbee6029b637&scene=21#wechat_redirect"> 用栈解决N皇后问题（C语言）  2020-12-02<br><img src="/img/boblaila/posts/202012042300-97f35b4c/07.jpg" alt="文章配图" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247490573&idx=1&sn=55e4757be9f10c6d07dae9412ad8a686&chksm=fb206d86cc57e490b0073792f4c8e5c588fe3f79b2997aa373adb759f017c137a380de801779&scene=21#wechat_redirect"> 《流浪猫鲍勃》：一人一猫，彻底温暖了整个冬天  2020-11-28<br><img src="/img/boblaila/posts/202012042300-97f35b4c/08.jpg" alt="文章配图" loading='lazy'>
+</a></p>
+<p>为你,千千万万遍.</p>
+<p>关注  <strong>程序员Bob</strong> 公众号,与你一起终生学习</p>
+<p><img src="/img/boblaila/posts/202012042300-97f35b4c/09.jpg" alt="文章配图" loading='lazy'></p>
+<p>一键三连，就差你了<br><img src="/img/boblaila/posts/202012042300-97f35b4c/10.jpg" alt="文章配图" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/12/04/202012042300-%E5%BD%93%E6%95%B0%E7%A0%81%E7%AE%A1%E9%81%87%E4%B8%8A%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%8Cpython%E6%9C%80%E7%BB%88%E6%88%90%E4%B8%BA%E5%82%AC%E5%8C%96%E5%89%82/">https://dpw09.cn/2020/12/04/202012042300-%E5%BD%93%E6%95%B0%E7%A0%81%E7%AE%A1%E9%81%87%E4%B8%8A%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%8Cpython%E6%9C%80%E7%BB%88%E6%88%90%E4%B8%BA%E5%82%AC%E5%8C%96%E5%89%82/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202012042300-97f35b4c.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/12/06/202012062156-%E6%B4%9B%E8%B0%B7%E6%A0%88%EF%BC%88C%E8%AF%AD%E8%A8%80%EF%BC%89/" title="洛谷 || 栈（C语言）"><img class="cover" src="/img/boblaila/covers/202012062156-a6d03a59.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">洛谷 || 栈（C语言）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年12月06日 21:56 __ _ _ _ _  以彗星为龙，以彗星为绳结。描绘出割裂的彗星舞动的形态。又是一轮岁月。 ——《你的名字》  题目背景 栈是计算机中经典的数据结构，简单的说，栈就是限制在一端进行插入删除操作的线性表。 栈有两种最重要的操作，即 pop...</div></div></div></a><a class="pagination-related" href="/2020/12/02/202012022230-%E7%94%A8%E6%A0%88%E8%A7%A3%E5%86%B3N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98%EF%BC%88C%E8%AF%AD%E8%A8%80%EF%BC%89/" title="用栈解决N皇后问题（C语言）"><img class="cover" src="/img/boblaila/covers/202012022230-fea69646.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">用栈解决N皇后问题（C语言）</div></div><div class="info-2"><div class="info-item-1"> Bob来啦  2020年12月02日 22:30 __ _ _ _ _  孩子不是图画练习册，你不能随心所欲涂上你想要的颜色。 ——《追风筝的人》  问题描述：输入一个整数n，输出对应的n皇后问题的解的个数在解决N皇后问题之前，我们得知道皇后问题的来源。首先最开始的是八皇后问题，是由国际西洋棋棋手马克斯·贝瑟尔...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/03/13/202103132329-Python%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%9A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F(1)/" title="Python爬虫系列：正则表达式(1)"><img class="cover" src="/img/boblaila/covers/202103132329-a3951f13.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-13</div><div class="info-item-2">Python爬虫系列：正则表达式(1)</div></div><div class="info-2"><div class="info-item-1">2021年03月13日 23:29 __ _ _ _ _  这个世界是一面镜子，反射出来的是你自己的信念。 ——《  生而不凡  》  大家在学会基本的Python爬虫后，会不会感觉还是挺简单的，那如果我们需要对爬取的内容进行检索或筛选数据呢？ 这里就要用到小编给大家介绍的RE库，叫正则表达式，也是掌握爬虫必备的...</div></div></div></a><a class="pagination-related" href="/2020/06/10/202006102332-Python%E4%B8%93%E8%BE%91%E5%A4%A7%E8%AF%9D%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B/" title="Python专辑:大话数字类型"><img class="cover" src="/img/boblaila/covers/202006102332-1595189e.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-10</div><div class="info-item-2">Python专辑:大话数字类型</div></div><div class="info-2"><div class="info-item-1">2020年06月10日 23:32 __ _ _ _ _  I will honour myself by showing up powerfully in my lifetoday。我会为在今日努力生活的自我而感到自豪。  前面我们讲解过关于用Python写温度转换器，画“Python”以及天天学习的代码讲解。...</div></div></div></a><a class="pagination-related" href="/2020/12/22/202012222334-%E6%9D%A5%E5%AD%A6Python%E5%95%A6%EF%BC%8C%E5%BA%8F%E5%88%97%E7%B1%BB%E5%9E%8B%E6%93%8D%E4%BD%9C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" title="来学Python啦，序列类型操作的那些事儿"><img class="cover" src="/img/boblaila/covers/202012222334-7e9a290d.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-22</div><div class="info-item-2">来学Python啦，序列类型操作的那些事儿</div></div><div class="info-2"><div class="info-item-1">2020年12月22日 23:34 __ _ _ _ _  你永远要感激给你逆境的众生。 ——《天气之子》  目录：  序列类型定义  序列类型处理函数及方法  元组类型及其操作  列表类型及其操作  序列类型的典型应用场景   一.序列类型定义 序列 是具有先后关系的一组元素，因其具有先后关系，所以元素可以相同...</div></div></div></a><a class="pagination-related" href="/2020/05/30/202005302200-%E4%BB%8E%E5%8D%8E%E4%B8%BA%E5%9B%9E%E5%BA%94%E5%AD%9F%E6%99%9A%E8%88%9F%E4%BA%8B%E4%BB%B6%E4%B8%AD%EF%BC%8C%E5%AD%A6%E4%B9%A0%E5%85%AC%E5%85%B3%E6%8E%AA%E8%BE%9E/" title="从华为回应孟晚舟事件中，学习公关措辞"><img class="cover" src="/img/boblaila/covers/202005302200-6dbc02af.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-30</div><div class="info-item-2">从华为回应孟晚舟事件中，学习公关措辞</div></div><div class="info-2"><div class="info-item-1"> Bob来啦  2020年05月30日 22:00 __ _ _ _ _ 编者荐语： 做很多事情得注意细节，无论是谈吐还是做某件事。小编对细节的处理并不是很好，所以特地分享出来与大家共享。 以下文章来源于刘润  ，作者刘润 刘润 .降低商业的认知门槛。刘润，润米咨询创始人，战略咨询顾问，“5分钟商学院”课程主理人...</div></div></div></a><a class="pagination-related" href="/2020/12/06/202012062156-%E6%B4%9B%E8%B0%B7%E6%A0%88%EF%BC%88C%E8%AF%AD%E8%A8%80%EF%BC%89/" title="洛谷 || 栈（C语言）"><img class="cover" src="/img/boblaila/covers/202012062156-a6d03a59.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-06</div><div class="info-item-2">洛谷 || 栈（C语言）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年12月06日 21:56 __ _ _ _ _  以彗星为龙，以彗星为绳结。描绘出割裂的彗星舞动的形态。又是一轮岁月。 ——《你的名字》  题目背景 栈是计算机中经典的数据结构，简单的说，栈就是限制在一端进行插入删除操作的线性表。 栈有两种最重要的操作，即 pop...</div></div></div></a><a class="pagination-related" href="/2020/06/17/202006170800-%E6%84%BF%E5%8D%B3%E5%B0%86%E9%AB%98%E8%80%83%E7%9A%84%E4%BD%A0%EF%BC%8C%E6%BB%9A%E7%83%AB%E9%9D%92%E6%98%A5%EF%BC%8C%E6%97%A0%E7%95%8F%E5%90%91%E4%B8%8A%E2%80%94%E2%80%94%E8%87%B4%E6%95%AC%E9%AB%98%E8%80%83/" title="愿即将高考的你，滚烫青春，无畏向上——致敬高考"><img class="cover" src="/img/boblaila/covers/202006170800-68d85a33.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-17</div><div class="info-item-2">愿即将高考的你，滚烫青春，无畏向上——致敬高考</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年06月17日 08:00 __ _ _ _ _  **There is a history in all men’s lives.** 所有人的生活里都有一部历史。** 今日写此主题来源于下面这首歌：  ** 你最初的：  部分歌词展示： 我愿化成鱼奔向最遥远的海...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

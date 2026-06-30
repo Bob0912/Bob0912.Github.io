@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据结构：线性表走起！ | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="小Bob 小Bob Bob来啦 ;) 2020年09月21日 22:10 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 我爱，那个和你在一起的自己。 上次对于算法有了一定的了解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构：线性表走起！">
+<meta property="og:url" content="https://dpw09.cn/2020/09/21/202009212210-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="小Bob 小Bob Bob来啦 ;) 2020年09月21日 22:10 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 我爱，那个和你在一起的自己。 上次对于算法有了一定的了解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202009212210-55eb73ae.jpg">
+<meta property="article:published_time" content="2020-09-21T14:10:00.000Z">
+<meta property="article:modified_time" content="2020-09-21T14:10:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202009212210-55eb73ae.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数据结构：线性表走起！",
+  "url": "https://dpw09.cn/2020/09/21/202009212210-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202009212210-55eb73ae.jpg",
+  "datePublished": "2020-09-21T14:10:00.000Z",
+  "dateModified": "2020-09-21T14:10:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/09/21/202009212210-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构：线性表走起！',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202009212210-55eb73ae.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">数据结构：线性表走起！</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据结构：线性表走起！</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-21T14:10:00.000Z" title="发表于 2020-09-21 22:10:00">2020-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-21T14:10:00.000Z" title="更新于 2020-09-21 22:10:00">2020-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p>
+<p><em>2020年09月21日 22:10</em> __ _ _ _ _</p>
+<p><img src="/img/boblaila/posts/202009212210-55eb73ae/01.jpg" alt="文章配图" loading='lazy'></p>
+<p>点击上方「  蓝字  」关注”程序员Bob”</p>
+<p>每天与你不见不散！</p>
+<p><img src="/img/boblaila/posts/202009212210-55eb73ae/02.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>每日一句，送给最珍贵的你：</strong></p>
+<p>我爱，那个和你在一起的自己。</p>
+<p>上次对于算法有了一定的了解，这次我们继续学习数据结构，走起！</p>
+<p><img src="/img/boblaila/posts/202009212210-55eb73ae/03.jpg" alt="文章配图" loading='lazy'></p>
+<p>可能大家对于线性表不是太了解（对于刚入门数据结构的来说），那么你们在学习C语言时一定接触过  <strong>单链表</strong><br>，小编在前几月也写过关于几篇单链表的文章，在完整的学习数据结构后就会发现那只不过是小皮毛啦。</p>
+<p>在数据结构中，线性表一直是公认最简单的一种结构，比如我们在学校经常遇到的  <strong>排队问题</strong><br>，通常都是按照不同要求来进行排列，这样出意外的情况便会少很多。这样排好队的组织方式，就是我们今天要说的线性表。</p>
+<p>一  线性表的定义</p>
+<p>线性表，从名字上就可以听出来该结构像一条直线且表现出表一样的某种特征，实际上就如把所有单元用一条直线串联起来一样。</p>
+<p><strong>线性表：零个或多个数据元素的有限序列。</strong></p>
+<p><strong>To：</strong><br>小编其实并不是特别喜欢定义啥的，毕竟定义它就好像让它失去了活性一样，知识虽然是死的，但它被我们所学习后就不应该再是死的，我们要在生活中常常用到它，而不是用定义牢牢铐住它。</p>
+<p><strong>当然这里还是得给大家简单介绍一下定义的内容，首先线性表是一个序列，且是有限的，那就说明它的第一个元素无前驱元素，最后一个元素无后继元素。在计算机中所处理的对象其实都是有限的，并不存在无限的数列，那种无限的数列只存在于数学的概念中。</strong></p>
+<p>当然还有一种特殊情况便是当我们的表无一个元素时，我们便称此表为  <strong>空表</strong> 。</p>
+<p>当此表为非空表时，即此表中每一个数据元素都会有一个确定的位置，通常我们用 <strong>a</strong> <strong>i</strong><br>表示一个数据元素，比如a1便是第一个数据元素，切记这里和数组下标是不一样的哦！！！</p>
+<p>不知大家是否还记得数据结构前面所说过的数据项，平时大家遇到的都是较为简单的线性表，有些复杂的可能就会在一个数据元素中包含若干个数据项啦。</p>
+<p>二  线性表的抽象数据类型</p>
+<p><strong>To：</strong> 说到  <strong>抽象</strong> ，那可是也苦了小编，想要学好计算机，抽象能力是必不可少的，以至于当小编在看 <strong>《深入理解计算机系统》</strong><br>时，很多关于CPU和计算机内部的一些知识只能靠自己去抽象理解啦，所以大家平时还是得注意培养自己的抽象能力。</p>
+<p>在编写程序时大家还是得先自己建立一个线性表，而且在以后工作后我们还得考虑线性表的长期使用，这时我们就得考虑和安排如何  <strong>创建和初始化一个线性表。</strong></p>
+<p>对此，线性表的抽象数据数据类型定义如下：</p>
+<p><strong>ADT 线性表（List）</strong></p>
+<p><strong>Data</strong></p>
+<p><strong>若线性表的数据对象为{a1,a2…an}，那么每个元素的类型均为Data Type。且数据元素之间的关系是一对一的关系。</strong></p>
+<p><strong>Operation</strong></p>
+<p>** ** ** InitList(*L)：  ** <strong>初始化操作，建立一个空的线性表L。</strong></p>
+<p><strong>ListEmpty(L)：</strong> <strong>若线性表为空，返回true，否则返回false。</strong></p>
+<p>** ** ** ClearList(*L)：  ** <strong>将线性表L清空。</strong></p>
+<p>** ** ** GetElem(L,i,*e)：  ** <strong>将线性表L中的第i个位置元素返回给e。</strong></p>
+<p>** ** <strong>LocateElem(L,e)：</strong> <strong>将线性表L中查找与给定值e相等的元素，如果查找成功，返回该元素在表中序号表示成功；否则。返回0表示失败。</strong></p>
+<p>** ** ** ListInsert(*L,i,e)：  ** <strong>将线性表L中的第i个位置插入新元素e。</strong></p>
+<p>** ** ** ListDelete(*L,i,e)：  ** <strong>删除线性表L中第i个位置元素，并用e返回其值。</strong></p>
+<p>** ** <strong>ListLength(L)：</strong> <strong>返回线性表L中的元素个数。</strong></p>
+<p><strong>endADT</strong></p>
+<p>上述给出的基本操作也是最基本的，对于一些复杂的操作，很多也是一些基本的组合来实现。</p>
+<p>比如下面的我们要实现数据元素的插入操作：</p>
+<hr>
+<pre><code>//将所有的在线性表Lb中但不在La中的数据元素插入到La中void unionL(List *La,List Lb){int La_len,Lb_len,i;ElemType e;La_len=ListLength(*La);Lb_len=ListLength(Lb);for(i=1;i&lt;=Lb_len;i++){    GetElem(Lb,i,&amp;e);    if(!LocateElem(*La,e))    ListInsert(La,++La_len,e);    }}
+</code></pre>
+<p>上述程序只是函数的一部分，在上述函数部分中，我们用到了线性表的基本操作：ListLength,GetElem,LocateElem,ListInsert等，可见很多<br><strong>复杂的操作也只是一些基本操作组合起来的。</strong></p>
+<p>未完待续…</p>
+<p><img src="/img/boblaila/posts/202009212210-55eb73ae/04.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>最后的话：线性表的一些语句平时还是得多练练，不然很容易忘记啦！</strong></p>
+<p>为你,千千万万遍.</p>
+<p>关注  <strong>程序员Bob</strong> 公众号,与你一起终生学习</p>
+<p><img src="/img/boblaila/posts/202009212210-55eb73ae/05.jpg" alt="文章配图" loading='lazy'></p>
+<p>一键三连，就差你了<br><img src="/img/boblaila/posts/202009212210-55eb73ae/06.jpg" alt="文章配图" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/09/21/202009212210-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81/">https://dpw09.cn/2020/09/21/202009212210-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202009212210-55eb73ae.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/09/22/202009222225-%E9%A9%AC%E5%8C%96%E8%85%BE%E6%B2%A1%E5%BC%80%E7%8E%A9%E7%AC%91%EF%BC%81%E5%BE%AE%E4%BF%A1%E5%86%8D%E4%B9%B1%E5%8F%91%E4%B8%9C%E8%A5%BF%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%A2%AB%E5%B0%81%E5%8F%B7%EF%BC%8C%E6%84%BF%E4%BD%A0%E4%B8%8D%E5%9C%A8%E5%85%B6%E4%B8%AD/" title="马化腾没开玩笑！微信再乱发东西可能会被封号，愿你不在其中"><img class="cover" src="/img/boblaila/covers/202009222225-dbaa0954.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">马化腾没开玩笑！微信再乱发东西可能会被封号，愿你不在其中</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年09月22日 22:25 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 它山之石，可以攻玉。 移动互联网和科学技术的飞速发展，让手机功能越来越多样化。手机APP如微信、抖音、滴滴、腾讯会议、...</div></div></div></a><a class="pagination-related" href="/2020/09/20/202009202057-%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%8E%A9%E8%BD%AC%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87%E5%88%86%E6%9E%90%E4%B8%8E%E8%BF%90%E7%94%A8%EF%BC%88%E9%81%93%E6%B0%8F%E5%8E%9F%E7%90%86%E4%B8%8E%E6%B3%A2%E6%B5%AA%E7%BA%BF%EF%BC%89/" title="零基础玩转投资理财 || 技术指标分析与运用（道氏原理与波浪线）"><img class="cover" src="/img/boblaila/covers/202009202057-3c17dbc0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">零基础玩转投资理财 || 技术指标分析与运用（道氏原理与波浪线）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年09月20日 20:57 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 人生只有一次，请大胆的生活！ 往日推荐：  零基础玩转投资理财 || 技术指标分析与运用  许久没写关于投资理财的文章...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/03/03/202103032218-%E5%A6%82%E4%BD%95%E5%B7%A7%E5%A6%99%E7%9A%84%E7%94%A8Xshell%E8%BF%9E%E6%8E%A5Ubuntuserver%E6%9C%8D%E5%8A%A1%E4%B8%BB%E6%9C%BA/" title="如何巧妙的用Xshell连接Ubuntu server服务主机"><img class="cover" src="/img/boblaila/covers/202103032218-cd9bad5c.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="info-item-2">如何巧妙的用Xshell连接Ubuntu server服务主机</div></div><div class="info-2"><div class="info-item-1">2021年03月03日 22:18 __ _ _ _ _  内心让他真实地了解自己，一旦了解了自己也就了解了世界。 ——余华《活着》  我们在安装Ubuntu server的时候默认是不安装  openssh服务 的，导致今天小编在使用Xshell连接时显示连接失败。 之前小编介绍了如何在PVE下安装Ubuntu...</div></div></div></a><a class="pagination-related" href="/2021/04/07/202104072313-C++%E7%B3%BB%E5%88%97%EF%BC%9A%E9%93%BE%E6%8E%A5%E5%99%A8%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/" title="C++系列：链接器是如何工作的"><img class="cover" src="/img/boblaila/covers/202104072313-a6571f54.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-07</div><div class="info-item-2">C++系列：链接器是如何工作的</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2021年04月07日 23:13 __ _ _ _ _  但是不论我们的目标是伟大的还是平凡的，我们尝试走自己的道路的理由是：这将是自己的生活，自己的选择，自己的错误。 ——《优秀的绵羊》 之前讲过C++是如何编译的，这里小编继续和大家谈谈C++是如何链接的。 讲到代码的...</div></div></div></a><a class="pagination-related" href="/2020/11/05/202011052259-@%E6%89%80%E6%9C%89%E4%BA%BA%EF%BC%8C%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%9B%B4%E8%BE%BE%E5%9B%9B%E5%85%AD%E7%BA%A7%E6%B0%B4%E5%B9%B3%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%BA%AF%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%EF%BC%89/" title="@所有人，零基础直达四六级水平英语学习（纯资源分享）"><img class="cover" src="/img/boblaila/covers/202011052259-34239648.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-05</div><div class="info-item-2">@所有人，零基础直达四六级水平英语学习（纯资源分享）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年11月05日 22:59 __ _ _ _ _  点击蓝色文字关注”程序员Bob”吧！  While there is life there is hope、一息若存，希望不灭。  小编来无套路分享享享资源啦，这里有你想要的四六级学习资源啦~ 有价值的事，总得带着...</div></div></div></a><a class="pagination-related" href="/2020/05/08/202005082300-%E5%9C%A8%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2HelloWord/" title="在文件中输入字符串HelloWord"><img class="cover" src="/img/boblaila/covers/202005082300-46c04fa9.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-08</div><div class="info-item-2">在文件中输入字符串HelloWord</div></div><div class="info-2"><div class="info-item-1">2020年05月08日 23:00 __ _ _ _ _ 不点蓝字，我们哪来故事？ **Our life today is three years ago, our life three years later is today’schoice.** 我们今天的生活是三年前抉择的，我们三年以后的生活就是今天抉择的...</div></div></div></a><a class="pagination-related" href="/2020/04/30/202004302300-%E4%BA%94%E4%B8%80%E5%B0%86%E8%87%B3%EF%BC%8C%E4%BD%A0%E6%9C%89%E4%BB%80%E4%B9%88%E8%AE%A1%E5%88%92%E5%91%A2%EF%BC%9F%EF%BC%88%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0%EF%BC%89/" title="五一将至，你有什么计划呢？（删除链表元素）"><img class="cover" src="/img/boblaila/covers/202004302300-a2d011f2.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-30</div><div class="info-item-2">五一将至，你有什么计划呢？（删除链表元素）</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年04月30日 23:00 __ _ _ _ _  **Others can only give you directions, and can not help you walk, your own wayof life, but also need to go....</div></div></div></a><a class="pagination-related" href="/2021/10/27/202110272249-%E5%A6%82%E4%BD%95%E7%BB%99Ubuntu%E8%AE%BE%E7%BD%AEroot%E8%B4%A6%E6%88%B7%EF%BC%9F/" title="如何给Ubuntu设置root账户？"><img class="cover" src="/img/boblaila/covers/202110272249-74c20170.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="info-item-2">如何给Ubuntu设置root账户？</div></div><div class="info-2"><div class="info-item-1">2021年10月27日 22:49 __ _ _ _ _  人生当自强，人的一生，总会遇见挫折磨难，但人生没有过不去的坎，走过了，便是一种收获，便会让自己成长起来。  昨天我们讲解了 Java的构造函数重载以及和普通函数的一些区别， 那么今天来玩点别的，比如最新的Ubuntu系统在进入系统后并没有给我们**设置r...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

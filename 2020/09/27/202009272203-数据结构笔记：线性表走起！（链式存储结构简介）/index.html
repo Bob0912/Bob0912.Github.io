@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据结构笔记：线性表走起！（链式存储结构简介） | 小Bob的博客</title><meta name="author" content="小Bob"><meta name="copyright" content="小Bob"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5fb"><meta name="description" content="小Bob 小Bob Bob来啦 ;) 2020年09月27日 22:03 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 草在结它的种子 风在摇它的叶子 我们站着，不说话 《门前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构笔记：线性表走起！（链式存储结构简介）">
+<meta property="og:url" content="https://dpw09.cn/2020/09/27/202009272203-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81%EF%BC%88%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B%EF%BC%89/index.html">
+<meta property="og:site_name" content="小Bob的博客">
+<meta property="og:description" content="小Bob 小Bob Bob来啦 ;) 2020年09月27日 22:03 点击上方「 蓝字 」关注&quot;程序员Bob&quot; 每天与你不见不散！ 每日一句，送给最珍贵的你： 草在结它的种子 风在摇它的叶子 我们站着，不说话 《门前">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dpw09.cn/img/boblaila/covers/202009272203-fb8a136d.jpg">
+<meta property="article:published_time" content="2020-09-27T14:03:00.000Z">
+<meta property="article:modified_time" content="2020-09-27T14:03:00.000Z">
+<meta property="article:author" content="小Bob">
+<meta property="article:tag" content="投资理财">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dpw09.cn/img/boblaila/covers/202009272203-fb8a136d.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数据结构笔记：线性表走起！（链式存储结构简介）",
+  "url": "https://dpw09.cn/2020/09/27/202009272203-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81%EF%BC%88%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B%EF%BC%89/",
+  "image": "https://dpw09.cn/img/boblaila/covers/202009272203-fb8a136d.jpg",
+  "datePublished": "2020-09-27T14:03:00.000Z",
+  "dateModified": "2020-09-27T14:03:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小Bob",
+      "url": "https://dpw09.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dpw09.cn/2020/09/27/202009272203-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81%EF%BC%88%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#07111f')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#eef5fb')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构笔记：线性表走起！（链式存储结构简介）',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="小Bob的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/boblaila/covers/202009272203-fb8a136d.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo" loading='lazy'><span class="site-name">小Bob的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">数据结构笔记：线性表走起！（链式存储结构简介）</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-house"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据结构笔记：线性表走起！（链式存储结构简介）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-27T14:03:00.000Z" title="发表于 2020-09-27 22:03:00">2020-09-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-27T14:03:00.000Z" title="更新于 2020-09-27 22:03:00">2020-09-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/">投资理财</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>小Bob  小Bob  <a href="javascript:void(0);"> Bob来啦 </a></p>
+<p><em>2020年09月27日 22:03</em> __ _ _ _ _</p>
+<p><img src="/img/boblaila/posts/202009272203-fb8a136d/01.jpg" alt="文章配图" loading='lazy'></p>
+<p>点击上方「  蓝字  」关注”程序员Bob”</p>
+<p>每天与你不见不散！</p>
+<p><img src="/img/boblaila/posts/202009272203-fb8a136d/02.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>每日一句，送给最珍贵的你：</strong></p>
+<p>草在结它的种子 风在摇它的叶子 我们站着，不说话 -《门前》顾城</p>
+<p>上次我们学到了线性表的顺序存储结构。</p>
+<p><img src="/img/boblaila/posts/202009272203-fb8a136d/03.jpg" alt="文章配图" loading='lazy'></p>
+<p>往期推荐：  <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488628&idx=1&sn=d3ba9a345272f1c97ff73d69372fd05f&chksm=fb2065ffcc57ece97260ba2ad6419caf4a2f6c2c70562c833d4e50706892bd5984a4afe033fe&scene=21#wechat_redirect"> 数据结构：线性表走起！（顺序存储结构）
+</a></p>
+<p>每日推荐：</p>
+<p>关于上次讲的顺序存储结构，我们都知道它是有缺点的， <strong>最大的缺点便是在插入和删除数据时需要移动大量元素，显然在运行时需要耗费大量的时间。</strong></p>
+<p>那怎么解决呢？首先，我们知道顺序存储结构就和有序排队差不多，即它们两个相邻数据之间是存在邻里关系的，在内存中的位置也是挨着的，之间并没有空隙，也就造成了在插入时无法介入，而删除后，又会造成空隙，导致效率低下。</p>
+<p>在 <strong>链式存储结构</strong> 中便会解决上述问题，链式存储结构和顺序存储结构都是各有优点和缺点，谈不上谁比谁好，离开实际环境谈好坏，都是  **。关于各种优缺点在后面会给大家介绍到。<strong>线性表链式存储结构定义</strong></p>
+<p>书上的定义挺繁琐的，简单来说便是某个元素指向另一个元素，然后另一个元素指向下一个元素，这样每个元素之间自然而然形成了某种关系， 某种链表也就形成啦，如下：</p>
+<p><img src="/img/boblaila/posts/202009272203-fb8a136d/04.jpg" alt="文章配图" loading='lazy'></p>
+<p>链式存储结构存在以下 <strong>特点：</strong><br>用一组任意的存储单元存储线性表中的数据元素，这组存储单元可以是连续的，也可以是不连续的，也就是说，这些数据元素可以存在内存未被占用的情况。</p>
+<p>链式存储结构和顺序存储结构有很大不同的是一点是 <strong>数据元素不仅仅只存元素信息，还要存储它的后继元素的存储地址</strong> ，如下图所示：</p>
+<p><img src="/img/boblaila/posts/202009272203-fb8a136d/05.jpg" alt="文章配图" loading='lazy'></p>
+<p>这里把存储数据元素的域称为 <strong>数据域</strong> ，把存储直接后继元素的域称为 <strong>指针域</strong><br>。指针域中存储的信息称为指针或链，这两部分信息组成数据元素ai的存储映像，称之为 <strong>结点</strong> 。<br><strong>当有n个结点时，即组成了线性表的链式存储结构，又因为每个结点中只包含一个指针域，所以叫做单链表。</strong></p>
+<p>我们也把链表中第一个结点的存储位置叫做头指针，那么链表的存储也必须是从头指针开始存储的啦，…当指针指向最后一个元素时，那么最后一个数据元素的指针并不会消失，小编好像也没有说会消失哦<br><img src="/img/boblaila/posts/202009272203-fb8a136d/06.jpg" alt="文章配图" loading='lazy'><br><img src="/img/boblaila/posts/202009272203-fb8a136d/07.jpg" alt="文章配图" loading='lazy'><br><img src="/img/boblaila/posts/202009272203-fb8a136d/08.jpg" alt="文章配图" loading='lazy'><br>。 <strong>我们规定的线性链表的最后一个结点指针为”空“（通常用“NULL”或“^”符号表示）。</strong></p>
+<p>在第一个头指针的结点之前我们会另外设置一个结点，称为头结点，在这个头结点的数据域中可以不存储任何信息，哈哈哈，小编也不知为啥它会有这个特权呢？</p>
+<p>当然在头结点的数据域也是可以存储信息的，比如线性表的长度等附加信息（一般无意义），头结点的指针域指向第一个结点的指针。</p>
+<p><strong>关于小编存在的几点疑问：</strong></p>
+<ol>
+<li><strong>头结点的指针域是头指针吗？</strong></li>
+</ol>
+<p>：网上说法不一，按照个人逻辑，头指针是指向第一个结点的，那么头结点便是第一个结点，即头指针是指向第一个头结点的数据域。<br>**在单链表中可以没有头结点（可有可无，尽量还是写为好），但不能没有头指针。<strong>2.</strong> 头结点可以不写吗？  **</p>
+<p>这里简单介绍头结点的作用：1.防止单链表是空而设，当链表为空时,带头结点的头指针就指向头结点，如果当链表为空时,单链表没有带头结点,那么它的头指针就为NULL。</p>
+<p>2.方便单链表的特殊操作，能有效减少代码量，当插入在表头或者删除第一个结点时不用考虑特殊情况，删除或插入用户的第一个节点的值和删除或插入中间的值用一样的代码，这就保持了单链表操作的统一性!</p>
+<p>3.单链表加上头结点之后，无论单链表是否为空，头指针始终指向头结点，因此空表和非空表的处理也统一了，方便了单链表的操作，也减少了程序的复杂性和出现bug的机会。</p>
+<p>4.  总的来说，没有头结点对第一个结点的操作大多和中间结点不太一样，很多操作都要考虑特殊情况，有头结点的话就不必考虑那么多，也不容易出现代码错误。</p>
+<ol start="3">
+<li><strong>头结点的数据域可以存放有效数据嘛？</strong></li>
+</ol>
+<p>：只能说头结点的数据域并不是不能填写，而是如果填写实际有效数据后那么头结点的意义便荡然无存了…但是还是可以填写如结点数（在实际有效数据中可有可无）等等的数据。</p>
+<p>在单链表中，我们可以用C语言的结构指针来描述：</p>
+<hr>
+<pre><code>typedef strcut Node{    //线性表单链表的存储结构ElemType data;strcut Node *Next;}Node;typedef strcut Node *LinkList;    //定义LinkList
+</code></pre>
+<p>由上面的代码可知，结点由存放数据元素的数据域和存放后继节点指针的指针域组成。</p>
+<p>假设p是指向线性表的第i个元素的指针，那么p-&gt;data便是结点ai的数据域，p-&gt;next便是结点ai的指针域，那么p-&gt;next指向谁呢？当然是指向第i+1个元素啦。p-&gt;next-&gt;data即是结点第a(i+1)的数据域啦！</p>
+<p>未完待续…</p>
+<p><img src="/img/boblaila/posts/202009272203-fb8a136d/09.jpg" alt="文章配图" loading='lazy'></p>
+<p><strong>最后的话：线性表的一些语句平时还是得多练练，不然很容易忘记啦！</strong></p>
+<hr>
+<p><strong>往期推荐：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488628&idx=1&sn=d3ba9a345272f1c97ff73d69372fd05f&chksm=fb2065ffcc57ece97260ba2ad6419caf4a2f6c2c70562c833d4e50706892bd5984a4afe033fe&scene=21#wechat_redirect"> 数据结构：线性表走起！（顺序存储结构）  2020-09-23<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqLrDllfYJjechmZzyVQtgnjibuBNezz40CUb5IqSStpDIsBvhHyv8pS0EDzMibsyalD5klsoWZvWicEg/640?wx_fmt=jpeg" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488556&idx=1&sn=9ef752364da0cd5236a3f42c21ecb317&chksm=fb2065a7cc57ecb1e4c450913da6fc71c9345b35562d2fd7861843cc486e7db1cb4bb35e875f&scene=21#wechat_redirect"> 数据结构：线性表走起！  2020-09-21<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqK8tnvahfWt8SMtWVsZTn63Y1U7vibaQyicVuFMHxlWniceN5bD5fnJkmr4Xobdiaqquyr8xUyknxPVBw/640?wx_fmt=jpeg" loading='lazy'>
+</a><br><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0MjAwOTU3Mg==&mid=2247488512&idx=1&sn=6e37be7e8f7455470aa5e993c186f387&chksm=fb20658bcc57ec9d18663d81125aaa01f7da93e27efdd0f56c3352305260734c5103f888f014&scene=21#wechat_redirect"> 零基础玩转投资理财 || 技术指标分析与运用（道氏原理与波浪线）  2020-09-20<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqIZVenGYtHT5FEpmcUauYRm7l5PPc6QAZiaKIuMETqpwlGZ2DRYgsteZMr6OpFLibbLl8iaq9YtzebSg/640?wx_fmt=jpeg" loading='lazy'>
+</a></p>
+<p>为你,千千万万遍.</p>
+<p>关注  程序员Bob  公众号,与你一起终生学习</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/JpOJyFtoIqIfq5QUEVJa5xaAhDzC5zgbOTWvFwSc3qCHlh9eeJkDp8YPoBrSIVDthrtPibZyiaKXiaCiaDKfT4AKJA/640?wx_fmt=jpeg" loading='lazy'></p>
+<p>一键三连，就差你了<br><img src="https://mmbiz.qpic.cn/mmbiz_png/JpOJyFtoIqIfNrrlvu8TtoWzKYbNrlRMAXjLyoFicvXwjMtHNFTEA6TYwdrz0LqroWibagkHg14j3eqria6OkxyuQ/640?wx_fmt=png" loading='lazy'></p>
+<p>预览时标签不可点</p>
+<p>阅读</p>
+<hr>
+<hr>
+<hr>
+<p>__</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://dpw09.cn">小Bob</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://dpw09.cn/2020/09/27/202009272203-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81%EF%BC%88%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B%EF%BC%89/">https://dpw09.cn/2020/09/27/202009272203-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%BA%BF%E6%80%A7%E8%A1%A8%E8%B5%B0%E8%B5%B7%EF%BC%81%EF%BC%88%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://dpw09.cn" target="_blank">小Bob的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/">投资理财</a></div><div class="post-share"><div class="social-share" data-image="/img/boblaila/covers/202009272203-fb8a136d.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/09/28/202009282311-WindowsXP%E6%BA%90%E4%BB%A3%E7%A0%81%E9%81%AD%E6%B3%84%E9%9C%B2%E4%B8%93%E5%AE%B6%E8%A1%A8%E7%A4%BA%E9%97%AE%E9%A2%98%E4%B8%8D%E5%A4%A7/" title="WindowsXP源代码遭泄露 专家表示问题不大"><img class="cover" src="/img/boblaila/covers/202009282311-e295eb1a.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">WindowsXP源代码遭泄露 专家表示问题不大</div></div><div class="info-2"><div class="info-item-1"> Bob来啦  2020年09月28日 23:11 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 有些你认定为能做的东西，要坚持，而坚持下去，我觉得就能达到自己预期的目的。——王学圻 近日，一批号称是Windows XP SP1的源代码在网...</div></div></div></a><a class="pagination-related" href="/2020/09/25/202009251211-%E6%B4%9B%E8%B0%B7%E8%AF%A2%E9%97%AE%E5%AD%A6%E5%8F%B7/" title="洛谷 || 询问学号"><img class="cover" src="/img/boblaila/covers/202009251211-8f574b4a.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">洛谷 || 询问学号</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年09月25日 12:11 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 人生不可测，在任何时候，都要抱着一份希望。—— 董卿 小编由于昨天代码有误，是可以用线性表写的，不过数组看上去更简单，...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/07/13/202107132340-Python%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%9A%E4%BD%95%E4%B8%BAScrapy%E6%A1%86%E6%9E%B6%EF%BC%9F/" title="Python爬虫系列：何为Scrapy框架？"><img class="cover" src="/img/boblaila/covers/202107132340-c10c8371.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-13</div><div class="info-item-2">Python爬虫系列：何为Scrapy框架？</div></div><div class="info-2"><div class="info-item-1">2021年07月13日 23:40 __ _ _ _ _  从摇篮到坟墓，人生本身就是一场赌博。 ——《股票大作手回忆录》  在最开始爬虫时我们谈到关于爬虫的两种爬虫方式，一种是静态的使用Requests+bs4，另外一种是利用Scrapy框架进行专业级的网络爬虫。 目录：  什么是Scrapy框架？  框架之间...</div></div></div></a><a class="pagination-related" href="/2020/07/12/202007122356-%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%8E%A9%E8%BD%AC%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2%E5%BC%80%E6%BA%90%E8%8A%82%E6%B5%81%EF%BC%88%E5%BA%8F%E8%A8%80%EF%BC%89/" title="零基础玩转投资理财 || 开源节流（序言）"><img class="cover" src="/img/boblaila/covers/202007122356-5a7e767a.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-12</div><div class="info-item-2">零基础玩转投资理财 || 开源节流（序言）</div></div><div class="info-2"><div class="info-item-1">Bob小董  Bob小董   Bob来啦  2020年07月12日 23:56 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob”，每天与你 不见不散！  每日一句，送给最珍贵的你： Today you do things people will not do,tomorrow you will...</div></div></div></a><a class="pagination-related" href="/2021/06/07/202106072353-%E6%B4%9B%E8%B0%B7%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%EF%BC%9A%E7%A0%8D%E6%A0%91/" title="洛谷 || 二分算法：砍树"><img class="cover" src="/img/boblaila/covers/202106072353-9220e72d.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-07</div><div class="info-item-2">洛谷 || 二分算法：砍树</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2021年06月07日 23:53 __ _ _ _ _  真正的投资，有且只有一条标准，那就是是否在创造真正的价值，这个价值是否有益于社会的整体繁荣。  ——张磊《价值》  题目描述伐木工人米尔科需要砍倒M米长的木材。这是一个对米尔科来说很容易的工作，因为他有一个漂亮的新...</div></div></div></a><a class="pagination-related" href="/2021/02/22/202102222300-%E6%B4%9B%E8%B0%B7%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="洛谷 || 快速排序"><img class="cover" src="/img/boblaila/covers/202102222300-1582e7b8.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-22</div><div class="info-item-2">洛谷 || 快速排序</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2021年02月22日 23:00 __ _ _ _ _  没有什么比时间更具有说服力了，因为时间无需通知我们就可以改变一切。 ——余华《活着》  题目描述 利用快速排序算法将读入的N个数从小到大排序后输出。 快速排序是信息学竞赛的必备算法之一。对于快速排序不是很了解的同学...</div></div></div></a><a class="pagination-related" href="/2020/07/20/202007202337-%E7%A9%B7%E4%BA%BA%E6%80%9D%E7%BB%B4%E5%92%8C%E5%AF%8C%E4%BA%BA%E6%80%9D%E7%BB%B4%E7%9A%84%E5%B7%AE%E5%88%AB%E5%88%B0%E5%BA%95%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F/" title="穷人思维和富人思维的差别到底在哪里？"><img class="cover" src="/img/boblaila/covers/202007202337-3dcbe4b4.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-20</div><div class="info-item-2">穷人思维和富人思维的差别到底在哪里？</div></div><div class="info-2"><div class="info-item-1"> Bob来啦  2020年07月20日 23:37 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  **每日一句，送给最珍贵的你：** ** Everything will be ok in the end, if it’s not ok, it’s not the e...</div></div></div></a><a class="pagination-related" href="/2020/08/24/202008242339-%E4%B8%83%E5%A4%95%E5%B0%8F%E5%88%86%E4%BA%AB/" title="七夕小分享"><img class="cover" src="/img/boblaila/covers/202008242339-94700c49.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="info-item-2">七夕小分享</div></div><div class="info-2"><div class="info-item-1">小Bob  小Bob   Bob来啦  2020年08月24日 23:39 __ _ _ _ _  点击上方「  蓝字  」关注”程序员Bob” 每天与你不见不散！  每日一句，送给最珍贵的你： 环境永远不会十全十美，消极的人受环境控制，积极的人却控制环境。 Emmm,突然不知道要写什么，恰巧七夕即将到来，与大家...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">小Bob</div><div class="author-info-description">持续记录学习、技术与日常思考。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">281</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bob0912"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Bob0912" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1903732138@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里记录技术实践、读书观影和生活思考，愿你能快速找到值得读的一篇。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"><img src="/img/boblaila/covers/20260629005153-939ec52c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005153-2020%E6%98%AF%E7%AC%AC51%E4%B8%AA%E4%B8%96%E7%95%8C%E7%94%B5%E4%BF%A1%E5%92%8C%E4%BF%A1%E6%81%AF%E7%A4%BE%E4%BC%9A%E6%97%A5%E5%9B%BD%E9%99%85%E7%94%B5%E4%BF%A1%E8%81%94%E7%9B%9F%E7%A1%AE%E5%AE%9A%E4%BB%8A%E5%B9%B4%E7%9A%84%E4%B8%BB%E9%A2%98%E4%B8%BA%E8%BF%9E%E9%80%9A%E7%9B%AE%E6%A0%872030%E5%88%A9%E7%94%A8ICT%E4%BF%83%E8%BF%9B%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%9B%AE%E6%A0%87SDG%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%91%BC%E5%90%81%E5%90%84/" title="2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各">2020是第51个世界电信和信息社会日国际电信联盟确定今年的主题为连通目标2030利用ICT促进可持续发展目标SDG的实现呼吁各</a><time datetime="2026-06-28T16:51:53.000Z" title="发表于 2026-06-29 00:51:53">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"><img src="/img/boblaila/covers/20260629005114-83b7aa69.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629005114-%E5%B0%8F%E7%BC%96%E4%BB%8A%E5%A4%A9%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E6%9C%89%E7%82%B9%E9%9A%BE%E5%BA%A6%E7%89%B9%E6%9D%A5%E5%BE%81%E6%B1%82%E5%A4%A7%E5%AE%B6%E5%BA%B7%E5%BA%B7%E6%9C%89%E6%9C%A8%E6%9C%89%E5%95%A5%E5%A5%BD%E7%9A%84%E6%83%B3%E6%B3%95%E5%A6%82%E6%9E%9C%E6%9C%89%E8%AF%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8F%91%E5%88%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8E%E5%8F%B0%E5%93%A6%E8%BF%99%E4%B9%9F%E6%98%AF%E6%9F%90%E4%B8%AA%E6%AF%94%E8%B5%9B%E7%9A%84%E5%BD%A9%E8%9B%8B%E9%A2%98%E5%85%B3%E4%BA%8E%E6%AF%94/" title="小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比">小编今天发现了一个有趣的彩蛋题有点难度特来征求大家康康有木有啥好的想法如果有请一定要发到公众号后台哦这也是某个比赛的彩蛋题关于比</a><time datetime="2026-06-28T16:51:14.000Z" title="发表于 2026-06-29 00:51:14">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"><img src="/img/boblaila/covers/20260629004850-99c48b0d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004850-%E6%9C%89%E6%9C%A8%E6%9C%89%E6%83%B3%E8%A6%81%E4%B8%80%E8%B5%B7%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%91%80%E5%B0%8F%E7%BC%96%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E5%93%A6%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%98%AF%E5%B0%8F%E7%BC%96%E6%AD%A3%E5%9C%A8%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%AC%A2%E8%BF%8E%E6%9D%A5%E6%92%A9%EF%BC%8C%E6%88%96%E8%80%85%E5%B7%B2%E6%9C%89%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%AC%A2%E8%BF%8E%E5%92%8C%E5%B0%8F%E7%BC%96%E4%B8%80%E8%B5%B7%E5%88%86/" title="有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分">有木有想要一起搭建博客的小伙伴呀小编的博客正在搭建哦，如下是小编正在搭建的个人博客欢迎来撩，或者已有博客的小伙伴欢迎和小编一起分</a><time datetime="2026-06-28T16:48:50.000Z" title="发表于 2026-06-29 00:48:50">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"><img src="/img/boblaila/covers/20260629004759-daf8942e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004759-%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B02020%E4%B8%80%E5%8D%8A%E5%B7%B2%E8%BF%87%EF%BC%8C%E4%B8%83%E6%9C%88%E5%B7%B2%E5%88%B0%E4%BB%B2%E5%A4%8F%E5%B7%B2%E4%B8%B4%EF%BC%8C%E4%B8%80%E5%8D%8A%E5%9B%9E%E6%9C%9B%E4%B8%80%E5%8D%8A%E5%90%91%E5%BE%80%EF%BC%8C%E6%84%BF%E5%B2%81%E6%9C%88%E5%8F%AF%E4%BB%A5%E5%96%84%E5%BE%85%E4%BD%A0%E6%88%91%E6%84%BF%E4%B8%80%E5%88%87%E5%8A%AA%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9C%89%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BA%BA%E7%94%9F%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%99%BD%E8%B5%B0%E7%9A%84%E8%B7%AF%EF%BC%8C%E6%AF%8F%E8%BF%91%E4%B8%80/" title="七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一">七月已到2020一半已过，七月已到仲夏已临，一半回望一半向往，愿岁月可以善待你我愿一切努力，都有结果，人生也没有白走的路，每近一</a><time datetime="2026-06-28T16:47:59.000Z" title="发表于 2026-06-29 00:47:59">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"><img src="/img/boblaila/covers/20260629004520-81508b16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004520-7%E6%9C%88%E5%B7%B2%E8%BF%878%E6%9C%88%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9B%9E%E4%B8%8D%E5%8E%BB%E7%9A%84%E9%9D%92%E6%98%A5%E6%B2%A1%E6%9C%89%E4%B8%8D%E6%83%B3%E8%BF%9B%E6%AD%A5%E7%9A%84%E4%BD%A0%E5%BF%AB%E4%B9%90%E5%BE%88%E7%AE%80%E5%8D%95%E5%BE%88%E7%AE%80%E5%8D%95%E9%9A%8F%E9%A3%8E%E9%A3%98%E8%8D%A1%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%8C%E6%9C%80%E5%90%8E%E5%85%AB%E6%9C%88%E7%BB%A7%E7%BB%AD%E5%9D%9A%E6%8C%81%E6%97%A5%E6%9B%B4nnn%E6%99%9A%E5%AE%89/" title="7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安">7月已过8月你好，只有回不去的青春没有不想进步的你快乐很简单很简单随风飘荡自由自在，最后八月继续坚持日更nnn晚安</a><time datetime="2026-06-28T16:45:20.000Z" title="发表于 2026-06-29 00:45:20">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"><img src="/img/boblaila/covers/20260629004518-3bed88ac.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/06/29/20260629004518-%E5%87%BA%E8%87%AA%E5%8D%A1%E8%80%90%E5%9F%BA%E7%9A%84%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84%E4%B9%A6%E7%B1%8D%E5%93%88%E5%93%88%E4%B8%8A%E6%99%9A%E7%8F%AD%E5%B0%B1%E5%8F%AA%E8%83%BD%E5%92%8C%E5%A4%A7%E5%AE%B6%E9%81%93%E6%99%9A%E5%AE%89%E5%95%A6/" title="出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦">出自卡耐基的人性的弱点值得一看的书籍哈哈上晚班就只能和大家道晚安啦</a><time datetime="2026-06-28T16:45:18.000Z" title="发表于 2026-06-29 00:45:18">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 小Bob</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">记录技术、阅读与生活，慢慢写，慢慢成长。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
