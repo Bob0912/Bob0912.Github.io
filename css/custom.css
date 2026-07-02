@@ -3,9 +3,10 @@
   --bob-mint: #35f2bd;
   --bob-blue: #2b6cff;
   --bob-ink: #12202f;
-  --bob-card: rgba(255, 255, 255, 0.82);
-  --bob-card-border: rgba(55, 89, 122, 0.14);
-  --bob-card-shadow: 0 22px 58px rgba(24, 42, 68, 0.12);
+  --bob-card: rgba(255, 255, 255, 0.9);
+  --bob-card-border: rgba(92, 119, 145, 0.12);
+  --bob-card-shadow: 0 20px 50px rgba(71, 91, 112, 0.1);
+  --bob-soft-line: rgba(70, 113, 145, 0.1);
 }
 
 body {
@@ -13,9 +14,9 @@ body {
   color: var(--font-color);
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   background:
-    linear-gradient(115deg, rgba(33, 212, 253, 0.18), transparent 28%),
-    linear-gradient(245deg, rgba(53, 242, 189, 0.14), transparent 24%),
-    linear-gradient(180deg, #eef5fb 0%, #f8fbff 42%, #edf5f2 100%);
+    linear-gradient(115deg, rgba(104, 180, 210, 0.14), transparent 30%),
+    linear-gradient(245deg, rgba(170, 215, 188, 0.13), transparent 26%),
+    linear-gradient(180deg, #f3f8fb 0%, #fbfcfb 46%, #f1f6f1 100%);
 }
 
 body::before,
@@ -29,19 +30,19 @@ body::after {
 
 body::before {
   background-image:
-    linear-gradient(rgba(36, 68, 98, 0.075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36, 68, 98, 0.075) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22));
+    linear-gradient(rgba(36, 68, 98, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 68, 98, 0.045) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.12));
 }
 
 body::after {
   z-index: -1;
   background:
-    radial-gradient(circle at 18% 18%, rgba(33, 212, 253, 0.2), transparent 24%),
-    radial-gradient(circle at 82% 12%, rgba(255, 139, 86, 0.13), transparent 18%),
-    radial-gradient(circle at 72% 76%, rgba(53, 242, 189, 0.16), transparent 24%);
-  filter: blur(2px);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 22%),
+    radial-gradient(circle at 20% 20%, rgba(111, 176, 205, 0.1), transparent 28%),
+    radial-gradient(circle at 76% 72%, rgba(159, 204, 177, 0.1), transparent 26%);
+  filter: blur(1px);
 }
 
 [data-theme="dark"] {
@@ -195,14 +196,20 @@ body::after {
 #page,
 .flink .flink-list > .flink-list-item {
   overflow: hidden;
-  border-radius: 22px;
-  background: var(--bob-card);
-  backdrop-filter: blur(16px) saturate(130%);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(247, 252, 251, 0.52)),
+    var(--bob-card);
+  backdrop-filter: blur(14px) saturate(112%);
 }
 
 #recent-posts .recent-post-item {
   position: relative;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+
+#recent-posts .recent-post-item.is-homepage-muted {
+  display: none;
 }
 
 #recent-posts .recent-post-item::after,
@@ -212,7 +219,7 @@ body::after {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(33, 212, 253, 0.12), transparent 32%, rgba(53, 242, 189, 0.1));
+  background: linear-gradient(135deg, rgba(111, 176, 205, 0.08), transparent 36%, rgba(159, 204, 177, 0.08));
   content: "";
   opacity: 0;
   pointer-events: none;
@@ -220,9 +227,9 @@ body::after {
 }
 
 #recent-posts .recent-post-item:hover {
-  transform: translateY(-6px);
-  border-color: rgba(33, 212, 253, 0.32);
-  box-shadow: 0 30px 70px rgba(24, 42, 68, 0.16);
+  transform: translateY(-4px);
+  border-color: rgba(92, 139, 168, 0.22);
+  box-shadow: 0 24px 58px rgba(71, 91, 112, 0.13);
 }
 
 #recent-posts .recent-post-item:hover::after,
@@ -234,7 +241,7 @@ body::after {
 
 #recent-posts .recent-post-item .post_cover {
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(33, 212, 253, 0.12), rgba(53, 242, 189, 0.1));
+  background: linear-gradient(135deg, rgba(119, 172, 198, 0.12), rgba(177, 211, 190, 0.12));
 }
 
 #recent-posts .recent-post-item .post_cover.left {
@@ -286,6 +293,11 @@ body::after {
 .post-meta-date,
 .article-meta {
   font-variant-numeric: tabular-nums;
+}
+
+#recent-posts .recent-post-item .post-meta-date,
+#recent-posts .recent-post-item .article-meta-separator {
+  display: none;
 }
 
 #aside-content {
@@ -634,6 +646,65 @@ body::after {
   background: rgba(255, 255, 255, 0.78);
   box-shadow: 0 12px 28px rgba(24, 42, 68, 0.13);
   backdrop-filter: blur(12px);
+}
+
+#footer {
+  position: relative;
+  margin-top: 3rem;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.92);
+  background:
+    linear-gradient(135deg, rgba(19, 45, 62, 0.94), rgba(41, 82, 83, 0.9)),
+    linear-gradient(90deg, rgba(120, 190, 209, 0.24), transparent 42%, rgba(177, 211, 190, 0.2));
+  box-shadow: 0 -18px 55px rgba(49, 74, 93, 0.14);
+}
+
+#footer::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 72px 72px;
+  content: "";
+  opacity: 0.46;
+  pointer-events: none;
+}
+
+#footer::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 48%);
+  content: "";
+  pointer-events: none;
+}
+
+#footer .footer-other {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.3rem 1rem 2.6rem;
+}
+
+#footer .footer-copyright,
+#footer .footer_custom_text {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+#footer .footer_custom_text {
+  display: inline-block;
+  margin-top: 0.72rem;
+  padding: 0.52rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(10px);
+}
+
+#footer a {
+  color: #d9fff1;
 }
 
 [data-theme="dark"] #rightside > div > button,

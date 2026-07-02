@@ -55,6 +55,18 @@
     document.querySelectorAll(".recent-post-item.is-hidden").forEach(item => item.classList.remove("is-hidden"));
   };
 
+  const tidyHomepageDates = () => {
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    const isHomeFirstPage = path === "/";
+    if (!isHomeFirstPage) return;
+
+    document.querySelectorAll("#recent-posts .recent-post-item").forEach(card => {
+      const time = card.querySelector(".post-meta-date time");
+      const year = Number(time?.dateTime?.slice(0, 4) || time?.textContent?.slice(0, 4));
+      if (year >= 2026) card.classList.add("is-homepage-muted");
+    });
+  };
+
   const normalizeRecentPostCards = () => {
     document.querySelectorAll(".recent-post-item").forEach(card => {
       const content = card.querySelector(".content");
@@ -311,6 +323,7 @@
   const init = () => {
     syncPageClass();
     cleanupLegacyBlocks();
+    tidyHomepageDates();
     normalizeRecentPostCards();
     normalizeRelatedCards();
     initReadingProgress();
